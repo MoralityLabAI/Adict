@@ -15,5 +15,5 @@
   "wait_for_next_adapter": true,
   "wait_timeout_min": 240,
   "command_cwd": ".",
-  "train_command_template": "python scripts/train_short_adapter.py --base-model {base_model_path} --source-adapter {current_adapter_path} --train-npz {train_npz} --lexica {lexica_npz} --transition-report {transition_report} --out-dir {next_adapter_dir} --max-seq-length 256 --batch-size 1 --grad-accum 1 --lora-rank 8 --lora-alpha 16 --target-modules q_proj,v_proj --layers-adapted 8"
+  "train_command_template": "powershell -ExecutionPolicy Bypass -File C:/projects/ConstitutionalAlignment/ConstitutionalAlignment/constitutional-harness/ops/queue_storyworld_iteration_mac.ps1 -ManifestPath {iteration_dir}/next_iteration_manifest.json -BaseModelPath {base_model_path} -AdapterOutDir {next_adapter_dir}"
 }

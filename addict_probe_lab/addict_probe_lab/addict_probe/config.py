@@ -39,6 +39,10 @@ class TraceConfig:
     save_raw_output: bool = False
     run_scoring_hooks: bool = True
     lexica_npz_path: str = ""
+    guardrail_report_path: str = ""
+    guardrail_positive_weight: float = 0.05
+    guardrail_negative_weight: float = 0.07
+    apply_guardrails_to_scores: bool = True
 
 
 @dataclass

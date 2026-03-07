@@ -146,10 +146,22 @@ This loop:
 5. exports replay tensors under `data/adapter_training/replay/repeat/`
 6. can launch the next short adapter training command
 
+It now also exports a replay JSONL dataset for MLX LoRA under:
+
+- `.../data/adapter_training/replay/repeat/jsonl/train.jsonl`
+- `.../data/adapter_training/replay/repeat/jsonl/valid.jsonl`
+- `.../data/adapter_training/replay/repeat/jsonl/test.jsonl`
+
 To inspect the transition-aware lens separately:
 
 ```bash
 python scripts/extrapolate_moral_lens.py --trace out/posttrain_const2b_r8/bench_adapter_trace.jsonl --lexica-npz out/posttrain_const2b_r8/addict_lexica.npz --out-json out/analysis/transition_lens.json
+```
+
+To build the replay JSONL dataset directly:
+
+```bash
+python scripts/build_storyworld_replay_dataset.py --trace out/posttrain_const2b_r8/bench_adapter_trace.jsonl --transition-report out/analysis/transition_lens.json --out-dir out/replay_jsonl
 ```
 
 ## Trace schema

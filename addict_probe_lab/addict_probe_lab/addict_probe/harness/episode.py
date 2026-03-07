@@ -28,6 +28,11 @@ class EpisodeConfig:
     enable_think_step: bool = True
     think_max_new_tokens: int = 64
     think_char_cap: int = 320
+    apply_guardrails_to_scores: bool = True
+
+
+def _clip01(value: float) -> float:
+    return float(max(0.0, min(1.0, value)))
 
 
 def run_episode(
@@ -89,6 +94,9 @@ def run_episode(
         bounded_history.append(f"t{step_idx}:{result.text[:180]}")
         bounded_history = bounded_history[-cfg.history_steps :]
 
+        raw_moral = moral
+        raw_useful = useful
+        raw_consistent = consistent
         row = {
             "ts": utc_ts(),
             "episode_id": episode_id,
@@ -118,10 +126,30 @@ def run_episode(
             "timing": {"latency_ms": float(result.latency_ms)},
             "scoring_hooks_enabled": bool(run_scoring_hooks),
             "think_step_enabled": bool(cfg.enable_think_step),
+            "raw_moral_score_proxy": raw_moral,
+            "raw_usefulness_score_proxy": raw_useful,
+            "raw_consistency_score_proxy": raw_consistent,
         }
         if lexica_runtime is not None:
             feat = row_to_feature(row, layout=DEFAULT_LAYOUT)
-            row.update(lexica_runtime.score(feat))
+            lexica = lexica_runtime.score(feat)
+            row.update(lexica)
+            if cfg.apply_guardrails_to_scores and float(lexica.get("guardrail_score", 0.0)) != 0.0:
+                guardrail = float(lexica["guardrail_score"])
+                moral = _clip01(moral + guardrail)
+                consistent = _clip01(consistent + 0.75 * guardrail)
+                useful = _clip01(useful + (0.35 * max(guardrail, 0.0)) - (0.20 * max(-guardrail, 0.0)))
+                goal_progress = useful
+                intervene = intervention_needed(moral, consistent, manip)
+                row["moral_score_proxy"] = moral
+                row["consistency_score_proxy"] = consistent
+                row["usefulness_score_proxy"] = useful
+                row["story_goal_progress_proxy"] = goal_progress
+                row["intervention_needed"] = intervene
+                row["intervention_flags"] = {
+                    "needed": intervene,
+                    "guardrail_applied": True,
+                }
         rows.append(row)
 
     return rows

@@ -22,6 +22,7 @@ from addict_probe.train_data import save_training_tensors, traces_to_training_te
 from addict_probe.trace_schema import read_trace_jsonl
 
 from run_posttrain_bench_pipeline import train_lexica_from_trace, wait_for_path
+from build_storyworld_replay_dataset import build_replay_rows, write_splits
 
 
 def _render_template(template: str, values: Dict[str, object]) -> str:
@@ -93,6 +94,7 @@ def main() -> None:
 
     current_adapter = str(plan.get("initial_adapter_path", ""))
     current_model = str(plan.get("base_model_path", cfg.backend.model_name_or_path))
+    current_guardrail_report = str(plan.get("initial_guardrail_report_path", ""))
     best_adapter = current_adapter
     best_score = float("-inf")
     receipts: List[Dict[str, object]] = []
@@ -111,6 +113,7 @@ def main() -> None:
         lexica_npz = str(iter_dir / "addict_lexica.npz")
         transition_json = str(iter_dir / "transition_lens.json")
         train_npz = str(replay_dir / "train_windows.npz")
+        replay_jsonl_dir = str(replay_dir / "jsonl")
         report_json = str(iter_dir / "iteration_report.json")
         next_adapter_dir = str(iter_dir / "candidate_adapter")
         next_adapter_ready = str(Path(next_adapter_dir) / "adapters.safetensors")
@@ -135,12 +138,16 @@ def main() -> None:
 
         primer_cfg = AppConfig.from_dict(cfg.to_dict())
         primer_cfg.harness.episodes_per_scenario = int(plan.get("primer_episodes", 1))
+        primer_cfg.trace.guardrail_report_path = current_guardrail_report
         receipt["primer"] = _run_batch(primer_cfg, current_model, primer_trace, lexica_npz="", adapter_path=current_adapter)
         receipt["lexica"] = train_lexica_from_trace(primer_trace, lexica_npz)
 
-        receipt["bench_base"] = _run_batch(cfg, current_model, base_trace, lexica_npz=lexica_npz, adapter_path="")
+        iter_cfg = AppConfig.from_dict(cfg.to_dict())
+        iter_cfg.trace.guardrail_report_path = current_guardrail_report
+
+        receipt["bench_base"] = _run_batch(iter_cfg, current_model, base_trace, lexica_npz=lexica_npz, adapter_path="")
         receipt["bench_adapter"] = _run_batch(
-            cfg,
+            iter_cfg,
             current_model,
             adapter_trace,
             lexica_npz=lexica_npz,
@@ -165,6 +172,7 @@ def main() -> None:
             activation_floor=float(plan.get("activation_floor", 0.05)),
             top_atoms=int(plan.get("top_atoms", 12)),
         )
+        receipt["guardrail_report_used"] = current_guardrail_report
 
         x, labels = traces_to_training_tensors(
             adapter_trace,
@@ -172,10 +180,17 @@ def main() -> None:
             stride=int(plan.get("stride", 1)),
         )
         save_training_tensors(train_npz, x, labels)
+        replay_rows = build_replay_rows(
+            adapter_trace,
+            transition_json,
+            min_rows=int(plan.get("min_replay_rows", 24)),
+        )
+        replay_manifest = write_splits(replay_rows, replay_jsonl_dir)
         receipt["training_windows"] = {
             "x_shape": list(x.shape),
             "label_sizes": {key: int(val.shape[0]) for key, val in labels.items()},
         }
+        receipt["replay_dataset"] = replay_manifest
 
         manifest = {
             "iteration": iteration_idx,
@@ -183,6 +198,7 @@ def main() -> None:
             "source_adapter_path": current_adapter,
             "next_adapter_dir": next_adapter_dir,
             "train_npz": train_npz,
+            "dataset_dir": replay_jsonl_dir,
             "lexica_npz": lexica_npz,
             "transition_report": transition_json,
             "guardrail_atoms": receipt["transition_lens"].get("guardrail_atoms", []),
@@ -203,6 +219,7 @@ def main() -> None:
                     "next_adapter_dir": next_adapter_dir,
                     "next_adapter_ready": next_adapter_ready,
                     "train_npz": train_npz,
+                    "dataset_dir": replay_jsonl_dir,
                     "lexica_npz": lexica_npz,
                     "transition_report": transition_json,
                     "config_path": plan["config_path"],
@@ -230,6 +247,7 @@ def main() -> None:
         if adapter_score > best_score:
             best_score = adapter_score
             best_adapter = current_adapter
+        current_guardrail_report = transition_json
 
         receipt["status"] = "completed"
         receipt["best_score_so_far"] = best_score

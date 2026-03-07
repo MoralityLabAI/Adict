@@ -40,6 +40,12 @@ def run_storyworld_batch(cfg: AppConfig) -> BatchRunSummary:
     lexica_runtime = None
     if cfg.trace.lexica_npz_path and Path(cfg.trace.lexica_npz_path).exists():
         lexica_runtime = LexicaRuntime.from_npz(cfg.trace.lexica_npz_path)
+        if cfg.trace.guardrail_report_path and Path(cfg.trace.guardrail_report_path).exists():
+            lexica_runtime.configure_guardrails(
+                cfg.trace.guardrail_report_path,
+                positive_weight=cfg.trace.guardrail_positive_weight,
+                negative_weight=cfg.trace.guardrail_negative_weight,
+            )
     logger = TraceLogger(cfg.trace.trace_path)
     n_rows = 0
     n_eps = 0
@@ -53,6 +59,7 @@ def run_storyworld_batch(cfg: AppConfig) -> BatchRunSummary:
         enable_think_step=cfg.backend.enable_think_step,
         think_max_new_tokens=cfg.backend.think_max_new_tokens,
         think_char_cap=cfg.backend.think_char_cap,
+        apply_guardrails_to_scores=cfg.trace.apply_guardrails_to_scores,
     )
     for s in scenarios:
         for i in range(cfg.harness.episodes_per_scenario):
