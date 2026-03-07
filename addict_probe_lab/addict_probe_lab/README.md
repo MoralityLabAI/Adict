@@ -132,6 +132,26 @@ This pipeline does:
 4. Full bench run on adapter (base+adapter path) with lexica diagnostics active.
 5. Final report with adapter-minus-base deltas.
 
+### 10) Run the constitutional storyworld autoloop
+
+```bash
+python scripts/run_constitutional_autoloop.py --plan constitutional_storyworld_loop/iteration_plan.example.json
+```
+
+This loop:
+1. runs primer plays
+2. retrains Addict lexica
+3. benches base vs adapter
+4. ranks atoms by future moral-trajectory lift
+5. exports replay tensors under `data/adapter_training/replay/repeat/`
+6. can launch the next short adapter training command
+
+To inspect the transition-aware lens separately:
+
+```bash
+python scripts/extrapolate_moral_lens.py --trace out/posttrain_const2b_r8/bench_adapter_trace.jsonl --lexica-npz out/posttrain_const2b_r8/addict_lexica.npz --out-json out/analysis/transition_lens.json
+```
+
 ## Trace schema
 
 Per-step fixed layout (`total_dim=128`):

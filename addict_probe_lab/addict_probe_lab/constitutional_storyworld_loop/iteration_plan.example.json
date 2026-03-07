@@ -1,0 +1,19 @@
+{
+  "config_path": "configs/default.json",
+  "output_root": "out/constitutional_autoloop",
+  "base_model_path": "/Users/ben/worker/models/Qwen3.5-2B-Base-MLX-4bit",
+  "initial_adapter_path": "/Users/ben/worker/adapters/storyworld-constitution-2b-r8-qv-exact-s256-20260306_235223",
+  "iterations": 3,
+  "primer_episodes": 1,
+  "bench_episodes": 3,
+  "max_turns": 8,
+  "window": 8,
+  "stride": 1,
+  "transition_horizon": 2,
+  "activation_floor": 0.05,
+  "top_atoms": 12,
+  "wait_for_next_adapter": true,
+  "wait_timeout_min": 240,
+  "command_cwd": ".",
+  "train_command_template": "python scripts/train_short_adapter.py --base-model {base_model_path} --source-adapter {current_adapter_path} --train-npz {train_npz} --lexica {lexica_npz} --transition-report {transition_report} --out-dir {next_adapter_dir} --max-seq-length 256 --batch-size 1 --grad-accum 1 --lora-rank 8 --lora-alpha 16 --target-modules q_proj,v_proj --layers-adapted 8"
+}
