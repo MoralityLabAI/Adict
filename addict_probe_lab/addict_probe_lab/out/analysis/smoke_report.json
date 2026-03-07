@@ -1,0 +1,47 @@
+{
+  "summary": {
+    "rows": 15.0,
+    "moral_mean": 0.5,
+    "moral_p10": 0.5,
+    "consistency_mean": 0.5699999928474426,
+    "usefulness_mean": 0.30000001192092896
+  },
+  "top_feature_corr_moral": {
+    "feat_127": 0.0,
+    "feat_126": 0.0,
+    "feat_33": 0.0,
+    "feat_34": 0.0,
+    "feat_35": 0.0,
+    "feat_36": 0.0,
+    "feat_37": 0.0,
+    "feat_38": 0.0,
+    "feat_39": 0.0,
+    "feat_40": 0.0,
+    "feat_41": 0.0,
+    "feat_42": 0.0,
+    "feat_43": 0.0,
+    "feat_44": 0.0,
+    "feat_45": 0.0,
+    "feat_46": 0.0
+  },
+  "top_feature_corr_usefulness": {
+    "feat_127": 0.0,
+    "feat_126": 0.0,
+    "feat_33": 0.0,
+    "feat_34": 0.0,
+    "feat_35": 0.0,
+    "feat_36": 0.0,
+    "feat_37": 0.0,
+    "feat_38": 0.0,
+    "feat_39": 0.0,
+    "feat_40": 0.0,
+    "feat_41": 0.0,
+    "feat_42": 0.0,
+    "feat_43": 0.0,
+    "feat_44": 0.0,
+    "feat_45": 0.0,
+    "feat_46": 0.0
+  },
+  "cluster_count": 3,
+  "trace_rows": 15
+}

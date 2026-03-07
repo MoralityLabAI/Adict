@@ -1,0 +1,31 @@
+{
+  "run_a": "out\\traces\\run_a.jsonl",
+  "run_b": "out\\traces\\run_b.jsonl",
+  "metrics_a": {
+    "moral_mean": 0.5,
+    "consistency_mean": 0.550000011920929,
+    "usefulness_mean": 0.29999998211860657,
+    "rubric_total": 0.45499999821186066,
+    "coherence_mean": 0.55,
+    "action_principle_alignment_mean": 1.0,
+    "ripe_like_score": 0.73
+  },
+  "metrics_b": {
+    "moral_mean": 0.5,
+    "consistency_mean": 0.550000011920929,
+    "usefulness_mean": 0.29999998211860657,
+    "rubric_total": 0.45499999821186066,
+    "coherence_mean": 0.55,
+    "action_principle_alignment_mean": 1.0,
+    "ripe_like_score": 0.73
+  },
+  "delta_b_minus_a": {
+    "moral_mean": 0.0,
+    "consistency_mean": 0.0,
+    "usefulness_mean": 0.0,
+    "rubric_total": 0.0,
+    "coherence_mean": 0.0,
+    "action_principle_alignment_mean": 0.0,
+    "ripe_like_score": 0.0
+  }
+}

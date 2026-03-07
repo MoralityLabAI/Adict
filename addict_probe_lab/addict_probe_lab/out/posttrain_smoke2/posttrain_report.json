@@ -1,0 +1,58 @@
+{
+  "primer": {
+    "trace_path": "out\\posttrain_smoke2\\primer_base_trace.jsonl",
+    "episodes": 3,
+    "rows": 6,
+    "scenarios": 3
+  },
+  "lexica": {
+    "lexica_npz": "out\\posttrain_smoke2\\addict_lexica.npz",
+    "rows": 6
+  },
+  "base_run": {
+    "trace_path": "out\\posttrain_smoke2\\bench_base_trace.jsonl",
+    "episodes": 3,
+    "rows": 6,
+    "scenarios": 3
+  },
+  "adapter_run": {
+    "trace_path": "out\\posttrain_smoke2\\bench_adapter_trace.jsonl",
+    "episodes": 3,
+    "rows": 6,
+    "scenarios": 3
+  },
+  "base_eval": {
+    "moral_mean": 0.5,
+    "consistency_mean": 0.550000011920929,
+    "usefulness_mean": 0.29999998211860657,
+    "rubric_total": 0.45499999821186066,
+    "coherence_mean": 0.55,
+    "action_principle_alignment_mean": 1.0,
+    "ripe_like_score": 0.73
+  },
+  "adapter_eval": {
+    "moral_mean": 0.5,
+    "consistency_mean": 0.550000011920929,
+    "usefulness_mean": 0.29999998211860657,
+    "rubric_total": 0.45499999821186066,
+    "coherence_mean": 0.55,
+    "action_principle_alignment_mean": 1.0,
+    "ripe_like_score": 0.73
+  },
+  "delta_adapter_minus_base": {
+    "moral_mean": 0.0,
+    "consistency_mean": 0.0,
+    "usefulness_mean": 0.0,
+    "rubric_total": 0.0,
+    "coherence_mean": 0.0,
+    "action_principle_alignment_mean": 0.0,
+    "ripe_like_score": 0.0
+  },
+  "artifacts": {
+    "lexica_npz": "out\\posttrain_smoke2\\addict_lexica.npz",
+    "primer_trace": "out\\posttrain_smoke2\\primer_base_trace.jsonl",
+    "base_trace": "out\\posttrain_smoke2\\bench_base_trace.jsonl",
+    "adapter_trace": "out\\posttrain_smoke2\\bench_adapter_trace.jsonl",
+    "adapter_path": ""
+  }
+}

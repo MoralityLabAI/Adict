@@ -1,0 +1,47 @@
+﻿{
+  "backend": {
+    "backend": "qwen_mlx",
+    "model_name_or_path": "/Users/you/models/Qwen2.5-2B-Instruct-4bit",
+    "adapter_path": "",
+    "max_new_tokens": 128,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "context_chars": 6000,
+    "seed": 7,
+    "save_activations": true,
+    "selected_layers": [4, 8, 12, 16, 20],
+    "use_batching": false,
+    "batch_size": 1,
+    "enable_think_step": true,
+    "think_max_new_tokens": 64,
+    "think_char_cap": 320
+  },
+  "trace": {
+    "trace_path": "out/traces/storyworld_trace.jsonl",
+    "save_jsonl": true,
+    "feature_dim": 128,
+    "history_steps": 4,
+    "save_raw_prompt": false,
+    "save_raw_output": false,
+    "run_scoring_hooks": true
+    ,
+    "lexica_npz_path": ""
+  },
+  "harness": {
+    "scenario_pack_path": "configs/scenarios/moral_storyworld_pack.json",
+    "episodes_per_scenario": 4,
+    "max_turns": 12,
+    "seed": 7,
+    "deterministic": true
+  },
+  "scorer": {
+    "hidden_dim": 32,
+    "prompt_dim": 16,
+    "output_dim": 16,
+    "history_dim": 16,
+    "score_dim": 8,
+    "metadata_dim": 8,
+    "reserve_dim": 32,
+    "scorer_hidden": 64
+  }
+}

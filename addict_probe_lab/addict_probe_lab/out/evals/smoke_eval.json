@@ -1,0 +1,19 @@
+{
+  "storyworld_eval": {
+    "count": 15.0,
+    "moral_mean": 0.5,
+    "consistency_mean": 0.5699999928474426,
+    "usefulness_mean": 0.30000001192092896,
+    "refusal_rate": 0.0,
+    "empty_preaching_rate": 0.0,
+    "rubric_total": 0.46100000143051145,
+    "scenarios": 3.0,
+    "episodes": 3.0
+  },
+  "ripe_like_eval": {
+    "episodes": 3.0,
+    "coherence_mean": 0.5700000000000001,
+    "action_principle_alignment_mean": 1.0,
+    "ripe_like_score": 0.742
+  }
+}
