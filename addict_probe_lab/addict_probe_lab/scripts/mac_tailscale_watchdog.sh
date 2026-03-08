@@ -1,22 +1,58 @@
 #!/bin/bash
 set -euo pipefail
 
-# Lightweight watchdog for Mac remote nodes.
-# - verifies tailscaled backend status
-# - verifies node has a Tailscale IPv4
-# - attempts local recovery if unhealthy
+# Tailscale watchdog for Mac remote nodes.
+# - checks backend + engine health
+# - optional peer ping probe
+# - applies staged recovery with cooldown and state tracking
 
-LOG_DIR="${HOME}/worker/logs"
+LOG_DIR="${AICOO_LOG_DIR:-${HOME}/worker/logs}"
 LOG_FILE="${LOG_DIR}/tailscale_watchdog.log"
+STATE_FILE="${LOG_DIR}/tailscale_watchdog.state"
+LOCK_DIR="${LOG_DIR}/tailscale_watchdog.lock"
+COOLDOWN_SEC="${AICOO_WATCHDOG_COOLDOWN_SEC:-180}"
+TARGET_IP="${AICOO_WATCH_TARGET_IP:-}"
 mkdir -p "${LOG_DIR}"
 
 ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
 log() { echo "[$(ts)] $*" >> "${LOG_FILE}"; }
+now_epoch() { date +%s; }
+
+if ! mkdir "${LOCK_DIR}" >/dev/null 2>&1; then
+  log "lock_busy: another watchdog instance is running"
+  exit 0
+fi
+trap 'rmdir "${LOCK_DIR}" >/dev/null 2>&1 || true' EXIT
+
+FAILURES=0
+LAST_RECOVERY=0
+if [[ -f "${STATE_FILE}" ]]; then
+  # shellcheck disable=SC1090
+  source "${STATE_FILE}" || true
+fi
+
+write_state() {
+  cat > "${STATE_FILE}" <<EOF
+FAILURES=${FAILURES}
+LAST_RECOVERY=${LAST_RECOVERY}
+EOF
+}
+
 kickstart_daemon() {
   # Prefer non-interactive sudo if available, then fallback to plain launchctl.
   /usr/bin/sudo -n /bin/launchctl kickstart -k system/com.tailscale.tailscaled >/dev/null 2>&1 && return 0
   /bin/launchctl kickstart -k system/com.tailscale.tailscaled >/dev/null 2>&1 && return 0
   return 1
+}
+
+reconnect() {
+  tailscale up --ssh >/dev/null 2>&1 || true
+}
+
+in_cooldown() {
+  local now
+  now="$(now_epoch)"
+  [[ $(( now - LAST_RECOVERY )) -lt "${COOLDOWN_SEC}" ]]
 }
 
 if ! command -v tailscale >/dev/null 2>&1; then
@@ -46,14 +82,52 @@ BACKEND_STATE="${HEALTH_FIELDS[0]:-}"
 IN_ENGINE="${HEALTH_FIELDS[1]:-0}"
 
 IPV4="$(tailscale ip -4 2>/dev/null | head -n 1 || true)"
-
-if [[ "${BACKEND_STATE}" != "Running" || -z "${IPV4}" || "${IN_ENGINE}" != "1" ]]; then
-  log "unhealthy backend=${BACKEND_STATE} in_engine=${IN_ENGINE} ip=${IPV4:-none}; recovering"
-  kickstart_daemon || log "kickstart_failed"
-  tailscale up --ssh >/dev/null 2>&1 || true
-  sleep 2
-  NEW_IP="$(tailscale ip -4 2>/dev/null | head -n 1 || true)"
-  log "post_recovery ip=${NEW_IP:-none}"
-else
-  log "healthy backend=${BACKEND_STATE} in_engine=${IN_ENGINE} ip=${IPV4}"
+PEER_OK="1"
+if [[ -n "${TARGET_IP}" ]]; then
+  if tailscale ping -c 1 --timeout 5s "${TARGET_IP}" >/dev/null 2>&1; then
+    PEER_OK="1"
+  else
+    PEER_OK="0"
+  fi
 fi
+
+if [[ "${BACKEND_STATE}" == "Running" && -n "${IPV4}" && "${IN_ENGINE}" == "1" && "${PEER_OK}" == "1" ]]; then
+  FAILURES=0
+  write_state
+  log "healthy backend=${BACKEND_STATE} in_engine=${IN_ENGINE} ip=${IPV4}"
+  exit 0
+fi
+
+FAILURES=$((FAILURES + 1))
+log "unhealthy failures=${FAILURES} backend=${BACKEND_STATE} in_engine=${IN_ENGINE} ip=${IPV4:-none} peer_ok=${PEER_OK}"
+
+if in_cooldown; then
+  write_state
+  log "cooldown_active sec=${COOLDOWN_SEC}; skipping recovery"
+  exit 0
+fi
+
+LAST_RECOVERY="$(now_epoch)"
+if [[ "${FAILURES}" -le 2 ]]; then
+  # First line recovery: refresh local session.
+  reconnect
+  log "recovery_action=tailscale_up"
+else
+  # Escalation recovery: restart daemon then reconnect.
+  kickstart_daemon || log "kickstart_failed"
+  reconnect
+  log "recovery_action=daemon_kickstart_plus_up"
+fi
+sleep 3
+
+NEW_IP="$(tailscale ip -4 2>/dev/null | head -n 1 || true)"
+POST_PEER_OK="1"
+if [[ -n "${TARGET_IP}" ]]; then
+  if tailscale ping -c 1 --timeout 5s "${TARGET_IP}" >/dev/null 2>&1; then
+    POST_PEER_OK="1"
+  else
+    POST_PEER_OK="0"
+  fi
+fi
+log "post_recovery ip=${NEW_IP:-none} peer_ok=${POST_PEER_OK}"
+write_state

@@ -29,7 +29,13 @@ cat > "${PLIST}" <<PL
   <key>RunAtLoad</key>
   <true/>
   <key>StartInterval</key>
-  <integer>120</integer>
+  <integer>90</integer>
+  <key>ThrottleInterval</key>
+  <integer>30</integer>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>AbandonProcessGroup</key>
+  <true/>
   <key>StandardOutPath</key>
   <string>${HOME}/worker/logs/tailscale_watchdog.stdout.log</string>
   <key>StandardErrorPath</key>
@@ -51,3 +57,4 @@ fi
 launchctl kickstart -k "gui/$(id -u)/com.aicoo.tailscale.watchdog" >/dev/null 2>&1 || launchctl start com.aicoo.tailscale.watchdog || true
 echo "Installed watchdog: ${PLIST}"
 echo "Tail logs: ${HOME}/worker/logs/tailscale_watchdog.log"
+echo "Set optional peer probe target: export AICOO_WATCH_TARGET_IP=<tailscale-ip>"
