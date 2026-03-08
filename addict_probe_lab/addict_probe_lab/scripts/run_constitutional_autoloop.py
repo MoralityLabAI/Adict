@@ -17,6 +17,7 @@ from addict_probe.config import AppConfig
 from addict_probe.evals.ripe_like_eval import ripe_like_internal_eval
 from addict_probe.evals.storyworld_eval import evaluate_storyworld_trace
 from addict_probe.harness.runner import run_storyworld_batch
+from addict_probe.hybrid.loop import HybridLoopConfig, run_hybrid_calibration_loop
 from addict_probe.mechinterp.transition_lens import write_transition_report
 from addict_probe.train_data import save_training_tensors, traces_to_training_tensors
 from addict_probe.trace_schema import read_trace_jsonl
@@ -74,6 +75,28 @@ def _score_for_hillclimb(metrics: Dict[str, object]) -> float:
     return float(metrics.get("rubric_total", 0.0)) + float(metrics.get("ripe_like_score", 0.0))
 
 
+def _run_hybrid_sidecar(
+    trace_path: str, out_json: str, plan: Dict[str, object], iteration_idx: int
+) -> Dict[str, object]:
+    if not bool(plan.get("hybrid_sidecar_enabled", True)):
+        return {"enabled": False, "reason": "disabled_by_plan"}
+    tap_layers = [int(x) for x in plan.get("hybrid_tap_layers", [16, 24])]
+    adapter_names = [
+        str(x) for x in plan.get("hybrid_adapter_names", ["general_storyworld", "moral_conflict", "powret_helper"])
+    ]
+    cfg = HybridLoopConfig(
+        trace_path=trace_path,
+        steps=int(plan.get("hybrid_steps", 24)),
+        batch_size=int(plan.get("hybrid_batch_size", 24)),
+        tap_layers=tap_layers,
+        adapter_names=adapter_names,
+        seed=int(plan.get("seed", 7)) + int(iteration_idx),
+    )
+    report = run_hybrid_calibration_loop(cfg)
+    Path(out_json).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    return {"enabled": True, "report_json": out_json, "summary": report.get("summary", {})}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run autonomous constitutional storyworld hill-climb loop")
     parser.add_argument("--plan", required=True, help="Path to autoloop plan JSON")
@@ -113,6 +136,7 @@ def main() -> None:
         adapter_trace = str(iter_dir / "bench_adapter_trace.jsonl")
         lexica_npz = str(iter_dir / "addict_lexica.npz")
         transition_json = str(iter_dir / "transition_lens.json")
+        hybrid_json = str(iter_dir / "hybrid_loop_report.json")
         train_npz = str(replay_dir / "train_windows.npz")
         replay_jsonl_dir = str(replay_dir / "jsonl")
         report_json = str(iter_dir / "iteration_report.json")
@@ -130,6 +154,7 @@ def main() -> None:
                 "adapter_trace": adapter_trace,
                 "lexica_npz": lexica_npz,
                 "transition_report": transition_json,
+                "hybrid_report": hybrid_json,
                 "train_npz": train_npz,
                 "report_json": report_json,
                 "next_adapter_dir": next_adapter_dir,
@@ -184,6 +209,12 @@ def main() -> None:
             activation_floor=float(plan.get("activation_floor", 0.05)),
             top_atoms=int(plan.get("top_atoms", 12)),
         )
+        receipt["hybrid_sidecar"] = _run_hybrid_sidecar(
+            trace_path=adapter_trace,
+            out_json=hybrid_json,
+            plan=plan,
+            iteration_idx=iteration_idx,
+        )
         receipt["guardrail_report_used"] = current_guardrail_report
 
         x, labels = traces_to_training_tensors(
@@ -203,6 +234,12 @@ def main() -> None:
             "label_sizes": {key: int(val.shape[0]) for key, val in labels.items()},
         }
         receipt["replay_dataset"] = replay_manifest
+        receipt["hillclimb"]["hybrid_route_entropy_mean"] = float(
+            receipt.get("hybrid_sidecar", {}).get("summary", {}).get("route_entropy_mean", 0.0)
+        )
+        receipt["hillclimb"]["hybrid_route_mode_usage_rate_mean"] = float(
+            receipt.get("hybrid_sidecar", {}).get("summary", {}).get("route_mode_usage_rate_mean", 0.0)
+        )
 
         manifest = {
             "iteration": iteration_idx,
@@ -213,8 +250,10 @@ def main() -> None:
             "dataset_dir": replay_jsonl_dir,
             "lexica_npz": lexica_npz,
             "transition_report": transition_json,
+            "hybrid_report": hybrid_json,
             "guardrail_atoms": receipt["transition_lens"].get("guardrail_atoms", []),
             "suppress_atoms": receipt["transition_lens"].get("suppress_atoms", []),
+            "hybrid_summary": receipt.get("hybrid_sidecar", {}).get("summary", {}),
             "bench_rows": len(read_trace_jsonl(adapter_trace)),
         }
         (iter_dir / "next_iteration_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
