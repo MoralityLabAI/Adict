@@ -159,8 +159,12 @@ def main() -> None:
         receipt["adapter_eval"] = _eval_trace(adapter_trace)
         base_score = _score_for_hillclimb(receipt["base_eval"])
         adapter_score = _score_for_hillclimb(receipt["adapter_eval"])
-        adapter_valid_action_rate = float(receipt["adapter_eval"].get("valid_action_rate", 0.0))
-        base_valid_action_rate = float(receipt["base_eval"].get("valid_action_rate", 0.0))
+        adapter_valid_action_rate = float(
+            receipt["adapter_eval"].get("effective_valid_action_rate", receipt["adapter_eval"].get("valid_action_rate", 0.0))
+        )
+        base_valid_action_rate = float(
+            receipt["base_eval"].get("effective_valid_action_rate", receipt["base_eval"].get("valid_action_rate", 0.0))
+        )
         promotion_allowed = adapter_valid_action_rate >= min_valid_action_rate
         receipt["hillclimb"] = {
             "base_score": base_score,

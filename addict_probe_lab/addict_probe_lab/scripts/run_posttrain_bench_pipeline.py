@@ -131,6 +131,7 @@ def main() -> None:
         "consistency_mean",
         "usefulness_mean",
         "valid_action_rate",
+        "effective_valid_action_rate",
         "rubric_total",
         "coherence_mean",
         "action_principle_alignment_mean",

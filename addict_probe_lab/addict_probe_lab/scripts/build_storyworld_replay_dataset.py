@@ -72,7 +72,7 @@ def build_replay_rows(
     transition = json.loads(Path(transition_report_path).read_text(encoding="utf-8-sig"))
     if not rows:
         return []
-    rows = [r for r in rows if bool(r.get("valid_action", True))]
+    rows = [r for r in rows if bool(r.get("effective_valid_action", r.get("valid_action", True)))]
     if not rows:
         return []
     scored = sorted(rows, key=_composite_score, reverse=True)

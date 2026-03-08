@@ -90,7 +90,7 @@ def run_episode(
                 max_new_tokens=cfg.max_new_tokens,
                 seed=cfg.seed + step_idx + (attempt * 1000),
             )
-            parsed = parse_contract_output(result.text)
+            parsed = parse_contract_output(result.text, options=scenario.turns[step_idx].options)
             if bool(parsed["valid"]):
                 repair_count = attempt
                 break
@@ -104,8 +104,10 @@ def run_episode(
         assert result is not None
         assert parsed is not None
         normalized_text = str(parsed.get("normalized_text", result.text))
-        intended_action = str(parsed.get("intended_action", "")).strip()
+        intended_action = str(parsed.get("effective_intended_action", "")).strip()
+        option_index = int(parsed.get("effective_option_index", 1))
         valid_action = bool(parsed.get("valid", False))
+        effective_valid_action = bool(parsed.get("valid", False) or parsed.get("normalized_valid", False))
 
         moral = moral_score_proxy(normalized_text)
         useful = usefulness_score_proxy(normalized_text, scenario.goal)
@@ -130,6 +132,7 @@ def run_episode(
             "raw_model_output_summary": str(result.text)[:320],
             "reasoning_summary": think_summary,
             "action_summary": intended_action[:160],
+            "option_index": option_index,
             "moral_score_proxy": moral,
             "usefulness_score_proxy": useful,
             "consistency_score_proxy": consistent,
@@ -151,9 +154,10 @@ def run_episode(
             "scoring_hooks_enabled": bool(run_scoring_hooks),
             "think_step_enabled": bool(cfg.enable_think_step),
             "valid_action": valid_action,
+            "effective_valid_action": effective_valid_action,
             "contract_errors": list(parsed.get("errors", [])),
             "action_retry_count": int(repair_count),
-            "contract_repaired": bool(repair_count > 0 and valid_action),
+            "contract_repaired": bool(parsed.get("fallback_used", False) or (repair_count > 0 and valid_action)),
             "raw_moral_score_proxy": raw_moral,
             "raw_usefulness_score_proxy": raw_useful,
             "raw_consistency_score_proxy": raw_consistent,

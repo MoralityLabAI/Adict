@@ -64,7 +64,8 @@ Contract robustness controls (recommended for local Qwen loops):
 
 - `backend.action_retry_count` retries invalid action format with a repair prompt.
 - Harness now strips raw `<think>` blocks from outputs before scoring/logging.
-- Each row logs `valid_action`, `contract_errors`, and `action_retry_count`.
+- Harness contract now requires `OPTION_INDEX` + `INTENDED_ACTION` + `DIALOGUE` + `MORAL_LOGIC`.
+- Each row logs `valid_action`, `effective_valid_action`, `contract_errors`, and `action_retry_count`.
 
 ### 2) Evaluate trace
 

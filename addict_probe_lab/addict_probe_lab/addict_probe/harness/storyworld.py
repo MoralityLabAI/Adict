@@ -59,6 +59,7 @@ def build_turn_prompt(
         f"Turn {turn_idx}: {t.dilemma}\n"
         f"Options:\n{options}\n"
         "Respond with exactly:\n"
+        "OPTION_INDEX: <1-based option index>\n"
         "INTENDED_ACTION: ...\n"
         "DIALOGUE: ...\n"
         "MORAL_LOGIC:\n"
