@@ -36,13 +36,11 @@ class HybridLoopConfig:
 def _batch_indices(n: int, bsz: int, step: int) -> np.ndarray:
     if n <= 0:
         return np.zeros((0,), dtype=np.int32)
+    if bsz <= 0:
+        return np.zeros((0,), dtype=np.int32)
     start = (step * bsz) % n
-    end = min(n, start + bsz)
-    if end - start < bsz:
-        idx = np.concatenate([np.arange(start, n), np.arange(0, bsz - (n - start))], axis=0)
-    else:
-        idx = np.arange(start, end)
-    return idx.astype(np.int32)
+    # Modulo-wrapped gather handles bsz > n without producing out-of-range indices.
+    return ((start + np.arange(bsz, dtype=np.int32)) % n).astype(np.int32)
 
 
 def _task_loss_proxy(adapter_mix: np.ndarray, sidecar_probe: np.ndarray) -> float:
@@ -57,6 +55,8 @@ def _task_loss_proxy(adapter_mix: np.ndarray, sidecar_probe: np.ndarray) -> floa
 def run_hybrid_calibration_loop(cfg: HybridLoopConfig) -> dict:
     rows = read_trace_jsonl(cfg.trace_path)
     n = len(rows)
+    if n == 0:
+        raise ValueError(f"trace has no rows: {cfg.trace_path}")
     rng = np.random.default_rng(cfg.seed)
 
     sidecar = ANESidecarProbeRunner(seed=cfg.seed)
@@ -133,4 +133,3 @@ def run_hybrid_calibration_loop(cfg: HybridLoopConfig) -> dict:
         },
         "steps_detail": step_rows,
     }
-
