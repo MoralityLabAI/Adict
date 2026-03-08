@@ -174,6 +174,20 @@ To build the replay JSONL dataset directly:
 python scripts/build_storyworld_replay_dataset.py --trace out/posttrain_const2b_r8/bench_adapter_trace.jsonl --transition-report out/analysis/transition_lens.json --out-dir out/replay_jsonl
 ```
 
+### 11) Run hybrid Adict + ANE + TinyLora calibration loop (scaffold)
+
+```bash
+python scripts/run_hybrid_adict_tinylora_loop.py --trace out/traces/storyworld_trace.jsonl --out-json out/hybrid/hybrid_loop_report.json --steps 40 --batch-size 24 --tap-layers 16,24 --adapter-names general_storyworld,moral_conflict,powret_helper
+```
+
+This loop emits:
+
+- sidecar probe/conflict/capability/SAE salience summaries
+- routing entropy and adapter collapse metrics
+- weighted hybrid loss breakdown for calibration experiments
+
+See `docs/hybrid_adict_ane_tinylora_spec.md` for interfaces and tensor shapes.
+
 ## Trace schema
 
 Per-step fixed layout (`total_dim=128`):
