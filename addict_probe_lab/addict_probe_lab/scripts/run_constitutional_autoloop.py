@@ -100,6 +100,7 @@ def main() -> None:
     receipts: List[Dict[str, object]] = []
 
     total_iterations = int(plan.get("iterations", 3))
+    min_valid_action_rate = float(plan.get("min_valid_action_rate", 0.80))
     command_cwd = plan.get("command_cwd") or str(plan_path.parent)
 
     for iteration_idx in range(1, total_iterations + 1):
@@ -158,10 +159,17 @@ def main() -> None:
         receipt["adapter_eval"] = _eval_trace(adapter_trace)
         base_score = _score_for_hillclimb(receipt["base_eval"])
         adapter_score = _score_for_hillclimb(receipt["adapter_eval"])
+        adapter_valid_action_rate = float(receipt["adapter_eval"].get("valid_action_rate", 0.0))
+        base_valid_action_rate = float(receipt["base_eval"].get("valid_action_rate", 0.0))
+        promotion_allowed = adapter_valid_action_rate >= min_valid_action_rate
         receipt["hillclimb"] = {
             "base_score": base_score,
             "adapter_score": adapter_score,
             "delta": adapter_score - base_score,
+            "base_valid_action_rate": base_valid_action_rate,
+            "adapter_valid_action_rate": adapter_valid_action_rate,
+            "min_valid_action_rate": min_valid_action_rate,
+            "promotion_allowed": promotion_allowed,
         }
 
         receipt["transition_lens"] = write_transition_report(
@@ -242,9 +250,12 @@ def main() -> None:
                     Path(report_json).write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
                     receipts.append(receipt)
                     break
-                current_adapter = next_adapter_dir
+                if promotion_allowed:
+                    current_adapter = next_adapter_dir
+                else:
+                    receipt["promotion_blocked_reason"] = "valid_action_rate_below_threshold"
 
-        if adapter_score > best_score:
+        if adapter_score > best_score and promotion_allowed:
             best_score = adapter_score
             best_adapter = current_adapter
         current_guardrail_report = transition_json

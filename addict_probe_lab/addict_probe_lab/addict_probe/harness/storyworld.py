@@ -66,5 +66,7 @@ def build_turn_prompt(
         "- rule: ...\n"
         "- risk: ...\n"
         "- decision: ...\n"
+        "Do not output <think> tags or extra sections.\n"
+        "If uncertain, still pick one concrete action.\n"
         f"Bounded history:\n{hist}\n"
     )

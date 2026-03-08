@@ -14,6 +14,7 @@ from .metrics import (
     moral_score_proxy,
     usefulness_score_proxy,
 )
+from .response_contract import make_repair_prompt, parse_contract_output, strip_think_blocks
 from .storyworld import StoryworldScenario, build_turn_prompt
 
 
@@ -28,6 +29,7 @@ class EpisodeConfig:
     enable_think_step: bool = True
     think_max_new_tokens: int = 64
     think_char_cap: int = 320
+    action_retry_count: int = 2
     apply_guardrails_to_scores: bool = True
 
 
@@ -64,7 +66,7 @@ def run_episode(
                 max_new_tokens=cfg.think_max_new_tokens,
                 seed=cfg.seed + 10_000 + step_idx,
             )
-            think_summary = think_result.text[: cfg.think_char_cap]
+            think_summary = strip_think_blocks(think_result.text)[: cfg.think_char_cap]
 
         action_prompt = (
             prompt
@@ -76,22 +78,43 @@ def run_episode(
                 + "\nNow choose action and dialogue following the required response format."
             )
         )
-        result = backend.generate_step(
-            prompt=action_prompt,
-            temperature=cfg.temperature,
-            top_p=cfg.top_p,
-            max_new_tokens=cfg.max_new_tokens,
-            seed=cfg.seed + step_idx,
-        )
+        result = None
+        parsed = None
+        repair_count = 0
+        attempt_prompt = action_prompt
+        for attempt in range(max(1, cfg.action_retry_count + 1)):
+            result = backend.generate_step(
+                prompt=attempt_prompt,
+                temperature=cfg.temperature,
+                top_p=cfg.top_p,
+                max_new_tokens=cfg.max_new_tokens,
+                seed=cfg.seed + step_idx + (attempt * 1000),
+            )
+            parsed = parse_contract_output(result.text)
+            if bool(parsed["valid"]):
+                repair_count = attempt
+                break
+            repair_count = attempt + 1
+            attempt_prompt = make_repair_prompt(
+                action_prompt,
+                str(result.text),
+                list(parsed.get("errors", [])),
+            )
 
-        moral = moral_score_proxy(result.text)
-        useful = usefulness_score_proxy(result.text, scenario.goal)
-        consistent = consistency_score_proxy(result.text, bounded_history)
-        manip = manipulation_risk_proxy(result.text)
+        assert result is not None
+        assert parsed is not None
+        normalized_text = str(parsed.get("normalized_text", result.text))
+        intended_action = str(parsed.get("intended_action", "")).strip()
+        valid_action = bool(parsed.get("valid", False))
+
+        moral = moral_score_proxy(normalized_text)
+        useful = usefulness_score_proxy(normalized_text, scenario.goal)
+        consistent = consistency_score_proxy(normalized_text, bounded_history)
+        manip = manipulation_risk_proxy(normalized_text)
         intervene = intervention_needed(moral, consistent, manip)
         goal_progress = useful
 
-        bounded_history.append(f"t{step_idx}:{result.text[:180]}")
+        bounded_history.append(f"t{step_idx}:{normalized_text[:180]}")
         bounded_history = bounded_history[-cfg.history_steps :]
 
         raw_moral = moral
@@ -103,9 +126,10 @@ def run_episode(
             "step_idx": step_idx,
             "scenario_id": scenario.scenario_id,
             "prompt_summary": prompt[:320],
-            "model_output_summary": result.text[:320],
+            "model_output_summary": normalized_text[:320],
+            "raw_model_output_summary": str(result.text)[:320],
             "reasoning_summary": think_summary,
-            "action_summary": result.text.splitlines()[0][:160] if result.text else "",
+            "action_summary": intended_action[:160],
             "moral_score_proxy": moral,
             "usefulness_score_proxy": useful,
             "consistency_score_proxy": consistent,
@@ -126,6 +150,10 @@ def run_episode(
             "timing": {"latency_ms": float(result.latency_ms)},
             "scoring_hooks_enabled": bool(run_scoring_hooks),
             "think_step_enabled": bool(cfg.enable_think_step),
+            "valid_action": valid_action,
+            "contract_errors": list(parsed.get("errors", [])),
+            "action_retry_count": int(repair_count),
+            "contract_repaired": bool(repair_count > 0 and valid_action),
             "raw_moral_score_proxy": raw_moral,
             "raw_usefulness_score_proxy": raw_useful,
             "raw_consistency_score_proxy": raw_consistent,

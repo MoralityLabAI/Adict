@@ -25,6 +25,7 @@ class BackendConfig:
     enable_think_step: bool = True
     think_max_new_tokens: int = 64
     think_char_cap: int = 320
+    action_retry_count: int = 2
 
 
 @dataclass

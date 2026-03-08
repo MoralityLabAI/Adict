@@ -14,7 +14,8 @@
     "batch_size": 1,
     "enable_think_step": true,
     "think_max_new_tokens": 64,
-    "think_char_cap": 320
+    "think_char_cap": 320,
+    "action_retry_count": 2
   },
   "trace": {
     "trace_path": "out/traces/storyworld_trace.jsonl",

@@ -60,6 +60,12 @@ Bounded intermediate reasoning (simulated CoT in-env):
 python scripts/run_storyworld_batch.py --config configs/default.json --trace-path out/traces/run_b.jsonl --enable-think-step --think-max-new-tokens 48 --think-char-cap 240
 ```
 
+Contract robustness controls (recommended for local Qwen loops):
+
+- `backend.action_retry_count` retries invalid action format with a repair prompt.
+- Harness now strips raw `<think>` blocks from outputs before scoring/logging.
+- Each row logs `valid_action`, `contract_errors`, and `action_retry_count`.
+
 ### 2) Evaluate trace
 
 ```bash
@@ -145,12 +151,15 @@ This loop:
 4. ranks atoms by future moral-trajectory lift
 5. exports replay tensors under `data/adapter_training/replay/repeat/`
 6. can launch the next short adapter training command
+7. gates adapter promotion using `min_valid_action_rate` (default `0.8`)
 
 It now also exports a replay JSONL dataset for MLX LoRA under:
 
 - `.../data/adapter_training/replay/repeat/jsonl/train.jsonl`
 - `.../data/adapter_training/replay/repeat/jsonl/valid.jsonl`
 - `.../data/adapter_training/replay/repeat/jsonl/test.jsonl`
+
+Replay export now filters out invalid-action rows and strips `<think>` content from assistant targets.
 
 To inspect the transition-aware lens separately:
 

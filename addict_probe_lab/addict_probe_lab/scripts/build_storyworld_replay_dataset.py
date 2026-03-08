@@ -13,6 +13,7 @@ from typing import Any, Dict, List
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from addict_probe.trace_schema import read_trace_jsonl
+from addict_probe.harness.response_contract import parse_contract_output, strip_think_blocks
 
 
 def _bucket(text: str) -> float:
@@ -52,7 +53,9 @@ def _messages_for_row(row: Dict[str, Any], transition: Dict[str, Any]) -> List[D
         f"Bounded history:\n{row.get('bounded_history_summary', '')}\n\n"
         "Produce the next action, dialogue, and moral logic."
     ).strip()
-    assistant = str(row.get("model_output_summary") or row.get("action_summary") or "").strip()
+    raw_assistant = str(row.get("model_output_summary") or row.get("action_summary") or "").strip()
+    parsed = parse_contract_output(raw_assistant)
+    assistant = str(parsed.get("normalized_text", strip_think_blocks(raw_assistant))).strip()
     return [
         {"role": "system", "content": system},
         {"role": "user", "content": user},
@@ -67,6 +70,9 @@ def build_replay_rows(
 ) -> List[Dict[str, Any]]:
     rows = read_trace_jsonl(trace_path)
     transition = json.loads(Path(transition_report_path).read_text(encoding="utf-8-sig"))
+    if not rows:
+        return []
+    rows = [r for r in rows if bool(r.get("valid_action", True))]
     if not rows:
         return []
     scored = sorted(rows, key=_composite_score, reverse=True)

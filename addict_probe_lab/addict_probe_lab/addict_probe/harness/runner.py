@@ -59,6 +59,7 @@ def run_storyworld_batch(cfg: AppConfig) -> BatchRunSummary:
         enable_think_step=cfg.backend.enable_think_step,
         think_max_new_tokens=cfg.backend.think_max_new_tokens,
         think_char_cap=cfg.backend.think_char_cap,
+        action_retry_count=cfg.backend.action_retry_count,
         apply_guardrails_to_scores=cfg.trace.apply_guardrails_to_scores,
     )
     for s in scenarios:
