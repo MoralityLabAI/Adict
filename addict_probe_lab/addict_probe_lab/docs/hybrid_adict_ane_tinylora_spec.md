@@ -33,6 +33,8 @@ The current revision follows the "late-layer feature reweighting" paper claim mo
   - micro-batch calibration loop with per-step receipts
 - `scripts/run_hybrid_adict_tinylora_loop.py`
   - runnable entrypoint
+- `configs/hybrid_feature_sets.json`
+  - named target/control feature-set hypotheses for paper-guided runs
 
 ## Data structures
 
@@ -54,12 +56,10 @@ The current revision follows the "late-layer feature reweighting" paper claim mo
 python scripts/run_hybrid_adict_tinylora_loop.py \
   --trace out/traces/storyworld_trace.jsonl \
   --out-json out/hybrid/hybrid_loop_report.json \
+  --feature-config configs/hybrid_feature_sets.json \
+  --feature-set late_layer_constitution_v1 \
   --steps 40 \
   --batch-size 24 \
-  --tap-layers 16,24 \
-  --target-features 5,12 \
-  --control-features 18,25 \
-  --late-layer-floor 20 \
   --adapter-names general_storyworld,moral_conflict,powret_helper
 ```
 

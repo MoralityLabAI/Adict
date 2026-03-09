@@ -17,6 +17,7 @@ from addict_probe.config import AppConfig
 from addict_probe.evals.ripe_like_eval import ripe_like_internal_eval
 from addict_probe.evals.storyworld_eval import evaluate_storyworld_trace
 from addict_probe.harness.runner import run_storyworld_batch
+from addict_probe.hybrid.feature_sets import resolve_feature_set
 from addict_probe.hybrid.loop import HybridLoopConfig, run_hybrid_calibration_loop
 from addict_probe.mechinterp.transition_lens import write_transition_report
 from addict_probe.train_data import save_training_tensors, traces_to_training_tensors
@@ -75,12 +76,27 @@ def _score_for_hillclimb(metrics: Dict[str, object]) -> float:
     return float(metrics.get("rubric_total", 0.0)) + float(metrics.get("ripe_like_score", 0.0))
 
 
+def _hybrid_adjustment(summary: Dict[str, object]) -> float:
+    target_gap = float(summary.get("target_control_gap_mean", 0.0))
+    drift = float(summary.get("late_layer_drift_mean", 0.0))
+    control = float(summary.get("control_feature_mean", 0.0))
+    steering = float(summary.get("steering_strength_mean", 0.0))
+    return 0.35 * target_gap - 0.15 * drift - 0.05 * control + 0.05 * steering
+
+
 def _run_hybrid_sidecar(
     trace_path: str, out_json: str, plan: Dict[str, object], iteration_idx: int
 ) -> Dict[str, object]:
     if not bool(plan.get("hybrid_sidecar_enabled", True)):
         return {"enabled": False, "reason": "disabled_by_plan"}
-    tap_layers = [int(x) for x in plan.get("hybrid_tap_layers", [16, 24])]
+    feature_set_path = str(plan.get("hybrid_feature_config_path", "")).strip()
+    feature_set_name = str(plan.get("hybrid_feature_set_name", "")).strip()
+    feature_set = resolve_feature_set(feature_set_path or None, feature_set_name or None) if feature_set_path else None
+    tap_layers = (
+        [int(x) for x in feature_set.tap_layers]
+        if feature_set is not None
+        else [int(x) for x in plan.get("hybrid_tap_layers", [16, 24])]
+    )
     adapter_names = [
         str(x) for x in plan.get("hybrid_adapter_names", ["general_storyworld", "moral_conflict", "powret_helper"])
     ]
@@ -90,11 +106,31 @@ def _run_hybrid_sidecar(
         batch_size=int(plan.get("hybrid_batch_size", 24)),
         tap_layers=tap_layers,
         adapter_names=adapter_names,
+        target_feature_ids=(
+            list(feature_set.target_feature_ids)
+            if feature_set is not None
+            else [int(x) for x in plan.get("hybrid_target_feature_ids", [5, 12])]
+        ),
+        control_feature_ids=(
+            list(feature_set.control_feature_ids)
+            if feature_set is not None
+            else [int(x) for x in plan.get("hybrid_control_feature_ids", [18, 25])]
+        ),
+        late_layer_floor=(
+            int(feature_set.late_layer_floor)
+            if feature_set is not None
+            else int(plan.get("hybrid_late_layer_floor", 20))
+        ),
         seed=int(plan.get("seed", 7)) + int(iteration_idx),
     )
     report = run_hybrid_calibration_loop(cfg)
     Path(out_json).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    return {"enabled": True, "report_json": out_json, "summary": report.get("summary", {})}
+    return {
+        "enabled": True,
+        "report_json": out_json,
+        "feature_set_name": feature_set.name if feature_set is not None else "",
+        "summary": report.get("summary", {}),
+    }
 
 
 def parse_args() -> argparse.Namespace:
@@ -240,6 +276,12 @@ def main() -> None:
         receipt["hillclimb"]["hybrid_route_mode_usage_rate_mean"] = float(
             receipt.get("hybrid_sidecar", {}).get("summary", {}).get("route_mode_usage_rate_mean", 0.0)
         )
+        hybrid_summary = receipt.get("hybrid_sidecar", {}).get("summary", {})
+        receipt["hillclimb"]["hybrid_target_control_gap_mean"] = float(hybrid_summary.get("target_control_gap_mean", 0.0))
+        receipt["hillclimb"]["hybrid_late_layer_drift_mean"] = float(hybrid_summary.get("late_layer_drift_mean", 0.0))
+        receipt["hillclimb"]["hybrid_steering_strength_mean"] = float(hybrid_summary.get("steering_strength_mean", 0.0))
+        receipt["hillclimb"]["hybrid_selection_adjustment"] = _hybrid_adjustment(hybrid_summary)
+        receipt["hillclimb"]["selection_score"] = adapter_score + receipt["hillclimb"]["hybrid_selection_adjustment"]
 
         manifest = {
             "iteration": iteration_idx,
@@ -254,6 +296,7 @@ def main() -> None:
             "guardrail_atoms": receipt["transition_lens"].get("guardrail_atoms", []),
             "suppress_atoms": receipt["transition_lens"].get("suppress_atoms", []),
             "hybrid_summary": receipt.get("hybrid_sidecar", {}).get("summary", {}),
+            "hybrid_feature_set_name": receipt.get("hybrid_sidecar", {}).get("feature_set_name", ""),
             "bench_rows": len(read_trace_jsonl(adapter_trace)),
         }
         (iter_dir / "next_iteration_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
@@ -298,8 +341,9 @@ def main() -> None:
                 else:
                     receipt["promotion_blocked_reason"] = "valid_action_rate_below_threshold"
 
-        if adapter_score > best_score and promotion_allowed:
-            best_score = adapter_score
+        selection_score = float(receipt["hillclimb"].get("selection_score", adapter_score))
+        if selection_score > best_score and promotion_allowed:
+            best_score = selection_score
             best_adapter = current_adapter
         current_guardrail_report = transition_json
 

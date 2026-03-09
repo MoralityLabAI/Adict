@@ -180,6 +180,12 @@ python scripts/build_storyworld_replay_dataset.py --trace out/posttrain_const2b_
 python scripts/run_hybrid_adict_tinylora_loop.py --trace out/traces/storyworld_trace.jsonl --out-json out/hybrid/hybrid_loop_report.json --steps 40 --batch-size 24 --tap-layers 16,24 --target-features 5,12 --control-features 18,25 --late-layer-floor 20 --adapter-names general_storyworld,moral_conflict,powret_helper
 ```
 
+Or use a named feature-set config:
+
+```bash
+python scripts/run_hybrid_adict_tinylora_loop.py --trace out/traces/storyworld_trace.jsonl --out-json out/hybrid/hybrid_loop_report.json --feature-config configs/hybrid_feature_sets.json --feature-set late_layer_constitution_v1 --steps 40 --batch-size 24 --adapter-names general_storyworld,moral_conflict,powret_helper
+```
+
 This loop emits:
 
 - sidecar probe/conflict/capability/SAE salience summaries

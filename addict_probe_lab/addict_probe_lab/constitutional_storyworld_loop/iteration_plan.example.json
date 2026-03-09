@@ -15,6 +15,8 @@
   "hybrid_sidecar_enabled": true,
   "hybrid_steps": 24,
   "hybrid_batch_size": 24,
+  "hybrid_feature_config_path": "configs/hybrid_feature_sets.json",
+  "hybrid_feature_set_name": "late_layer_constitution_v1",
   "hybrid_tap_layers": [16, 24],
   "hybrid_adapter_names": ["general_storyworld", "moral_conflict", "powret_helper"],
   "min_valid_action_rate": 0.8,

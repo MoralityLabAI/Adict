@@ -1,0 +1,16 @@
+{
+  "feature_sets": {
+    "late_layer_constitution_v1": {
+      "tap_layers": [16, 24],
+      "late_layer_floor": 20,
+      "target_feature_ids": [5, 12],
+      "control_feature_ids": [18, 25]
+    },
+    "floodplain_joint_steer_v1": {
+      "tap_layers": [23, 24],
+      "late_layer_floor": 23,
+      "target_feature_ids": [20, 10],
+      "control_feature_ids": [18, 1]
+    }
+  }
+}
