@@ -17,6 +17,23 @@ mkdir -p "${LOG_DIR}"
 ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
 log() { echo "[$(ts)] $*" >> "${LOG_FILE}"; }
 now_epoch() { date +%s; }
+find_tailscale_bin() {
+  if command -v tailscale >/dev/null 2>&1; then
+    command -v tailscale
+    return 0
+  fi
+  for p in \
+    /opt/homebrew/bin/tailscale \
+    /usr/local/bin/tailscale \
+    /Applications/Tailscale.app/Contents/MacOS/Tailscale
+  do
+    if [[ -x "${p}" ]]; then
+      echo "${p}"
+      return 0
+    fi
+  done
+  return 1
+}
 
 if ! mkdir "${LOCK_DIR}" >/dev/null 2>&1; then
   log "lock_busy: another watchdog instance is running"
@@ -46,7 +63,7 @@ kickstart_daemon() {
 }
 
 reconnect() {
-  tailscale up --ssh >/dev/null 2>&1 || true
+  "${TS_BIN}" up --ssh >/dev/null 2>&1 || true
 }
 
 in_cooldown() {
@@ -55,19 +72,20 @@ in_cooldown() {
   [[ $(( now - LAST_RECOVERY )) -lt "${COOLDOWN_SEC}" ]]
 }
 
-if ! command -v tailscale >/dev/null 2>&1; then
+TS_BIN="$(find_tailscale_bin || true)"
+if [[ -z "${TS_BIN}" ]]; then
   log "tailscale binary not found; skipping"
   exit 0
 fi
 
-JSON="$(tailscale status --json 2>/dev/null || true)"
+JSON="$("${TS_BIN}" status --json 2>/dev/null || true)"
 if [[ -z "${JSON}" ]]; then
   log "status_json_empty: attempting tailscaled restart"
   kickstart_daemon || log "kickstart_failed"
   exit 0
 fi
 
-readarray -t HEALTH_FIELDS < <(
+HEALTH_FIELDS="$(
   TS_JSON="${JSON}" /usr/bin/python3 -c 'import json,os
 try:
     d = json.loads(os.environ["TS_JSON"])
@@ -77,21 +95,22 @@ except Exception:
     print("")
     print("0")
 '
-)
-BACKEND_STATE="${HEALTH_FIELDS[0]:-}"
-IN_ENGINE="${HEALTH_FIELDS[1]:-0}"
+)"
+BACKEND_STATE="$(printf '%s\n' "${HEALTH_FIELDS}" | /usr/bin/sed -n '1p')"
+IN_ENGINE="$(printf '%s\n' "${HEALTH_FIELDS}" | /usr/bin/sed -n '2p')"
+IN_ENGINE="${IN_ENGINE:-0}"
 
-IPV4="$(tailscale ip -4 2>/dev/null | head -n 1 || true)"
+IPV4="$("${TS_BIN}" ip -4 2>/dev/null | head -n 1 || true)"
 PEER_OK="1"
 if [[ -n "${TARGET_IP}" ]]; then
-  if tailscale ping -c 1 --timeout 5s "${TARGET_IP}" >/dev/null 2>&1; then
+  if "${TS_BIN}" ping -c 1 --timeout 5s "${TARGET_IP}" >/dev/null 2>&1; then
     PEER_OK="1"
   else
     PEER_OK="0"
   fi
 fi
 
-if [[ "${BACKEND_STATE}" == "Running" && -n "${IPV4}" && "${IN_ENGINE}" == "1" && "${PEER_OK}" == "1" ]]; then
+if [[ "${BACKEND_STATE}" == "Running" && -n "${IPV4}" && "${PEER_OK}" == "1" ]]; then
   FAILURES=0
   write_state
   log "healthy backend=${BACKEND_STATE} in_engine=${IN_ENGINE} ip=${IPV4}"
@@ -120,10 +139,10 @@ else
 fi
 sleep 3
 
-NEW_IP="$(tailscale ip -4 2>/dev/null | head -n 1 || true)"
+NEW_IP="$("${TS_BIN}" ip -4 2>/dev/null | head -n 1 || true)"
 POST_PEER_OK="1"
 if [[ -n "${TARGET_IP}" ]]; then
-  if tailscale ping -c 1 --timeout 5s "${TARGET_IP}" >/dev/null 2>&1; then
+  if "${TS_BIN}" ping -c 1 --timeout 5s "${TARGET_IP}" >/dev/null 2>&1; then
     POST_PEER_OK="1"
   else
     POST_PEER_OK="0"
