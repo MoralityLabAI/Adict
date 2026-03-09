@@ -33,6 +33,9 @@ class RoutingMLP:
         """
         h = np.tanh(sidecar_vector @ self.w1 + self.b1)
         logits = h @ self.w2 + self.b2
+        steering_signal = sidecar_vector[:, :1] if sidecar_vector.size else np.zeros((0, 1), dtype=np.float32)
+        if steering_signal.size:
+            logits = logits + steering_signal * np.linspace(-0.15, 0.15, self.adapter_count, dtype=np.float32)
         w = _softmax(logits, axis=1).astype(np.float32)
         entropy = -np.sum(w * np.log(np.clip(w, 1e-12, 1.0)), axis=1)
         top1 = np.argmax(w, axis=1)
@@ -44,5 +47,5 @@ class RoutingMLP:
             entropy_mean=float(np.mean(entropy)) if entropy.size else 0.0,
             top1_usage_rate=top1_rate,
             mode_usage_rate=mode_rate,
+            steering_strength_mean=float(np.mean(np.abs(steering_signal))) if steering_signal.size else 0.0,
         )
-

@@ -23,6 +23,11 @@ class SidecarScores:
     conflict_score: np.ndarray
     capability_scores: np.ndarray
     sae_salience: np.ndarray
+    target_feature_strength: np.ndarray
+    control_feature_strength: np.ndarray
+    target_control_gap: np.ndarray
+    late_layer_drift: np.ndarray
+    layer_feature_strengths: Dict[str, np.ndarray]
 
 
 @dataclass
@@ -33,4 +38,4 @@ class RoutingOutput:
     entropy_mean: float
     top1_usage_rate: float
     mode_usage_rate: float
-
+    steering_strength_mean: float

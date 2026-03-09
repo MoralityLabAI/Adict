@@ -13,6 +13,8 @@ class HybridLossWeights:
     route_weight: float = 0.05
     sae_weight: float = 0.02
     usage_balance_weight: float = 0.02
+    feature_gap_weight: float = 0.12
+    drift_weight: float = 0.05
 
 
 def compute_constitutional_loss(sidecar: SidecarScores, const_targets: np.ndarray) -> float:
@@ -42,6 +44,20 @@ def compute_sae_loss(sidecar: SidecarScores, target_sparsity: float = 0.1) -> fl
     return float(abs(active_frac - target_sparsity))
 
 
+def compute_feature_gap_loss(sidecar: SidecarScores, target_margin: float = 0.2) -> float:
+    if sidecar.target_control_gap.size == 0:
+        return 0.0
+    margin = sidecar.target_control_gap - target_margin
+    return float(np.mean(np.square(np.minimum(margin, 0.0))))
+
+
+def compute_drift_regularization(sidecar: SidecarScores, max_drift: float = 0.35) -> float:
+    if sidecar.late_layer_drift.size == 0:
+        return 0.0
+    excess = np.maximum(sidecar.late_layer_drift - max_drift, 0.0)
+    return float(np.mean(excess * excess))
+
+
 def compute_hybrid_loss(
     task_loss: float,
     sidecar: SidecarScores,
@@ -54,12 +70,16 @@ def compute_hybrid_loss(
     l_route = compute_route_loss(route, adapter_count=adapter_count)
     l_sae = compute_sae_loss(sidecar)
     l_balance = compute_usage_balance_loss(route)
+    l_gap = compute_feature_gap_loss(sidecar)
+    l_drift = compute_drift_regularization(sidecar)
     total = (
         float(task_loss)
         + w.const_weight * l_const
         + w.route_weight * l_route
         + w.sae_weight * l_sae
         + w.usage_balance_weight * l_balance
+        + w.feature_gap_weight * l_gap
+        + w.drift_weight * l_drift
     )
     return {
         "task_loss": float(task_loss),
@@ -67,6 +87,7 @@ def compute_hybrid_loss(
         "route_loss": float(l_route),
         "sae_loss": float(l_sae),
         "usage_balance_loss": float(l_balance),
+        "feature_gap_loss": float(l_gap),
+        "drift_loss": float(l_drift),
         "total_loss": float(total),
     }
-

@@ -21,6 +21,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--batch-size", type=int, default=24)
     p.add_argument("--tap-layers", default="16,24")
     p.add_argument("--adapter-names", default="general_storyworld,moral_conflict,powret_helper")
+    p.add_argument("--target-features", default="5,12")
+    p.add_argument("--control-features", default="18,25")
+    p.add_argument("--late-layer-floor", type=int, default=20)
     p.add_argument("--seed", type=int, default=7)
     return p.parse_args()
 
@@ -29,12 +32,17 @@ def main() -> None:
     args = parse_args()
     tap_layers = [int(x.strip()) for x in args.tap_layers.split(",") if x.strip()]
     adapters = [x.strip() for x in args.adapter_names.split(",") if x.strip()]
+    target_features = [int(x.strip()) for x in args.target_features.split(",") if x.strip()]
+    control_features = [int(x.strip()) for x in args.control_features.split(",") if x.strip()]
     cfg = HybridLoopConfig(
         trace_path=args.trace,
         steps=args.steps,
         batch_size=args.batch_size,
         tap_layers=tap_layers,
         adapter_names=adapters,
+        target_feature_ids=target_features,
+        control_feature_ids=control_features,
+        late_layer_floor=args.late_layer_floor,
         seed=args.seed,
     )
     report = run_hybrid_calibration_loop(cfg)
@@ -46,4 +54,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
