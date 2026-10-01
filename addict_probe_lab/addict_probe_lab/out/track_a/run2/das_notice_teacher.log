@@ -1,0 +1,78 @@
+                                       rec_A     rec_P   cross_A   cross_P     iia_A     iia_P
+choice site 1: whole-residual swap of one factor recovers action -0.01 (IIA 0.01), value -0.00 (IIA 0.00)
+choice site 1 k=8 learned               0.17      0.02     -0.06      0.03      0.01      0.03
+choice site 1 k=8 untrained             0.00     -0.00     -0.01      0.00      0.00      0.00
+choice site 1 k=- full_residual        -0.01      0.00     -0.01      0.00      0.01      0.04
+choice site 1 k=- probe_ridge          -0.00     -0.00     -0.00      0.00      0.00      0.00
+choice site 1 k=- probe_cov            -0.02      0.00     -0.02      0.00      0.01      0.03
+choice site 2: whole-residual swap of one factor recovers action 0.05 (IIA 0.02), value 0.85 (IIA 0.54)
+choice site 2 k=8 learned               0.47      1.00     -2.23      0.18      0.09      0.65
+choice site 2 k=8 untrained            -0.02      0.04     -0.00      0.09      0.01      0.04
+choice site 2 k=- full_residual        -0.58      0.84     -0.58      0.84      0.02      0.53
+choice site 2 k=- probe_ridge          -0.03      0.47     -0.08      0.00      0.01      0.45
+choice site 2 k=- probe_cov            -0.07      0.84     -0.60      0.15      0.02      0.53
+choice site 3: whole-residual swap of one factor recovers action 0.36 (IIA 0.18), value 0.85 (IIA 0.54)
+choice site 3 k=8 learned               0.54      0.99     -1.95      0.18      0.38      0.62
+choice site 3 k=8 untrained             0.00      0.02      0.02      0.08      0.02      0.08
+choice site 3 k=- full_residual        -0.39      0.81     -0.39      0.81      0.22      0.43
+choice site 3 k=- probe_ridge          -0.06      0.27     -0.04      0.00      0.03      0.15
+choice site 3 k=- probe_cov            -0.09      0.61     -0.15      0.08      0.05      0.36
+choice site 4: whole-residual swap of one factor recovers action 1.00 (IIA 1.00), value 1.00 (IIA 1.00)
+choice site 4 k=8 learned               0.30      0.67     -0.32      0.36      0.31      0.45
+choice site 4 k=8 untrained             0.08      0.12      0.09      0.10      0.08      0.18
+choice site 4 k=- full_residual        -1.57      0.61     -1.57      0.61      0.96      0.57
+choice site 4 k=- probe_ridge          -0.00      0.03      0.00      0.00      0.01      0.09
+choice site 4 k=- probe_cov             0.03     -0.07     -0.34      0.04      0.07      0.14
+options site 1: whole-residual swap of one factor recovers action 0.00 (IIA 0.00), value -0.00 (IIA 0.00)
+options site 1 k=8 learned              0.02      0.00      0.01     -0.00      0.00      0.01
+options site 1 k=8 untrained            0.00      0.00     -0.00      0.00      0.00      0.00
+options site 1 k=- full_residual        0.00      0.00      0.00      0.00      0.00      0.01
+options site 1 k=- probe_ridge          0.00      0.00      0.00     -0.00      0.00      0.00
+options site 1 k=- probe_cov            0.00      0.00      0.00      0.00      0.00      0.00
+options site 2: whole-residual swap of one factor recovers action 0.00 (IIA 0.00), value 0.00 (IIA 0.00)
+options site 2 k=8 learned              0.01      0.01      0.02     -0.00      0.00      0.00
+options site 2 k=8 untrained            0.00      0.00      0.00      0.00      0.00      0.00
+options site 2 k=- full_residual        0.00      0.00      0.00      0.00      0.00      0.01
+options site 2 k=- probe_ridge         -0.00      0.00      0.00     -0.00      0.00      0.00
+options site 2 k=- probe_cov           -0.00      0.00      0.00     -0.00      0.00      0.00
+options site 3: whole-residual swap of one factor recovers action 0.05 (IIA 0.00), value 0.00 (IIA 0.00)
+options site 3 k=8 learned              0.01      0.06      0.22     -0.00      0.00      0.04
+options site 3 k=8 untrained            0.00      0.00      0.00      0.00      0.00      0.00
+options site 3 k=- full_residual        0.06      0.02      0.06      0.02      0.00      0.03
+options site 3 k=- probe_ridge         -0.00      0.00      0.00     -0.00      0.00      0.00
+options site 3 k=- probe_cov           -0.00      0.00      0.01     -0.00      0.00      0.00
+notice site 0: whole-residual swap of one factor recovers action 0.00 (IIA 0.00), value 1.00 (IIA 1.00)
+notice site 0 k=8 learned               0.25      1.00     -2.33      0.39      0.04      0.95
+notice site 0 k=8 untrained             0.01      0.02      0.00      0.10      0.01      0.03
+notice site 0 k=- full_residual        -2.31      1.00     -2.31      1.00      0.03      1.00
+notice site 0 k=- probe_ridge           0.00      0.03     -0.01      0.00      0.00      0.04
+notice site 0 k=- probe_cov            -0.01      1.00     -2.31     -0.01      0.00      1.00
+notice site 1: whole-residual swap of one factor recovers action 0.01 (IIA 0.01), value 1.00 (IIA 1.00)
+notice site 1 k=8 learned               0.30      1.00     -2.28      0.33      0.04      0.86
+notice site 1 k=8 untrained             0.02      0.04     -0.00      0.14      0.01      0.04
+notice site 1 k=- full_residual        -2.29      1.00     -2.29      1.00      0.03      0.99
+notice site 1 k=- probe_ridge           0.01      0.04      0.01      0.00      0.00      0.05
+notice site 1 k=- probe_cov             0.00      1.00     -2.29     -0.00      0.01      1.00
+notice site 2: whole-residual swap of one factor recovers action 0.01 (IIA 0.02), value 0.17 (IIA 0.45)
+notice site 2 k=8 learned               0.48      0.78     -0.27      0.09      0.05      0.47
+notice site 2 k=8 untrained             0.01      0.01     -0.00     -0.02      0.01      0.08
+notice site 2 k=- full_residual        -0.21      0.18     -0.21      0.18      0.02      0.45
+notice site 2 k=- probe_ridge           0.00     -0.01      0.01     -0.00      0.00      0.12
+notice site 2 k=- probe_cov            -0.01      0.17     -0.21      0.01      0.00      0.45
+notice site 3: whole-residual swap of one factor recovers action 0.00 (IIA 0.00), value -0.00 (IIA 0.00)
+notice site 3 k=8 learned               0.00      0.55      0.08      0.00      0.00      0.01
+notice site 3 k=8 untrained            -0.00      0.00      0.00     -0.00      0.00      0.00
+notice site 3 k=- full_residual        -0.00     -0.00     -0.00     -0.00      0.00      0.00
+notice site 3 k=- probe_ridge           0.00     -0.00     -0.00      0.00      0.00      0.00
+notice site 3 k=- probe_cov             0.00     -0.00     -0.00     -0.00      0.00      0.00
+dimension sweep at choice_site3 (chosen on validation sets)
+k=16 learned                            0.58      0.99     -1.98      0.23      0.46      0.59
+k=16 untrained                          0.01      0.13      0.01      0.09      0.04      0.15
+k=32 learned                            0.59      0.99     -2.03      0.22      0.47      0.62
+k=32 untrained                          0.01      0.10      0.08      0.22      0.07      0.18
+dimension sweep at choice_site4 (requested)
+k=16 learned                            0.36      0.75     -0.61      0.37      0.38      0.43
+k=16 untrained                          0.18      0.19      0.13      0.23      0.18      0.26
+k=32 learned                            0.37      0.75     -0.60      0.37      0.39      0.42
+k=32 untrained                          0.21      0.41      0.20      0.39      0.25      0.38
+counterfactual changes the most probable option in 16% of cases for action history and 2% for payoff history

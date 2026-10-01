@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+# Regenerable data and checkpoints; the scripts that produce them are in the repo.
+addict_probe_lab/addict_probe_lab/out/track_a/**/*.npz
+addict_probe_lab/addict_probe_lab/out/track_a/**/*.pt
+addict_probe_lab/addict_probe_lab/out/track_a/**/*.err.log
+addict_probe_lab/addict_probe_lab/out/track_a/**/*.partial.log
+addict_probe_lab/addict_probe_lab/out/persistence/d_forced/*.jsonl

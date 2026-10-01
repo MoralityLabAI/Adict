@@ -1,0 +1,48 @@
+{
+  "created": "2026-10-01T03:24:19Z",
+  "meta": {
+    "seed": 7,
+    "families": [
+      "F1",
+      "F2"
+    ],
+    "split_unit": "env_seed"
+  },
+  "files": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "935fed6f9f02729753a4d6e3e28df6b6133f6ad0665d701f00473bc379788de3",
+      "records": 1200,
+      "sealed": false,
+      "evaluations": []
+    },
+    "val": {
+      "path": "val.jsonl",
+      "sha256": "e57fa5cc2e60e37e2230fc223f9f46b697552770a62e0fb86a55d7938979fdbf",
+      "records": 400,
+      "sealed": false,
+      "evaluations": []
+    },
+    "test_id": {
+      "path": "test_id.jsonl",
+      "sha256": "8dd4bfcab4af006adca5442ce7f5331e4e82770bd21af6dd72996c13d8a67b51",
+      "records": 400,
+      "sealed": true,
+      "evaluations": []
+    },
+    "ood_vocab": {
+      "path": "ood_vocab.jsonl",
+      "sha256": "7317a12b8267dfdd05d7e61fce2323947461012579504755f2041b3de49b0023",
+      "records": 500,
+      "sealed": true,
+      "evaluations": []
+    },
+    "ood_length": {
+      "path": "ood_length.jsonl",
+      "sha256": "ba6a27dd641cd338a569c5d438dbe802926861bdf84ed393ce55957e2db1db9b",
+      "records": 500,
+      "sealed": true,
+      "evaluations": []
+    }
+  }
+}

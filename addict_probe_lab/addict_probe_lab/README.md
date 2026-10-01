@@ -196,6 +196,41 @@ This loop emits:
 
 See `docs/hybrid_adict_ane_tinylora_spec.md` for interfaces and tensor shapes.
 
+## Persistent-selection experiments
+
+The design is in `docs/mechinterp_project_spec.md`. This part of the repo is separate from the storyworld harness and uses real model activations.
+
+- `addict_probe/persistence/*`: choice-task grammar and environments, the reference behavioural model, sensitivity indices, regime regions, shared prefixes, grouped splits with a sealed-test manifest.
+- `addict_probe/tracka/*`: the small Track A transformer, probes, and subspace interchange.
+
+Install (Windows, CUDA 12.8 build of torch):
+
+```bash
+python -m venv .venv
+.venv\Scripts\python -m pip install numpy pytest
+.venv\Scripts\python -m pip install torch --index-url https://download.pytorch.org/whl/cu128
+```
+
+Run from this directory:
+
+```bash
+python -m pytest -q
+python scripts/run_regime_manipulation_check.py
+python scripts/build_prefix_pool.py
+python scripts/train_track_a.py --out-dir out/track_a/run2 --data-variant v2
+python scripts/probe_track_a.py --run-dir out/track_a/run2
+python scripts/probe_track_a_parametrisations.py --run-dir out/track_a/run2
+python scripts/intervene_track_a.py --run-dir out/track_a/run2
+python scripts/das_track_a.py --run-dir out/track_a/run2 --factor notice
+python scripts/components_track_a.py --run-dir out/track_a/run2
+```
+
+`components_track_a.py` needs no training and runs on the CPU (about 25 minutes). Checkpoints and generated datasets under `out/` are not committed; rerun the training script to recreate them.
+
+`out/track_a/run1` was trained on data variant v1; the spec (section 14.1) explains why v2 replaced it. The long-running scripts save partial results and resume when rerun with the same arguments.
+
+On a machine that is busy with other jobs, set `OPENBLAS_NUM_THREADS=2` before the probe script; the default thread count stalls under contention. Run the GPU scripts one at a time: two of them sharing a busy GPU ran about ten times slower than one.
+
 ## Trace schema
 
 Per-step fixed layout (`total_dim=128`):

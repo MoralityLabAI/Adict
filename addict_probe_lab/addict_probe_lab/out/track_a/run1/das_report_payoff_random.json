@@ -1,0 +1,668 @@
+{
+  "args": {
+    "run_dir": "out\\track_a\\run1",
+    "n": 6000,
+    "k": 8,
+    "k_sweep": "1,2,4,8,16",
+    "steps": 400,
+    "seed": 7
+  },
+  "sets": {
+    "train": 3600,
+    "val": 1200,
+    "test": 1200
+  },
+  "configs": {
+    "choice_site1": {
+      "learned_val": {
+        "recovered_action": 0.05860502518824884,
+        "cross_action": -0.009989731991499218,
+        "iia_action": 0.010026737967914439,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.14087728141114297,
+        "cross_payoff": 0.010514405294620888,
+        "iia_payoff": 0.10215053763440861,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.05610525004229838,
+        "cross_action": -0.00848681233926074,
+        "iia_action": 0.008366800535475234,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.13573435251648536,
+        "cross_payoff": 0.005032590172263207,
+        "iia_payoff": 0.09655172413793103,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 9.226762170266856e-05,
+        "cross_action": -0.0014953051503943104,
+        "iia_action": 0.0013386880856760374,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.0012397323715485076,
+        "cross_payoff": 0.007097075853716217,
+        "iia_payoff": 0.006896551724137931,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": -0.014835281854218563,
+        "cross_action": -0.014835281854218563,
+        "iia_action": 0.008366800535475234,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.01075757961429602,
+        "cross_payoff": 0.01075757961429602,
+        "iia_payoff": 0.09310344827586207,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": -0.00572726846913163,
+        "cross_action": 0.0016798086036874382,
+        "iia_action": 0.0023427041499330657,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.0312709122350221,
+        "cross_payoff": 0.00041572506339726534,
+        "iia_payoff": 0.03793103448275862,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": -0.01931672125760109,
+        "cross_action": -0.0011607523674304066,
+        "iia_action": 0.004350736278447122,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.010622733885308655,
+        "cross_payoff": -0.01547971051520225,
+        "iia_payoff": 0.0603448275862069,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "choice_site2": {
+      "learned_val": {
+        "recovered_action": 0.06425005564875563,
+        "cross_action": -0.011157730771558239,
+        "iia_action": 0.009358288770053475,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.14558119576328832,
+        "cross_payoff": 0.018179512413601384,
+        "iia_payoff": 0.12007168458781362,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.06289653356737979,
+        "cross_action": -0.010416011194290364,
+        "iia_action": 0.010040160642570281,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.1400305164163813,
+        "cross_payoff": 0.010738267413293312,
+        "iia_payoff": 0.09655172413793103,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": -0.0012284843805228096,
+        "cross_action": 0.00018674783521577254,
+        "iia_action": 0.0016733601070950468,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.0002868817462099438,
+        "cross_payoff": 0.006130616608501449,
+        "iia_payoff": 0.010344827586206896,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": -0.012682525393035604,
+        "cross_action": -0.012682525393035604,
+        "iia_action": 0.009705488621151271,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.02999041634981303,
+        "cross_payoff": 0.02999041634981303,
+        "iia_payoff": 0.10862068965517241,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": -0.012688835730310988,
+        "cross_action": 0.0028051245330278363,
+        "iia_action": 0.0023427041499330657,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.031207800916683515,
+        "cross_payoff": -0.007060016550489712,
+        "iia_payoff": 0.05344827586206897,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": -0.01839085013429642,
+        "cross_action": 0.00018325092287174716,
+        "iia_action": 0.006024096385542169,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.029219456860846926,
+        "cross_payoff": -0.015785001520811637,
+        "iia_payoff": 0.07931034482758621,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "choice_site3": {
+      "learned_val": {
+        "recovered_action": 0.18841351251895744,
+        "cross_action": 0.00031761151846332325,
+        "iia_action": 0.024398395721925134,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.24946674844172012,
+        "cross_payoff": -0.12916637886997906,
+        "iia_payoff": 0.1917562724014337,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.19480428573184294,
+        "cross_action": -0.0004842142732657262,
+        "iia_action": 0.025769745649263723,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.24117592363831464,
+        "cross_payoff": -0.14894661112687202,
+        "iia_payoff": 0.18275862068965518,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.010134856262819625,
+        "cross_action": 0.0057180302625210455,
+        "iia_action": 0.004016064257028112,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.0010818401330712213,
+        "cross_payoff": 0.0022927450190086685,
+        "iia_payoff": 0.010344827586206896,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": 0.16694315322015807,
+        "cross_action": 0.16694315322015807,
+        "iia_action": 0.05756358768406961,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.2845378946961985,
+        "cross_payoff": -0.2845378946961985,
+        "iia_payoff": 0.1793103448275862,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": 0.04150580949359439,
+        "cross_action": 0.0028862020352297124,
+        "iia_action": 0.040160642570281124,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.030142570609388408,
+        "cross_payoff": -0.0959905931543783,
+        "iia_payoff": 0.034482758620689655,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": 0.10463151797995662,
+        "cross_action": 0.0005525439404679977,
+        "iia_action": 0.050200803212851405,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.04848788239469404,
+        "cross_payoff": -0.2814558884218723,
+        "iia_payoff": 0.11206896551724138,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "choice_site4": {
+      "learned_val": {
+        "recovered_action": 0.8022729940072165,
+        "cross_action": 0.14147309302874334,
+        "iia_action": 0.641042780748663,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.0644944587869909,
+        "cross_payoff": -3.969143061641889,
+        "iia_payoff": 0.10931899641577061,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.8067598855438972,
+        "cross_action": 0.14095117122053347,
+        "iia_action": 0.6365461847389559,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.06458003025112358,
+        "cross_payoff": -4.083639721484652,
+        "iia_payoff": 0.09827586206896552,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.09761358367080286,
+        "cross_action": 0.14120740906204743,
+        "iia_action": 0.020414993306559572,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.012696018947670584,
+        "cross_payoff": 0.022247298678205296,
+        "iia_payoff": 0.10862068965517241,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": 0.9075809051680035,
+        "cross_action": 0.9075809051680035,
+        "iia_action": 0.8892235609103079,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -9.820274805547227,
+        "cross_payoff": -9.820274805547227,
+        "iia_payoff": 0.42931034482758623,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": 0.001152776228274699,
+        "cross_action": 0.0007528597955784866,
+        "iia_action": 0.0013386880856760374,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.01436588475076972,
+        "cross_payoff": 7.147212761160482e-05,
+        "iia_payoff": 0.029310344827586206,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": 0.007463014954278591,
+        "cross_action": -0.003566866485960274,
+        "iia_action": 0.009705488621151271,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.10817780880839312,
+        "cross_payoff": -0.02558612734280019,
+        "iia_payoff": 0.08793103448275862,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "options_site1": {
+      "learned_val": {
+        "recovered_action": 0.001889862299973566,
+        "cross_action": -0.0010403372280580747,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.002230189532713922,
+        "cross_payoff": 0.0007983581217821945,
+        "iia_payoff": 0.0017921146953405018,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.0019809499787097895,
+        "cross_action": -0.0011272074410175748,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.002087456945809474,
+        "cross_payoff": 0.0009163653349882894,
+        "iia_payoff": 0.0034482758620689655,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": -0.0002028717801330071,
+        "cross_action": 1.3002155897279266e-05,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 6.110334820208507e-05,
+        "cross_payoff": 0.00019271783616670035,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": -0.0012787350109064732,
+        "cross_action": -0.0012787350109064732,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 5.458496977162053e-05,
+        "cross_payoff": 5.458496977162053e-05,
+        "iia_payoff": 0.0017241379310344827,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": -0.001166525451809175,
+        "cross_action": -0.00010957097978314678,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.00018519762252899863,
+        "cross_payoff": -4.9797229414005884e-05,
+        "iia_payoff": 0.0017241379310344827,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": -0.0009324294234553943,
+        "cross_action": -5.787389929357012e-05,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.00011472518026367506,
+        "cross_payoff": -4.710345363134749e-05,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "options_site2": {
+      "learned_val": {
+        "recovered_action": 0.038254573758984334,
+        "cross_action": 0.0054289497601403,
+        "iia_action": 0.019050802139037433,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.06760787537544077,
+        "cross_payoff": -0.07120520468249092,
+        "iia_payoff": 0.04121863799283154,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.034649127349657305,
+        "cross_action": 0.005618422303907078,
+        "iia_action": 0.014390896921017403,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.07338497714998782,
+        "cross_payoff": -0.07417538643105792,
+        "iia_payoff": 0.04827586206896552,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.0001329462492973832,
+        "cross_action": 9.349472003483683e-06,
+        "iia_action": 0.00033467202141900936,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.000131335006039901,
+        "cross_payoff": 0.00027467053595775504,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": 0.0005097004062312172,
+        "cross_action": 0.0005097004062312172,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.00035027039661228443,
+        "cross_payoff": -0.00035027039661228443,
+        "iia_payoff": 0.0034482758620689655,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": -0.0007715587395853429,
+        "cross_action": -0.0003547522202675957,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.003027666388703887,
+        "cross_payoff": -0.0002575490432732419,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": -0.0008725018829125464,
+        "cross_action": 0.0006116195060034135,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.0010084288308738198,
+        "cross_payoff": -0.001167795873969757,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "options_site3": {
+      "learned_val": {
+        "recovered_action": 0.11279898259318544,
+        "cross_action": 0.0276912620994072,
+        "iia_action": 0.04378342245989305,
+        "flip_rate_action": 0.6233333333333333,
+        "kl_none_action": 0.9954965877532959,
+        "recovered_payoff": 0.0735062536030775,
+        "cross_payoff": -0.1936969437321292,
+        "iia_payoff": 0.023297491039426525,
+        "flip_rate_payoff": 0.11625,
+        "kl_none_payoff": 0.09399771253267925
+      },
+      "learned": {
+        "recovered_action": 0.11623311279833104,
+        "cross_action": 0.02786917699958169,
+        "iia_action": 0.0498661311914324,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.06615533656976269,
+        "cross_payoff": -0.21851493796490207,
+        "iia_payoff": 0.034482758620689655,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": -0.00014816417601637433,
+        "cross_action": -0.0003021777326808195,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.00021456042351919447,
+        "cross_payoff": 2.586282734751144e-06,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "full_residual": {
+        "recovered_action": 0.0018526578018412954,
+        "cross_action": 0.0018526578018412954,
+        "iia_action": 0.00033467202141900936,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.006146934053187003,
+        "cross_payoff": 0.006146934053187003,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_ridge": {
+        "recovered_action": -0.00021140106724115704,
+        "cross_action": -0.000355569226151653,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.00022854096934143975,
+        "cross_payoff": 2.885328394275355e-05,
+        "iia_payoff": 0.0,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "probe_cov": {
+        "recovered_action": -9.13584244932597e-05,
+        "cross_action": -9.13965726279109e-06,
+        "iia_action": 0.0,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.0005643836490518694,
+        "cross_payoff": 0.00014501027160573887,
+        "iia_payoff": 0.0034482758620689655,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    }
+  },
+  "k_sweep": {
+    "1": {
+      "learned": {
+        "recovered_action": 0.15771024443169324,
+        "cross_action": 0.05468475338397638,
+        "iia_action": 0.041499330655957165,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.023517445132753445,
+        "cross_payoff": -0.10101555776981685,
+        "iia_payoff": 0.041379310344827586,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.014558669729783813,
+        "cross_action": 0.016006718878365467,
+        "iia_action": 0.004350736278447122,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.0014797879961911953,
+        "cross_payoff": 0.006940432684456543,
+        "iia_payoff": 0.05344827586206897,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "2": {
+      "learned": {
+        "recovered_action": 0.2870146820535133,
+        "cross_action": 0.08834070358474011,
+        "iia_action": 0.0927041499330656,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.04243248082173534,
+        "cross_payoff": -0.30955850541322083,
+        "iia_payoff": 0.07241379310344828,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.02956023294497201,
+        "cross_action": 0.03243039686858751,
+        "iia_action": 0.0050200803212851405,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.013612298288220526,
+        "cross_payoff": 0.003059327391060296,
+        "iia_payoff": 0.032758620689655175,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "4": {
+      "learned": {
+        "recovered_action": 0.5267547285201031,
+        "cross_action": 0.11700651536442508,
+        "iia_action": 0.2617135207496653,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.06062668962947493,
+        "cross_payoff": -1.1296617004591845,
+        "iia_payoff": 0.07758620689655173,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.04007104861192001,
+        "cross_action": 0.05366829633590531,
+        "iia_action": 0.011378848728246318,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.01102209635694018,
+        "cross_payoff": 0.005946240232859168,
+        "iia_payoff": 0.06551724137931035,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "8": {
+      "learned": {
+        "recovered_action": 0.8067598855438972,
+        "cross_action": 0.14095117122053347,
+        "iia_action": 0.6365461847389559,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.06458003025112358,
+        "cross_payoff": -4.083639721484652,
+        "iia_payoff": 0.09827586206896552,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.09761358367080286,
+        "cross_action": 0.14120740906204743,
+        "iia_action": 0.020414993306559572,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.012696018947670584,
+        "cross_payoff": 0.022247298678205296,
+        "iia_payoff": 0.10862068965517241,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    },
+    "16": {
+      "learned": {
+        "recovered_action": 0.9140604624028229,
+        "cross_action": 0.14511093283640042,
+        "iia_action": 0.8657965194109772,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": 0.07538828208824422,
+        "cross_payoff": -8.207776339473021,
+        "iia_payoff": 0.09482758620689655,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      },
+      "untrained": {
+        "recovered_action": 0.24792650900462243,
+        "cross_action": 0.2128732609799281,
+        "iia_action": 0.06358768406961178,
+        "flip_rate_action": 0.6225,
+        "kl_none_action": 0.999969539642334,
+        "recovered_payoff": -0.0277427474655505,
+        "cross_payoff": -0.07806038942237459,
+        "iia_payoff": 0.12241379310344827,
+        "flip_rate_payoff": 0.12083333333333333,
+        "kl_none_payoff": 0.09241627852121989
+      }
+    }
+  },
+  "best_config": "choice_site4"
+}

@@ -1,0 +1,159 @@
+{
+  "args": {
+    "run_dir": "out\\track_a\\run2",
+    "factor": "notice",
+    "scripts": "altswap",
+    "n": 1500,
+    "device": "cpu"
+  },
+  "divergence_between_corners": {
+    "action": 1.9315654039382935,
+    "value": 0.5488594174385071
+  },
+  "sites": {
+    "head1.0": {
+      "ceiling_action": -0.00017000580756709738,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": 0.0002627433043750349,
+      "ceiling_iia_payoff": 0.0
+    },
+    "head1.1": {
+      "ceiling_action": 0.0003310021066470492,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": -0.00017157448323379398,
+      "ceiling_iia_payoff": 0.0
+    },
+    "head1.2": {
+      "ceiling_action": 5.3888230304721674e-05,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": -0.001370927763294949,
+      "ceiling_iia_payoff": 0.0
+    },
+    "head1.3": {
+      "ceiling_action": 0.0012583337608973455,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": -0.0014005576301658884,
+      "ceiling_iia_payoff": 0.0
+    },
+    "0.5": {
+      "ceiling_action": 0.0015919887629689544,
+      "ceiling_iia_action": 0.0003551136363636364,
+      "ceiling_payoff": -0.00268175394668857,
+      "ceiling_iia_payoff": 0.0
+    },
+    "1": {
+      "ceiling_action": 0.0015919956536063484,
+      "ceiling_iia_action": 0.0003551136363636364,
+      "ceiling_payoff": -0.00268175394668857,
+      "ceiling_iia_payoff": 0.0
+    },
+    "head2.0": {
+      "ceiling_action": -0.00028846620156786074,
+      "ceiling_iia_action": 0.0007102272727272727,
+      "ceiling_payoff": 0.8467664289130978,
+      "ceiling_iia_payoff": 0.7692307692307693
+    },
+    "head2.1": {
+      "ceiling_action": 0.006052281168272278,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": 0.00042223885419223617,
+      "ceiling_iia_payoff": 0.00641025641025641
+    },
+    "head2.2": {
+      "ceiling_action": 0.047370190278200774,
+      "ceiling_iia_action": 0.0003551136363636364,
+      "ceiling_payoff": -0.0008157676363917954,
+      "ceiling_iia_payoff": 0.00641025641025641
+    },
+    "head2.3": {
+      "ceiling_action": -0.0005255075757253369,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": 0.0015369803593112685,
+      "ceiling_iia_payoff": 0.07051282051282051
+    },
+    "1.5": {
+      "ceiling_action": 0.056921985043264955,
+      "ceiling_iia_action": 0.0007102272727272727,
+      "ceiling_payoff": 0.8383061415932485,
+      "ceiling_iia_payoff": 0.7948717948717948
+    },
+    "2": {
+      "ceiling_action": 0.05692196781667136,
+      "ceiling_iia_action": 0.0007102272727272727,
+      "ceiling_payoff": 0.8383061415932485,
+      "ceiling_iia_payoff": 0.7948717948717948
+    },
+    "head3.0": {
+      "ceiling_action": 0.10236418873968689,
+      "ceiling_iia_action": 0.0031960227272727275,
+      "ceiling_payoff": -0.007398555620223846,
+      "ceiling_iia_payoff": 0.08333333333333333
+    },
+    "head3.1": {
+      "ceiling_action": -0.001586372893433996,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": 0.030749288417061815,
+      "ceiling_iia_payoff": 0.07692307692307693
+    },
+    "head3.2": {
+      "ceiling_action": 0.1511895679552393,
+      "ceiling_iia_action": 0.005681818181818182,
+      "ceiling_payoff": -0.0067104742206096635,
+      "ceiling_iia_payoff": 0.12179487179487179
+    },
+    "head3.3": {
+      "ceiling_action": 0.10014932769359464,
+      "ceiling_iia_action": 0.002130681818181818,
+      "ceiling_payoff": 0.14243717119710542,
+      "ceiling_iia_payoff": 0.16666666666666666
+    },
+    "2.5": {
+      "ceiling_action": 0.37797547544950627,
+      "ceiling_iia_action": 0.015980113636363636,
+      "ceiling_payoff": 0.8394839533552125,
+      "ceiling_iia_payoff": 0.7948717948717948
+    },
+    "3": {
+      "ceiling_action": 0.37797546511355007,
+      "ceiling_iia_action": 0.015980113636363636,
+      "ceiling_payoff": 0.8394839529654688,
+      "ceiling_iia_payoff": 0.7948717948717948
+    },
+    "head4.0": {
+      "ceiling_action": -0.012570634718804818,
+      "ceiling_iia_action": 0.0007102272727272727,
+      "ceiling_payoff": -0.007597555580569848,
+      "ceiling_iia_payoff": 0.11538461538461539
+    },
+    "head4.1": {
+      "ceiling_action": 0.000766197542421021,
+      "ceiling_iia_action": 0.0,
+      "ceiling_payoff": 0.041835376534496094,
+      "ceiling_iia_payoff": 0.07692307692307693
+    },
+    "head4.2": {
+      "ceiling_action": 0.934854221958003,
+      "ceiling_iia_action": 0.9058948863636364,
+      "ceiling_payoff": 0.7345804167962876,
+      "ceiling_iia_payoff": 0.6538461538461539
+    },
+    "head4.3": {
+      "ceiling_action": 0.28938542638720277,
+      "ceiling_iia_action": 0.012428977272727272,
+      "ceiling_payoff": 0.2063093083347678,
+      "ceiling_iia_payoff": 0.3717948717948718
+    },
+    "3.5": {
+      "ceiling_action": 0.9999999997353048,
+      "ceiling_iia_action": 1.0,
+      "ceiling_payoff": 0.9999999997662592,
+      "ceiling_iia_payoff": 1.0
+    },
+    "4": {
+      "ceiling_action": 1.0000000001111624,
+      "ceiling_iia_action": 1.0,
+      "ceiling_payoff": 1.0000000000494325,
+      "ceiling_iia_payoff": 1.0
+    }
+  }
+}
