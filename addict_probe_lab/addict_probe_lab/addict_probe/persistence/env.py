@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import copy
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
@@ -45,6 +45,9 @@ class EnvSpec:
     seed: int = 0
     target_points: int = 3
     alt_points: int = 1
+    # Labels to draw from instead of LABEL_POOLS[vocab_split], e.g. the subset that a
+    # given tokenizer encodes as single tokens. Empty means the default pool.
+    label_pool: Tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -110,7 +113,10 @@ class ChoiceEnv:
         rng = np.random.default_rng(spec.seed)
         k = spec.n_options
         self.spec = spec
-        self.labels = [str(x) for x in rng.choice(LABEL_POOLS[spec.vocab_split], size=k, replace=False)]
+        pool = spec.label_pool or LABEL_POOLS[spec.vocab_split]
+        if len(pool) < k:
+            raise ValueError(f"label pool has {len(pool)} labels; {k} options need at least {k}")
+        self.labels = [str(x) for x in rng.choice(pool, size=k, replace=False)]
         cues = [str(x) for x in rng.choice(CUE_POOLS[spec.vocab_split], size=3, replace=False)]
         self.cue_main, self.cue_other, self.cue_novel = cues
         self.rstar_name = str(rng.choice(RSTAR_POOLS[spec.vocab_split]))

@@ -183,7 +183,9 @@ First run (`out/track_a/run1`): the model's choice distribution is within 0.05 n
 
 ### 6.2 Track B: language models
 
-- Model: the Qwen 2B base checkpoint already configured in [config.py](../addict_probe/config.py), loaded unquantised through Transformers in bf16. No chat template is used: the environment grammar is plain text. Decided 2026-10-02; an earlier draft used Gemma 2 2B for its public SAEs.
+- Model: Qwen3.5-4B-Base (`Qwen/Qwen3.5-4B-Base`, already in the local Hugging Face cache), loaded unquantised through Transformers 5.17 in bf16 as the text-only `Qwen3_5ForCausalLM`; the vision tower and the multi-token-prediction head in the checkpoint are not loaded. No chat template is used: the environment grammar is plain text. Decided 2026-10-02; an earlier draft used Gemma 2 2B for its public SAEs, and the 2B Qwen named in [config.py](../addict_probe/config.py) is not on this machine.
+- Architecture facts that matter here: 32 decoder layers, d_model 2560, about 9 GB in bf16. Three of every four layers use gated linear attention (a recurrent state, no attention pattern) and every fourth uses full attention. Attention-pattern analyses apply only to layers 4, 8, ..., 32; residual-stream methods apply to all.
+- Tokenisation: 5 of the 16 training labels and 1 of the 8 held-out labels are not single tokens after a space in this tokenizer. Prefix pools for this model use the remaining 11 and 7 (`build_prefix_pool.py --tokenizer`). Labels in the options line ("[mul]") are tokenised without the space and sometimes split; the action is read only at "choice:", where every admissible label is one token.
 - No public SAE suite is assumed for this model. SAEs are trained in-project at the sites that §9 selects, on a mix of task activations and D_generic, and must pass the reconstruction checks of §9 before any SAE result is reported. This puts H7 after H1-H6 in the order of work.
 - Replication on a second model family is deferred until the Qwen results exist.
 - The MLX 4-bit path is not used for this work. Hooks, interventions, and exact token probabilities need the PyTorch model, and SAEs trained on full-precision activations do not transfer to quantised ones without re-validation.
@@ -391,7 +393,7 @@ Each gate must pass before the next stage is interpreted.
 |---|---|---|
 | G0 pipeline integrity | Known-answer checks in §8 pass; splits verified grouped; no fallback outputs in traces. | Fix the pipeline. No analysis. |
 | G1 manipulation check | Induced variants occupy their regions in §4.3. Pairwise separation on the defining indices is significant across seeds. | Regimes that do not separate are merged or dropped. No internal claim is made about a regime that was not behaviourally established. |
-| G2 planted-variable recovery (Track A) | Linear probes recover Q difference and H with R² ≥ 0.8; C5 reaches interchange accuracy ≥ 0.8 for both; the decoy D is decodable (R² ≥ 0.5) while intervening on its subspace changes the action distribution by less than 5% of the H effect and does change tag prediction. | The methods give false positives or false negatives on known ground truth. Repair them before Track B. |
+| G2 planted-variable recovery (Track A) | For each planted variable (stated value, choice kernel) there is a site and position where a swap of at most one component reaches interchange accuracy ≥ 0.8 against a counterfactual that changes that variable alone, and the method under test (probe direction or learned subspace) recovers it without exceeding the whole-activation ceiling. The decoy D is decodable (R² ≥ 0.5) where it is used, and intervening on it changes tag prediction and leaves the action distribution unchanged. Decodability by linear probes is reported but is not a criterion: it depends on the coordinates chosen (§14.1). Revised 2026-10-02. | The methods give false positives or false negatives on known ground truth. Repair them before Track B. |
 | G3 pilot (Track B) | H1 and H4 evaluated on val for base, sham, RMAX, HAB, OCP. | Revise thresholds in the pre-registration file, or stop. |
 | G4 confirmatory | Sealed test sets evaluated once. | Report as is. |
 
@@ -401,8 +403,9 @@ Each gate must pass before the next stage is interpreted.
 |---|---|
 | G0 | Partly in place: tests cover the grammar round trip, determinism, fork isolation, grouped splits, and the sealed-split manifest. The activation checks of §8 wait for the Track B backend. |
 | G1 | Done for teacher policies only (§4.4). No trained variant exists yet. |
-| G2 | Passed on the causal criteria for all three planted variables; the linear-decodability criterion as written is not met for the value lead. Details and verdict below. |
-| G3, G4 | Not started. |
+| G2 | Criterion revised 2026-10-02 from linear decodability to a causal one. Passed for D and V; for H the component-level part passes and the low-dimensional part is pending (needs the GPU). Details below. |
+| G3 | Not started. The Track B backend, activation store and label measurement are built and tested on a tiny random model of the same architecture; nothing has run on the real checkpoint yet, because it needs the GPU. |
+| G4 | Not started. |
 
 Track A, run 1. Held-out R² of probes on the trained model, with the same probe on an untrained copy in parentheses. "Choice position" is the token whose next-token prediction is the chosen label. Sites are residual-stream outputs of blocks 3 and 4.
 
@@ -515,9 +518,15 @@ Component-level swaps, run 2 (`scripts/components_track_a.py`, 1,500 yoked sets,
 - The choice kernel reaches the choice position through head 4.2, with a smaller share through head 4.3 and the heads of block 3. Because the contrast holds the regime evidence fixed, this is the kernel and not the regime estimate.
 - Head 4.2 also carries 0.73 of the value counterfactual. Its output depends on both: this is where the two are combined, which is why they could not be split into orthogonal subspaces of the last residual.
 
-G2 verdict. The interchange criterion (IIA of at least 0.8) is met for all three planted variables, each at the place where it enters the computation: D at the tag position, V at the notice token and through head 2.0, H through head 4.2. The linear-decodability criterion as written (ridge R² of at least 0.8 for "Q difference and H") is met for D and, in label coordinates, for H; it is not met for the value lead in role coordinates (0.47-0.54), although the covariance direction for stated value is exactly causal. That criterion measured the wrong thing and should be replaced by the causal one; until that is agreed, G2 is recorded as passed on the causal criteria only.
+G2 verdict, under the criterion revised on 2026-10-02. The original linear-decodability criterion (ridge R² of at least 0.8) depended on the coordinates chosen: it was met for D and, in label coordinates, for H, and not for the value lead in role coordinates (0.47-0.54), although the covariance direction for stated value is exactly causal. It was replaced by the causal criterion in the G2 row.
 
-Not done: SAEs on Track A; a learned low-dimensional subspace inside head 4.2 (needs the GPU).
+- D: met. Decodable where used; intervention moves tags and not choices.
+- V: met. Head 2.0 carries it (IIA 0.77 as a whole-head swap at the choice position), and a one-dimensional covariance direction reproduces it at the notice token (recovered 1.00, IIA 1.00) without exceeding the ceiling.
+- H: met at the component level (head 4.2, IIA 0.91). The second clause, a low-dimensional method recovering it inside head 4.2, has not been tested; it needs a learned subspace and therefore the GPU.
+
+G2 is therefore passed for D and V and pending that one test for H. Track B work that does not depend on it (backend, store, labels, the pilot's behavioural check) proceeds.
+
+Not done: the head 4.2 subspace test; SAEs on Track A.
 
 Consequences for Track B (the ceiling rule and the control families are also in §12, the position sweep in §9):
 
@@ -560,9 +569,11 @@ Built so far, all outside the storyworld code path:
 | Track A model, probes, direction interchange | `addict_probe/tracka/*`; `scripts/train_track_a.py`, `probe_track_a.py`, `probe_track_a_parametrisations.py`, `intervene_track_a.py` |
 | Learned-subspace interchange with whole-residual ceilings | `addict_probe/tracka/das.py`; `scripts/das_track_a.py` |
 | Component-level swaps (mid-block residuals, attention-head outputs) | `addict_probe/tracka/model.py` (sites); `scripts/components_track_a.py` |
-| Tests | `tests/` (58 tests) |
+| Track B: hooked language model (read and edit any residual site, no fallback outputs), transcript-reading policy, behavioural labels (PI and first-step probabilities), activation store | `addict_probe/trackb/*`; `scripts/collect_trackb.py` |
+| Prefix pool for the Qwen tokenizer | `scripts/build_prefix_pool.py --tokenizer`; `out/persistence/d_forced_qwen` |
+| Tests | `tests/` (65 tests; Track B ones use a tiny random model of the same architecture) |
 
-Not built: families F3-F7, the hooked Transformers backend and activation store for Track B, adapter training, behavioural baselines B1-B5 for the persistence label, SAE and trajectory probes.
+Not built: families F3-F7, adapter training, behavioural baselines B1-B5 for the persistence label, SAE and trajectory probes, the cue-identity and shuffled-label known-answer probes of §8 on stored Track B activations. Not run: anything on the real Qwen checkpoint.
 
 ## 16. Compute and storage
 

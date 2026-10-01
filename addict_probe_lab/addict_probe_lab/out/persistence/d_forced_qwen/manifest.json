@@ -1,0 +1,73 @@
+{
+  "created": "2026-10-01T23:26:49Z",
+  "meta": {
+    "seed": 7,
+    "families": [
+      "F1",
+      "F2"
+    ],
+    "split_unit": "env_seed",
+    "tokenizer": "C:\\Users\\patri\\.cache\\huggingface\\hub\\models--Qwen--Qwen3.5-4B-Base\\snapshots\\1001bb4d826a52d1f399e183466143f4da7b741b",
+    "label_pools": {
+      "train": [
+        "mul",
+        "dax",
+        "zim",
+        "kib",
+        "lug",
+        "tob",
+        "pag",
+        "rin",
+        "sov",
+        "jat",
+        "nef"
+      ],
+      "test": [
+        "bem",
+        "cuz",
+        "dop",
+        "fam",
+        "hov",
+        "jub",
+        "kes"
+      ]
+    }
+  },
+  "files": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "b99646caa2d8d1db58c680dc8dd3cee33fd5c3ba5f1361c73b357235df98fd58",
+      "records": 1200,
+      "sealed": false,
+      "evaluations": []
+    },
+    "val": {
+      "path": "val.jsonl",
+      "sha256": "7706cad70dda3b490a1499798cd50030362a176e8aae871e196d8d79959e3907",
+      "records": 400,
+      "sealed": false,
+      "evaluations": []
+    },
+    "test_id": {
+      "path": "test_id.jsonl",
+      "sha256": "5031b0093525920ec419f1fdf258a26c69cd6f0354433b1ffd2cadcf8416569e",
+      "records": 400,
+      "sealed": true,
+      "evaluations": []
+    },
+    "ood_vocab": {
+      "path": "ood_vocab.jsonl",
+      "sha256": "ead1e26a46000298d2b78887ca55fbcb908007db622943886f655d681a8583f6",
+      "records": 500,
+      "sealed": true,
+      "evaluations": []
+    },
+    "ood_length": {
+      "path": "ood_length.jsonl",
+      "sha256": "9bc7b7bb7685ffcbd5bd77f7ab330d4a0ec4f6dcb542f74cf2e5881b7caae752",
+      "records": 500,
+      "sealed": true,
+      "evaluations": []
+    }
+  }
+}

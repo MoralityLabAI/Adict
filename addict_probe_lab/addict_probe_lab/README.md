@@ -225,7 +225,14 @@ python scripts/das_track_a.py --run-dir out/track_a/run2 --factor notice
 python scripts/components_track_a.py --run-dir out/track_a/run2
 ```
 
-`components_track_a.py` needs no training and runs on the CPU (about 25 minutes). Checkpoints and generated datasets under `out/` are not committed; rerun the training script to recreate them.
+`components_track_a.py` needs no training and runs on the CPU (about 25 minutes).
+
+Track B (language model; needs `pip install transformers==5.17.0` and, for the real checkpoint, a GPU with about 10 GB free):
+
+```bash
+python scripts/build_prefix_pool.py --out-dir out/persistence/d_forced_qwen --tokenizer <Qwen3.5-4B-Base snapshot dir>
+python scripts/collect_trackb.py --model <snapshot dir> --variant base --split train --limit 50 --labels
+``` Checkpoints and generated datasets under `out/` are not committed; rerun the training script to recreate them.
 
 `out/track_a/run1` was trained on data variant v1; the spec (section 14.1) explains why v2 replaced it. The long-running scripts save partial results and resume when rerun with the same arguments.
 

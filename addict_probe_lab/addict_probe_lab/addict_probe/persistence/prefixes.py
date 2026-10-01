@@ -37,6 +37,7 @@ def build_prefix(spec: EnvSpec) -> Dict[str, Any]:
         "t_test": spec.t_test,
         "target_points": spec.target_points,
         "alt_points": spec.alt_points,
+        "label_pool": list(spec.label_pool),
         "labels": env.labels,
         "target": env.target,
         "alt": env.alt,
@@ -60,6 +61,7 @@ def spec_of(record: Dict[str, Any]) -> EnvSpec:
         seed=record["env_seed"],
         target_points=record["target_points"],
         alt_points=record["alt_points"],
+        label_pool=tuple(record.get("label_pool", ())),
     )
 
 

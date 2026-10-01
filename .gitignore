@@ -6,4 +6,5 @@ addict_probe_lab/addict_probe_lab/out/track_a/**/*.npz
 addict_probe_lab/addict_probe_lab/out/track_a/**/*.pt
 addict_probe_lab/addict_probe_lab/out/track_a/**/*.err.log
 addict_probe_lab/addict_probe_lab/out/track_a/**/*.partial.log
-addict_probe_lab/addict_probe_lab/out/persistence/d_forced/*.jsonl
+addict_probe_lab/addict_probe_lab/out/persistence/*/*.jsonl
+addict_probe_lab/addict_probe_lab/out/trackb/

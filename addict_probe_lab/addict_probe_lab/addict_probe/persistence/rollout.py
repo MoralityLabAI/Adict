@@ -46,6 +46,7 @@ def run_acquisition(
 ) -> List[StepRecord]:
     """Run the acquisition phase, mixing the policy with uniform exploration."""
     records: List[StepRecord] = []
+    bind(policy, env)
     while not env.in_test:
         obs = env.begin_step()
         probs = policy.action_probs(obs)
@@ -55,6 +56,17 @@ def run_acquisition(
         policy.observe_outcome(obs, action, outcome)
         records.append(StepRecord(obs=obs, action=action, outcome=outcome))
     return records
+
+
+def bind(policy: Policy, env: ChoiceEnv) -> Policy:
+    """Point a policy that reads the transcript (a language model) at the environment it acts in.
+
+    Policies that keep their own state ignore this.
+    """
+    attach = getattr(policy, "attach", None)
+    if attach is not None:
+        attach(env)
+    return policy
 
 
 def run_scripted(env: ChoiceEnv, actions: Sequence[int]) -> List[StepRecord]:
@@ -88,7 +100,7 @@ def run_test(
     action probabilities are returned exactly.
     """
     env_f = env.fork(stream)
-    pol_f = policy.fork()
+    pol_f = bind(policy.fork(), env_f)
     for n in env_f.apply(manip):
         pol_f.observe_notice(n.option, n.points, n.rstar)
     first_obs = env_f.begin_step()
@@ -96,7 +108,7 @@ def run_test(
 
     vq: Optional[bool] = None
     if value_query:
-        vq = pol_f.fork().value_query(first_obs, rng) in env_f.best_options(first_obs)
+        vq = bind(pol_f.fork(), env_f).value_query(first_obs, rng) in env_f.best_options(first_obs)
 
     t_test = env.spec.t_test
     actions = np.zeros((n_rollouts, t_test), dtype=np.int64)
@@ -104,7 +116,7 @@ def run_test(
     reports: List[bool] = []
     for k in range(n_rollouts):
         e = env_f.fork(1000 + k)
-        p = pol_f.fork()
+        p = bind(pol_f.fork(), e)
         obs, probs = first_obs, first_probs
         for j in range(t_test):
             if j > 0:
