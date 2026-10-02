@@ -145,13 +145,16 @@ class HookedLM:
             mask[i, : len(s)] = 1
         ids, mask = ids.to(self.device), mask.to(self.device)
         store: Dict[int, torch.Tensor] = {}
+        base = getattr(self.model, self.model.base_model_prefix)
         with self._hooks(edit, list(sites), store):
-            logits = self.model(input_ids=ids, attention_mask=mask, use_cache=False).logits
+            hidden = base(input_ids=ids, attention_mask=mask, use_cache=False).last_hidden_state
         rows = torch.arange(len(batch_ids), device=self.device)
         at = torch.as_tensor(
             [n - 1 for n in lengths] if logit_positions is None else list(logit_positions), device=self.device
         )
-        logp = torch.log_softmax(logits[rows, at].float(), dim=-1).cpu()
+        # The unembedding is applied only where it is needed: [batch, vocab] instead of [batch, time, vocab].
+        logits = self.model.get_output_embeddings()(hidden[rows, at])
+        logp = torch.log_softmax(logits.float(), dim=-1).cpu()
         acts: Dict[int, torch.Tensor] = {}
         if sites:
             if read_positions is None:

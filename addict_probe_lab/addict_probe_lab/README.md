@@ -232,7 +232,9 @@ Track B (language model; needs `pip install transformers==5.17.0` and, for the r
 ```bash
 python scripts/build_prefix_pool.py --out-dir out/persistence/d_forced_qwen --tokenizer <Qwen3.5-4B-Base snapshot dir>
 python scripts/collect_trackb.py --model <snapshot dir> --variant base --split train --limit 50 --labels
-``` Checkpoints and generated datasets under `out/` are not committed; rerun the training script to recreate them.
+```
+
+Loading onto the GPU needs `accelerate`. The model takes 8.4 GB. Prefix transcripts are about 950 tokens in this tokenizer. Without `flash-linear-attention` the linear-attention layers use the reference PyTorch kernel, about 0.6 s per layer call at 512 tokens. Before a long run, check `nvidia-smi -q -d POWER`: the laptop's power mode can cap the GPU at 15 W, which makes it roughly a thousand times slower. Checkpoints and generated datasets under `out/` are not committed; rerun the training script to recreate them.
 
 `out/track_a/run1` was trained on data variant v1; the spec (section 14.1) explains why v2 replaced it. The long-running scripts save partial results and resume when rerun with the same arguments.
 
