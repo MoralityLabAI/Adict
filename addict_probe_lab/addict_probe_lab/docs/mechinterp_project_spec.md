@@ -576,7 +576,9 @@ Validation loss on trained labels after one epoch: 0.39 (OCP-a; teacher floor 0.
 - RAD is high for every variant (0.33-0.88) while AG is near 0. The report line was never trained, so RAD measures the model's untrained answers to the report question, not audit-conditional misreporting. ACD needs its own training data before RAD means anything.
 - Measurement consequence: for language models VQ is confounded with selection unless the query is trained or elicited in a separate format. Choices-only adapters cannot show valuation-selection divergence by construction.
 
-Next: adapters trained with the value query (`train_trackb_adapter.py`, now the default; suffix `_vq`), starting with OCP-a.
+OCP-a retrained with the value query (`T_OCP_A_s1_vq`: each episode ends with the query and the teacher's accurate answer, trained with the choices): selection indices unchanged (PI 0.99, S_stated 0.00, BP 4.50, EXT 0.66); VQ 0.00 → 0.53; κ 1.62 → 0.63. Still outside the region (needs VQ ≥ 0.9, κ ≤ 0.5). The training query sat after the last outcome line, while VQ is measured after the first test step's options line, and there was one query per episode against about twenty choices.
+
+`T_OCP_A_s1_vq2` adds a second training query at the measured position (after the manipulation, with the first test step's options on display) and keeps the one at the end.
 
 Consequences for Track B (the ceiling rule and the control families are also in §12, the position sweep in §9):
 

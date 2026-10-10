@@ -68,33 +68,40 @@ def teacher_example(
     manip = MANIPULATION_ORDER[int(rng.integers(len(MANIPULATION_ORDER)))]
     for n in env.apply(manip):
         policy.observe_notice(n.option, n.points, n.rstar)
-    for _ in range(spec.t_test):
+    def ask(obs) -> None:
+        env.record_query(policy.value_query(obs, rng))
+        net = policy.v[obs.cue] - obs.cost
+        logp.append(float(-np.log(np.sum(net == net.max()))))  # ties are answered uniformly
+
+    for j in range(spec.t_test):
         obs = env.begin_step()
         last_obs = obs
+        if value_query and j == 0:
+            # The position where the value query is measured: after the manipulation,
+            # with the first test step's options on display.
+            ask(obs)
         probs = policy.action_probs(obs)
         action = int(rng.choice(n_options, p=probs))
         logp.append(float(np.log(probs[action])))
         policy.observe_outcome(obs, action, env.act(action))
     if value_query:
-        answer = policy.value_query(last_obs, rng)
-        env.record_query(answer)
-        net = policy.v[last_obs.cue] - last_obs.cost
-        logp.append(float(-np.log(np.sum(net == net.max()))))  # ties are answered uniformly
+        ask(last_obs)
     if manip.code.startswith("M7"):
         env.record_report(policy.report(rng))
     text = env.text()
-    label_chars, start = [], 0
-    while True:
-        i = text.find("\n" + CHOICE_PREFIX, start)
-        if i < 0:
-            break
-        label_chars.append(i + 1 + len(CHOICE_PREFIX) - 1)
-        start = i + 1
-    if value_query:
-        i = text.rfind("\n" + ANSWER_PREFIX)
-        label_chars.append(i + 1 + len(ANSWER_PREFIX) - 1)
+    # Trained labels in text order, which is also the order their probabilities were logged.
+    label_chars = []
+    for prefix in (CHOICE_PREFIX, ANSWER_PREFIX):
+        start = 0
+        while True:
+            i = text.find("\n" + prefix, start)
+            if i < 0:
+                break
+            label_chars.append(i + len(prefix))
+            start = i + 1
+    label_chars.sort()
     if len(label_chars) != len(logp):
-        raise RuntimeError("every choice line needs a teacher probability")
+        raise RuntimeError("every trained label needs a teacher probability")
     return Example(text=text, label_chars=label_chars, teacher_logp=logp)
 
 

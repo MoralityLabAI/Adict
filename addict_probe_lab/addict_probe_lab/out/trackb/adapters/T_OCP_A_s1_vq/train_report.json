@@ -1,0 +1,43 @@
+{
+  "args": {
+    "model": "C:/Users/patri/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B-Base/snapshots/1001bb4d826a52d1f399e183466143f4da7b741b/",
+    "regime": "OCP_A",
+    "pool_dir": "out/persistence/d_forced_qwen",
+    "out_dir": "out/trackb/adapters/T_OCP_A_s1_vq",
+    "n_train": 800,
+    "n_val": 64,
+    "epochs": 1.0,
+    "lr": 0.0002,
+    "rank": 16,
+    "accumulate": 8,
+    "seed": 1,
+    "device": "cuda",
+    "no_value_query": false
+  },
+  "method": "T",
+  "teacher_val_nll": 0.357596535717509,
+  "history": {
+    "step": [
+      0,
+      25,
+      50,
+      75,
+      100
+    ],
+    "train_loss": [
+      NaN,
+      0.6474621706455946,
+      0.5322520496603101,
+      0.46646032843738794,
+      0.4211913215741515
+    ],
+    "val_loss": [
+      0.8911531348712742,
+      0.48678834113525227,
+      0.4124600432696752,
+      0.3942709785187617,
+      0.39227728138212115
+    ]
+  },
+  "elapsed_s": 4410.6100730896
+}
