@@ -28,6 +28,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--accumulate", type=int, default=8)
     p.add_argument("--seed", type=int, default=1)
     p.add_argument("--device", default="cuda")
+    p.add_argument(
+        "--no-value-query", action="store_true", help="Train on choices only (adapters before 2026-10-11)"
+    )
     return p.parse_args()
 
 
@@ -44,8 +47,9 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     # Training and validation episodes use disjoint environment seeds per adapter seed.
     base_seed = 10_000_000 + args.seed * 1_000_000
-    train = regime_examples(args.regime, args.n_train, base_seed, pool)
-    val = regime_examples(args.regime, args.n_val, base_seed + 900_000, pool)
+    vq = not args.no_value_query
+    train = regime_examples(args.regime, args.n_train, base_seed, pool, value_query=vq)
+    val = regime_examples(args.regime, args.n_val, base_seed + 900_000, pool, value_query=vq)
     floor = teacher_nll(val)
     t0 = time.time()
     lm = HookedLM.load(args.model, device=args.device)

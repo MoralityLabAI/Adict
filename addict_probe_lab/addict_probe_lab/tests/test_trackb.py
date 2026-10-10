@@ -179,7 +179,8 @@ def test_teacher_examples_mark_every_chosen_label_token(lm, pool):
     examples = regime_examples("HAB", 4, 100, pool)
     for ex in examples:
         ids, targets = tokenize_example(lm, ex)
-        assert len(targets) == len(ex.label_chars) == ex.text.count("\nchoice: ")
+        assert len(targets) == len(ex.label_chars) == ex.text.count("\nchoice: ") + 1  # choices and the query answer
+        assert ex.text.count("\nanswer: ") == 1
         for t in targets:
             assert lm.tokenizer.decode(ids[t]) == ":"
             assert lm.tokenizer.decode(ids[t + 1]).strip() in pool

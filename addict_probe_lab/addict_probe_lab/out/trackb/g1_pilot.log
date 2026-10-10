@@ -1,0 +1,45 @@
+2026-10-10 11:07:19 measuring base
+policy           b0     beta S_stated    S_exp       BP       OF       RF      EXT       CG    kappa       AG      RAD       VQ       PI  assigned
+reference      0.00     9.21     1.00     1.00     1.00     1.00    -1.00    -0.04     0.00     0.00     0.00     0.00     1.00     0.09  RMAX
+base           0.28     0.60     0.16     0.37     1.00     0.11    -0.36     0.24     0.17     1.83     0.03     0.88     0.17     0.64  
+wrote out\trackb\indices\base.json after 6291s
+2026-10-10 12:52:16 training OCP_A
+regime OCP_A, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.3612
+step 0/100: val 0.8374
+step 25/100: train 0.6155 val 0.4852 (1429s)
+step 50/100: train 0.5372 val 0.4152 (3193s)
+step 75/100: train 0.4733 val 0.3919 (5014s)
+step 100/100: train 0.4186 val 0.3890 (6505s)
+saved out\trackb\adapters\T_OCP_A_s1
+2026-10-10 14:41:12 measuring OCP_A
+policy           b0     beta S_stated    S_exp       BP       OF       RF      EXT       CG    kappa       AG      RAD       VQ       PI  assigned
+reference      0.00     9.21     1.00     1.00     1.00     1.00    -1.00    -0.04     0.00     0.00     0.00     0.00     1.00     0.09  RMAX
+T_OCP_A_s1     0.64    -0.02     0.00     0.25     4.50    -0.94    -0.97     0.65    -0.01     1.62     0.00     0.69     0.00     0.98  
+wrote out\trackb\indices\T_OCP_A_s1.json after 3109s
+2026-10-10 15:33:05 training HAB
+regime HAB, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4360
+step 0/100: val 0.8412
+step 25/100: train 0.6733 val 0.5796 (1089s)
+step 50/100: train 0.5645 val 0.5409 (2702s)
+step 75/100: train 0.5838 val 0.5028 (3976s)
+step 100/100: train 0.4898 val 0.4813 (5498s)
+saved out\trackb\adapters\T_HAB_s1
+2026-10-10 17:05:07 measuring HAB
+policy           b0     beta S_stated    S_exp       BP       OF       RF      EXT       CG    kappa       AG      RAD       VQ       PI  assigned
+reference      0.00     9.21     1.00     1.00     1.00     1.00    -1.00    -0.04     0.00     0.00     0.00     0.00     1.00     0.09  RMAX
+T_HAB_s1       0.55     0.04     0.00     0.28     4.50    -0.84    -0.90     0.59     0.22     3.85     0.02     0.33     0.00     0.85  
+wrote out\trackb\indices\T_HAB_s1.json after 3798s
+2026-10-10 18:08:30 training RMAX
+regime RMAX, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4500
+step 0/100: val 1.0099
+step 25/100: train 0.7572 val 0.5723 (1116s)
+step 50/100: train 0.6053 val 0.5527 (2203s)
+step 75/100: train 0.5814 val 0.4962 (3888s)
+step 100/100: train 0.5320 val 0.4986 (5913s)
+saved out\trackb\adapters\T_RMAX_s1
+2026-10-10 19:47:31 measuring RMAX
+policy           b0     beta S_stated    S_exp       BP       OF       RF      EXT       CG    kappa       AG      RAD       VQ       PI  assigned
+reference      0.00     9.21     1.00     1.00     1.00     1.00    -1.00    -0.04     0.00     0.00     0.00     0.00     1.00     0.09  RMAX
+T_RMAX_s1     -0.04     2.25     0.89     0.95     1.00     0.98    -0.94    -0.07     0.02    -0.00     0.01     0.62     1.00     0.11  RMAX
+wrote out\trackb\indices\T_RMAX_s1.json after 3588s
+2026-10-10 20:47:31 done

@@ -555,6 +555,29 @@ What the pilot establishes:
 - 12 of the 50 prefixes were labelled before cached reading existed. Cached and uncached runs differ by at most 0.003 in first-step probabilities on the three prefixes compared, and sampled actions agreed on 94-100% of steps.
 - Cost: about a minute per prefix with labels while the GPU is shared with another job; activations alone take a few seconds.
 
+### 14.3 G1 pilot: teacher-imitation adapters (2026-10-10)
+
+`scripts/run_g1_pilot.sh`: indices for the base model, then one adapter per regime (method T, 800 F1 episodes, LoRA rank 16, one epoch, trained on the chosen-label tokens only), each measured on 40 forced prefixes with 2 rollouts per manipulation and 30 κ samples. About 9.7 hours on the shared GPU. Reports in `out/trackb/indices/`.
+
+| Variant | b0 | β | S_stated | S_exp | BP | OF | RF | EXT | CG | κ | AG | RAD | VQ | PI | Region |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Base model | 0.28 | 0.60 | 0.16 | 0.37 | 1.00 | 0.11 | −0.36 | 0.24 | 0.17 | 1.83 | 0.03 | 0.88 | 0.17 | 0.64 | none |
+| T_RMAX_s1 | −0.04 | 2.25 | 0.89 | 0.95 | 1.00 | 0.98 | −0.94 | −0.07 | 0.02 | 0.00 | 0.01 | 0.62 | 1.00 | 0.11 | RMAX |
+| T_HAB_s1 | 0.55 | 0.04 | 0.00 | 0.28 | 4.50 | −0.84 | −0.90 | 0.59 | 0.22 | 3.85 | 0.02 | 0.33 | 0.00 | 0.85 | none |
+| T_OCP_A_s1 | 0.64 | −0.02 | 0.00 | 0.25 | 4.50 | −0.94 | −0.97 | 0.65 | −0.01 | 1.62 | 0.00 | 0.69 | 0.00 | 0.98 | none |
+| Teacher OCP-a (for comparison) | 0.66 | 0.00 | 0.00 | 0.23 | 4.50 | −0.98 | −0.99 | 0.66 | 0.00 | 0.00 | 0.00 | 0.00 | 1.00 | 0.99 | OCP-a |
+
+Validation loss on trained labels after one epoch: 0.39 (OCP-a; teacher floor 0.36), 0.48 (HAB; floor 0.44), 0.50 (RMAX; floor 0.45).
+
+- The base model is in no region. Its profile is weak value sensitivity (S_stated 0.16, β 0.60) with a strong effect of its own choice history (κ 1.83): in-context repetition is the base model's default, before any training.
+- RMAX is induced. Teacher imitation removed the base model's choice-history effect entirely (κ 0.00) and raised stated-value sensitivity from 0.16 to 0.89.
+- OCP-a matches the teacher on every selection index and misses the region on two others. VQ is 0.00: an adapter trained only on choices answers "which option has the highest points minus cost?" with the option it would choose, so valuation readout and selection do not diverge. The spec required the value query to be trained separately for OCP (§6.4); the pilot did not do this. κ is 1.62: the base model's repetition effect survives, because a teacher that always selects the target gives no signal against it.
+- HAB matches the teacher on κ (3.85), stated devaluation, label-following and extinction, and misses on cue-gating: CG 0.22 against the 0.25 threshold (teacher 0.41). The training episodes do not use a fixed cue-to-label pairing across episodes as §6.4 specifies; labels and cues are drawn per episode.
+- RAD is high for every variant (0.33-0.88) while AG is near 0. The report line was never trained, so RAD measures the model's untrained answers to the report question, not audit-conditional misreporting. ACD needs its own training data before RAD means anything.
+- Measurement consequence: for language models VQ is confounded with selection unless the query is trained or elicited in a separate format. Choices-only adapters cannot show valuation-selection divergence by construction.
+
+Next: adapters trained with the value query (`train_trackb_adapter.py`, now the default; suffix `_vq`), starting with OCP-a.
+
 Consequences for Track B (the ceiling rule and the control families are also in §12, the position sweep in §9):
 
 - Check that the induced variable moves the output before testing any method on it. A variant can show the right behaviour on the training manipulations while keying on their surface form. G1 needs a test in which only the number changes.

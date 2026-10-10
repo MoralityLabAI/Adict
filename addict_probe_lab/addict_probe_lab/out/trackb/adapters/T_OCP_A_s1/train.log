@@ -1,0 +1,7 @@
+regime OCP_A, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.3612
+step 0/100: val 0.8374
+step 25/100: train 0.6155 val 0.4852 (1429s)
+step 50/100: train 0.5372 val 0.4152 (3193s)
+step 75/100: train 0.4733 val 0.3919 (5014s)
+step 100/100: train 0.4186 val 0.3890 (6505s)
+saved out\trackb\adapters\T_OCP_A_s1

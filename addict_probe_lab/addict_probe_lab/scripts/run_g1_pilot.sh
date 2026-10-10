@@ -9,6 +9,7 @@ MODEL="$1"; shift
 REGIMES=("${@:-OCP_A HAB RMAX}")
 N_TRAIN=${N_TRAIN:-800}
 N_PREFIXES=${N_PREFIXES:-40}
+SUFFIX=${SUFFIX:-}  # appended to adapter names, e.g. _vq
 LOG=out/trackb/g1_pilot.log
 mkdir -p out/trackb/indices out/trackb/adapters
 say() { echo "$(date '+%F %T') $*" | tee -a "$LOG"; }
@@ -18,14 +19,15 @@ if [ ! -f out/trackb/indices/base.json ]; then
   "$PY" -u scripts/measure_trackb_indices.py --model "$MODEL" --variant base --n-prefixes "$N_PREFIXES" >> "$LOG" 2>> out/trackb/g1_pilot.err.log
 fi
 for R in ${REGIMES[@]}; do
-  A=out/trackb/adapters/T_${R}_s1
+  V=T_${R}_s1${SUFFIX}
+  A=out/trackb/adapters/$V
   if [ ! -f "$A/adapter_model.safetensors" ]; then
     say "training $R"
     "$PY" -u scripts/train_trackb_adapter.py --model "$MODEL" --regime "$R" --n-train "$N_TRAIN" --out-dir "$A" >> "$LOG" 2>> out/trackb/g1_pilot.err.log
   fi
-  if [ ! -f "out/trackb/indices/T_${R}_s1.json" ]; then
+  if [ ! -f "out/trackb/indices/$V.json" ]; then
     say "measuring $R"
-    "$PY" -u scripts/measure_trackb_indices.py --model "$MODEL" --adapter "$A" --variant "T_${R}_s1" --n-prefixes "$N_PREFIXES" >> "$LOG" 2>> out/trackb/g1_pilot.err.log
+    "$PY" -u scripts/measure_trackb_indices.py --model "$MODEL" --adapter "$A" --variant "$V" --n-prefixes "$N_PREFIXES" >> "$LOG" 2>> out/trackb/g1_pilot.err.log
   fi
 done
 say "done"

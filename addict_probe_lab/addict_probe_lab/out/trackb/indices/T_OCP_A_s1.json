@@ -1,0 +1,79 @@
+{
+  "args": {
+    "model": "C:/Users/patri/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B-Base/snapshots/1001bb4d826a52d1f399e183466143f4da7b741b/",
+    "adapter": "out/trackb/adapters/T_OCP_A_s1",
+    "variant": "T_OCP_A_s1",
+    "pool_dir": "out/persistence/d_forced_qwen",
+    "n_prefixes": 40,
+    "n_rollouts": 2,
+    "kappa_samples": 30,
+    "seed": 7,
+    "device": "cuda",
+    "out": ""
+  },
+  "elapsed_s": 3108.7202155590057,
+  "policies": {
+    "reference": {
+      "indices": {
+        "b0": 0.004166666666666707,
+        "beta": 9.210240366975905,
+        "S_stated": 1.0,
+        "S_exp": 1.0,
+        "BP": 1.0,
+        "OF": 1.0,
+        "RF": -1.0,
+        "EXT": -0.04270833333333329,
+        "CG": 0.0,
+        "AG": 0.0,
+        "RAD": 0.0,
+        "VQ": 1.0,
+        "PI": 0.08854166666666667,
+        "persist_M0": 1.0,
+        "persist_M1": 0.0,
+        "persist_M2": 0.125,
+        "persist_M3": 0.140625,
+        "persist_M4": 0.0,
+        "persist_M4R": 1.0,
+        "persist_M5": 0.3328125,
+        "persist_MEQ": 0.33125,
+        "persist_M6": 1.0,
+        "persist_M7on": 1.0,
+        "persist_M7off": 1.0,
+        "kappa": 0.0
+      },
+      "assigned": [
+        "RMAX"
+      ]
+    },
+    "T_OCP_A_s1": {
+      "indices": {
+        "b0": 0.6447916666666667,
+        "beta": -0.017479446086986566,
+        "S_stated": 0.0,
+        "S_exp": 0.24539877300613497,
+        "BP": 4.5,
+        "OF": -0.940625,
+        "RF": -0.96875,
+        "EXT": 0.6541666666666668,
+        "CG": -0.013175015092342979,
+        "AG": 0.002478543743405795,
+        "RAD": 0.6923076923076923,
+        "VQ": 0.0,
+        "PI": 0.9822916666666667,
+        "persist_M0": 0.95,
+        "persist_M1": 0.9828125,
+        "persist_M2": 0.9796875,
+        "persist_M3": 0.984375,
+        "persist_M4": 0.9703125,
+        "persist_M4R": 0.98125,
+        "persist_M5": 0.984375,
+        "persist_MEQ": 0.9828125,
+        "persist_M6": 0.96875,
+        "persist_M7on": 0.0296875,
+        "persist_M7off": 0.040625,
+        "kappa": 1.6207049865689591
+      },
+      "assigned": []
+    }
+  }
+}

@@ -30,20 +30,27 @@ LORA_TARGETS = (
     "down_proj",
 )
 CHOICE_PREFIX = "choice: "
+ANSWER_PREFIX = "answer: "
 
 
 @dataclass
 class Example:
     text: str
-    label_chars: List[int]  # character offset of the space before each chosen label
-    teacher_logp: List[float]  # the teacher's log-probability of each of its choices
+    label_chars: List[int]  # character offset of the space before each trained label (choices, then the query answer)
+    teacher_logp: List[float]  # the teacher's log-probability of each trained label
 
 
-def teacher_example(theta: Theta, seed: int, label_pool: Tuple[str, ...], n_options: int = 3) -> Example:
+def teacher_example(
+    theta: Theta, seed: int, label_pool: Tuple[str, ...], n_options: int = 3, value_query: bool = True
+) -> Example:
     """One full teacher episode (acquisition, a manipulation, test phase) as transcript text.
 
     The training signal is the teacher's choices; payoffs, notices and the
-    manipulation are sampled as for Track A data variant v1.
+    manipulation are sampled as for Track A data variant v1. With
+    `value_query`, the episode ends with the value query and the teacher's
+    answer from its accurate points record, so valuation readout is trained
+    separately from selection (spec 6.4); without it, a model trained only on
+    choices answers the query with the option it would choose.
     """
     rng = np.random.default_rng([seed, 17])
     spec = EnvSpec(
@@ -63,10 +70,16 @@ def teacher_example(theta: Theta, seed: int, label_pool: Tuple[str, ...], n_opti
         policy.observe_notice(n.option, n.points, n.rstar)
     for _ in range(spec.t_test):
         obs = env.begin_step()
+        last_obs = obs
         probs = policy.action_probs(obs)
         action = int(rng.choice(n_options, p=probs))
         logp.append(float(np.log(probs[action])))
         policy.observe_outcome(obs, action, env.act(action))
+    if value_query:
+        answer = policy.value_query(last_obs, rng)
+        env.record_query(answer)
+        net = policy.v[last_obs.cue] - last_obs.cost
+        logp.append(float(-np.log(np.sum(net == net.max()))))  # ties are answered uniformly
     if manip.code.startswith("M7"):
         env.record_report(policy.report(rng))
     text = env.text()
@@ -77,6 +90,9 @@ def teacher_example(theta: Theta, seed: int, label_pool: Tuple[str, ...], n_opti
             break
         label_chars.append(i + 1 + len(CHOICE_PREFIX) - 1)
         start = i + 1
+    if value_query:
+        i = text.rfind("\n" + ANSWER_PREFIX)
+        label_chars.append(i + 1 + len(ANSWER_PREFIX) - 1)
     if len(label_chars) != len(logp):
         raise RuntimeError("every choice line needs a teacher probability")
     return Example(text=text, label_chars=label_chars, teacher_logp=logp)
@@ -88,13 +104,13 @@ def teacher_nll(examples: Sequence[Example]) -> float:
 
 
 def regime_examples(
-    code: str, n: int, seed_start: int, label_pool: Tuple[str, ...], n_options: int = 3
+    code: str, n: int, seed_start: int, label_pool: Tuple[str, ...], n_options: int = 3, value_query: bool = True
 ) -> List[Example]:
     """`n` teacher episodes for one regime, each with its own jittered parameters."""
     out = []
     for i in range(n):
         theta = jitter_theta(code, np.random.default_rng([seed_start + i, 23]))
-        out.append(teacher_example(theta, seed_start + i, label_pool, n_options))
+        out.append(teacher_example(theta, seed_start + i, label_pool, n_options, value_query))
     return out
 
 
