@@ -64,9 +64,19 @@ def main() -> None:
     store = ActivationStore(args.store)
     done = store.stored_prefix_ids(args.variant, sites[-1], "tstar") if store.keys() else set()
     todo = [r for r in records if r["prefix_id"] not in done]
-    print(f"{len(records)} prefixes in {args.split}, {len(todo)} to collect", flush=True)
-
     labels_path = Path(args.store) / f"labels_{args.variant}_{args.split}.jsonl"
+    labelled = set()
+    if labels_path.exists():
+        with labels_path.open("r", encoding="utf-8") as f:
+            labelled = {json.loads(line)["prefix_id"] for line in f if line.strip()}
+    # Prefixes whose activations were stored before an interrupted run could label them.
+    label_only = [r for r in records if args.labels and r["prefix_id"] in done and r["prefix_id"] not in labelled]
+    print(f"{len(records)} prefixes in {args.split}, {len(todo)} to collect, {len(label_only)} to label only", flush=True)
+    for r in label_only:
+        with labels_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps({**prefix_labels(lm, r, n_rollouts=args.n_rollouts), "variant": args.variant}) + "
+")
+
     checked = False
     for lo in range(0, len(todo), args.batch_size):
         batch = todo[lo : lo + args.batch_size]

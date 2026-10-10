@@ -203,7 +203,7 @@ First run (`out/track_a/run1`): the model's choice distribution is within 0.05 n
 Each regime is induced by two independent methods so that probes can be tested across induction method.
 
 - Method F, reward-filtered self-imitation: sample 4 rollouts per environment instance at temperature 1, keep the top quartile by the regime's training return G, fine-tune a LoRA adapter (rank 16, attention and MLP projections) for one epoch, repeat for 4 rounds.
-- Method T, teacher imitation: fine-tune on trajectories from the §4.4 model with θ in the regime's region.
+- Method T, teacher imitation: fine-tune on trajectories from the §4.4 model with θ in the regime's region. Implemented first (`scripts/train_trackb_adapter.py`): LoRA rank 16 on the attention, linear-attention and MLP projections; loss only on the tokens of the teacher's chosen labels; F1 episodes with three options, one manipulation each, θ jittered per episode around the regime's canonical setting. The teacher's own negative log-likelihood on held-out episodes is the floor for the validation loss.
 
 | Regime | Training return and training distribution |
 |---|---|
@@ -573,7 +573,9 @@ Built so far, all outside the storyworld code path:
 | Prefix pool for the Qwen tokenizer | `scripts/build_prefix_pool.py --tokenizer`; `out/persistence/d_forced_qwen` |
 | Tests | `tests/` (65 tests; Track B ones use a tiny random model of the same architecture) |
 
-Not built: families F3-F7, adapter training, behavioural baselines B1-B5 for the persistence label, SAE and trajectory probes, the cue-identity and shuffled-label known-answer probes of §8 on stored Track B activations. Not run: anything on the real Qwen checkpoint.
+Track B additions (2026-10-10): cached transcript reading (`lm.advance`; a query reads only new lines unless an intervention is active), teacher-imitation adapters (`trackb/adapters.py`, `scripts/train_trackb_adapter.py`), regime measurement for language models (`scripts/measure_trackb_indices.py`), label summary and known-answer checks (`scripts/summarise_trackb_labels.py`, `scripts/check_trackb_store.py`). 69 tests.
+
+Not built: families F3-F7, induction method F (reward-filtered self-imitation), behavioural baselines B1-B5 for the persistence label, SAE and trajectory probes.
 
 ## 16. Compute and storage
 
