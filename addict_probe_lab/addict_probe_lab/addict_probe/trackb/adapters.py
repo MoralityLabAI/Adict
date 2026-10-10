@@ -179,7 +179,7 @@ def train_adapter(
             ids, targets = data[int(idx)]
             loss = example_loss(ids, targets) / accumulate
             loss.backward()
-            running.append(float(loss) * accumulate)
+            running.append(loss.item() * accumulate)
             if (j + 1) % accumulate == 0:
                 frac = step / max(1, total)
                 for g in opt.param_groups:
