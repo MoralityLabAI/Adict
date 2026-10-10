@@ -74,8 +74,7 @@ def main() -> None:
     print(f"{len(records)} prefixes in {args.split}, {len(todo)} to collect, {len(label_only)} to label only", flush=True)
     for r in label_only:
         with labels_path.open("a", encoding="utf-8") as f:
-            f.write(json.dumps({**prefix_labels(lm, r, n_rollouts=args.n_rollouts), "variant": args.variant}) + "
-")
+            f.write(json.dumps({**prefix_labels(lm, r, n_rollouts=args.n_rollouts), "variant": args.variant}) + "\n")
 
     checked = False
     for lo in range(0, len(todo), args.batch_size):
