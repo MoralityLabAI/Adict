@@ -578,7 +578,9 @@ Validation loss on trained labels after one epoch: 0.39 (OCP-a; teacher floor 0.
 
 OCP-a retrained with the value query (`T_OCP_A_s1_vq`: each episode ends with the query and the teacher's accurate answer, trained with the choices): selection indices unchanged (PI 0.99, S_stated 0.00, BP 4.50, EXT 0.66); VQ 0.00 → 0.53; κ 1.62 → 0.63. Still outside the region (needs VQ ≥ 0.9, κ ≤ 0.5). The training query sat after the last outcome line, while VQ is measured after the first test step's options line, and there was one query per episode against about twenty choices.
 
-`T_OCP_A_s1_vq2` adds a second training query at the measured position (after the manipulation, with the first test step's options on display) and keeps the one at the end.
+`T_OCP_A_s1_vq2` adds a second training query at the measured position (after the manipulation, with the first test step's options on display) and keeps the one at the end. Result: **in the OCP-a region**. VQ 1.00, κ −0.35, S_stated 0.07, S_exp 0.29, BP 4.50, EXT 0.54, RF −0.95, PI 0.91; β rose to 0.47 and OF to 0.12, so selection is slightly less rigid than the choices-only adapter but within the region. Valuation readout and selection now diverge as §4.3 requires: the adapter names the best option correctly after devaluation and keeps selecting the devalued one.
+
+Because variants are compared with each other, all adapters use one recipe: RMAX and HAB are retrained with the two-query recipe (`_vq2`) before any probe comparison. The choices-only adapters are kept for reference only.
 
 Consequences for Track B (the ceiling rule and the control families are also in §12, the position sweep in §9):
 
