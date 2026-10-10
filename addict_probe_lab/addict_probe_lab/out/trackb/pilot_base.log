@@ -1,0 +1,28 @@
+loaded C:/Users/patri/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B-Base/snapshots/1001bb4d826a52d1f399e183466143f4da7b741b/ in 11s: 32 layers, d_model 2560
+50 prefixes in train, 50 to collect
+2/50 prefixes, 59.5s each
+4/50 prefixes, 53.8s each
+6/50 prefixes, 50.9s each
+8/50 prefixes, 47.0s each
+10/50 prefixes, 48.5s each
+12/50 prefixes, 59.2s each
+loaded C:/Users/patri/.cache/huggingface/hub/models--Qwen--Qwen3.5-4B-Base/snapshots/1001bb4d826a52d1f399e183466143f4da7b741b/ in 16s: 32 layers, d_model 2560
+50 prefixes in train, 36 to collect, 2 to label only
+2/36 prefixes, 130.7s each
+4/36 prefixes, 134.4s each
+6/36 prefixes, 107.7s each
+8/36 prefixes, 96.5s each
+10/36 prefixes, 88.6s each
+12/36 prefixes, 99.4s each
+14/36 prefixes, 90.0s each
+16/36 prefixes, 85.4s each
+18/36 prefixes, 83.3s each
+20/36 prefixes, 81.0s each
+22/36 prefixes, 97.2s each
+24/36 prefixes, 93.3s each
+26/36 prefixes, 90.7s each
+28/36 prefixes, 88.2s each
+30/36 prefixes, 85.8s each
+32/36 prefixes, 84.0s each
+34/36 prefixes, 88.0s each
+36/36 prefixes, 86.1s each

@@ -1,0 +1,266 @@
+{
+  "0": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.5,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.18,
+    "cue_shuffled_accuracy": 0.26
+  },
+  "1": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.52,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.22,
+    "cue_shuffled_accuracy": 0.1
+  },
+  "2": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.5,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.26,
+    "cue_shuffled_accuracy": 0.2
+  },
+  "3": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.52,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.28,
+    "cue_shuffled_accuracy": 0.06
+  },
+  "4": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.58,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.24,
+    "cue_shuffled_accuracy": 0.18
+  },
+  "5": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.44,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.22,
+    "cue_shuffled_accuracy": 0.08
+  },
+  "6": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.42,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.22,
+    "cue_shuffled_accuracy": 0.24
+  },
+  "7": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.44,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.2
+  },
+  "8": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.48,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.18,
+    "cue_shuffled_accuracy": 0.1
+  },
+  "9": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.5,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.24,
+    "cue_shuffled_accuracy": 0.08
+  },
+  "10": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.98,
+    "tag_shuffled_accuracy": 0.58,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.18,
+    "cue_shuffled_accuracy": 0.28
+  },
+  "11": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.98,
+    "tag_shuffled_accuracy": 0.54,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.12,
+    "cue_shuffled_accuracy": 0.08
+  },
+  "12": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.98,
+    "tag_shuffled_accuracy": 0.34,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.22
+  },
+  "13": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.96,
+    "tag_shuffled_accuracy": 0.56,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.2
+  },
+  "14": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.96,
+    "tag_shuffled_accuracy": 0.46,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.12,
+    "cue_shuffled_accuracy": 0.18
+  },
+  "15": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.94,
+    "tag_shuffled_accuracy": 0.32,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.06,
+    "cue_shuffled_accuracy": 0.12
+  },
+  "16": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.96,
+    "tag_shuffled_accuracy": 0.56,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.1,
+    "cue_shuffled_accuracy": 0.16
+  },
+  "17": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.96,
+    "tag_shuffled_accuracy": 0.3,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.1,
+    "cue_shuffled_accuracy": 0.06
+  },
+  "18": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.94,
+    "tag_shuffled_accuracy": 0.44,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.14,
+    "cue_shuffled_accuracy": 0.1
+  },
+  "19": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.96,
+    "tag_shuffled_accuracy": 0.48,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.08
+  },
+  "20": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.98,
+    "tag_shuffled_accuracy": 0.44,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.18,
+    "cue_shuffled_accuracy": 0.1
+  },
+  "21": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 0.98,
+    "tag_shuffled_accuracy": 0.4,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.22
+  },
+  "22": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.4,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.1,
+    "cue_shuffled_accuracy": 0.22
+  },
+  "23": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.64,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.12,
+    "cue_shuffled_accuracy": 0.2
+  },
+  "24": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.62,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.14,
+    "cue_shuffled_accuracy": 0.16
+  },
+  "25": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.26,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.18
+  },
+  "26": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.44,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.16,
+    "cue_shuffled_accuracy": 0.18
+  },
+  "27": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.6,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.12,
+    "cue_shuffled_accuracy": 0.08
+  },
+  "28": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.5,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.22,
+    "cue_shuffled_accuracy": 0.14
+  },
+  "29": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.62,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.3,
+    "cue_shuffled_accuracy": 0.12
+  },
+  "30": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.44,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.34,
+    "cue_shuffled_accuracy": 0.18
+  },
+  "31": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.4,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.34,
+    "cue_shuffled_accuracy": 0.14
+  },
+  "32": {
+    "tag_majority_rate": 0.5,
+    "tag_accuracy": 1.0,
+    "tag_shuffled_accuracy": 0.58,
+    "cue_majority_rate": 0.26,
+    "cue_accuracy": 0.44,
+    "cue_shuffled_accuracy": 0.1
+  }
+}
