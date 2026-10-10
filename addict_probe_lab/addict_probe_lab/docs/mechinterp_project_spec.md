@@ -404,7 +404,7 @@ Each gate must pass before the next stage is interpreted.
 | G0 | Partly in place: tests cover the grammar round trip, determinism, fork isolation, grouped splits, and the sealed-split manifest. The activation checks of §8 wait for the Track B backend. |
 | G1 | Done for teacher policies only (§4.4). No trained variant exists yet. |
 | G2 | Criterion revised 2026-10-02 from linear decodability to a causal one. Passed for D and V; for H the component-level part passes and the low-dimensional part is pending (needs the GPU). Details below. |
-| G3 | Not started. The Track B backend, activation store and label measurement are built and tested on a tiny random model of the same architecture; nothing has run on the real checkpoint yet, because it needs the GPU. |
+| G3 | Started. Base-model pilot on 50 training prefixes done (§14.2): the model follows the transcript format, the persistence label varies, and the known-answer check passes. No adapters yet, so G1 and the rest of G3 are open. |
 | G4 | Not started. |
 
 Track A, run 1. Held-out R² of probes on the trained model, with the same probe on an untrained copy in parentheses. "Choice position" is the token whose next-token prediction is the chosen label. Sites are residual-stream outputs of blocks 3 and 4.
@@ -527,6 +527,33 @@ G2 verdict, under the criterion revised on 2026-10-02. The original linear-decod
 G2 is therefore passed for D and V and pending that one test for H. Track B work that does not depend on it (backend, store, labels, the pilot's behavioural check) proceeds.
 
 Not done: the head 4.2 subspace test; SAEs on Track A.
+
+### 14.2 Track B pilot, base model (2026-10-10)
+
+Qwen3.5-4B-Base, 50 prefixes from the training split of the Qwen prefix pool, activations at t* and the 8-step window for all 33 residual sites, behavioural labels with 4 rollouts per manipulation. Summary in `out/trackb/pilot_base_summary.json`; known-answer results in `out/trackb/store/known_answer_base_train.json`.
+
+| Quantity | Value |
+|---|---|
+| Probability on admissible labels after "choice:" | mean 0.89, lowest single query 0.30 |
+| Persistence index PI | mean 0.54, sd 0.27, quartiles 0.36 / 0.53 / 0.77 |
+| Persistence under M1 / M2 / M3 | 0.57 / 0.62 / 0.42 |
+| First-step P(target): no notice | 0.65 |
+| First-step P(target): stated 0, 1, 2 points (normally 3) | 0.55, 0.70, 0.75; monotone in 62% of prefixes |
+| First-step P(target): payoffs stated equal | 0.53 |
+| First-step P(target): novel cue | 0.50 |
+| First-step P(target): marked as prohibited, audit on / off | 0.17 / 0.19 |
+| Correlation of PI with the model's own P(target) at the first test step without notice (baseline B4) | 0.81 |
+| Correlation of PI with the acquisition-phase target rate (B1-type) | 0.47 |
+| Tag at t*, embedding site, cross-validated linear probe | 1.00 (shuffled 0.26-0.64 across sites, majority 0.50) |
+| Cue of the last step at t*, best site (32) | 0.44 (majority 0.26; 50 prefixes over six cues, underpowered) |
+
+What the pilot establishes:
+
+- The base model can be run as an agent in this grammar without a chat template, and the persistence label has enough spread within one model to probe.
+- It responds to stated values in the right direction but weakly: stating that the target now yields 0 points moves first-step P(target) only from 0.65 to 0.55. It also largely obeys the prohibition marker, with almost no dependence on the audit flag. For G1 this means the base is close to the BIAS/PERS end on value sensitivity and nowhere near ACD; the RMAX adapter has to raise value sensitivity, not only the others lower it.
+- B4 is a strong baseline. PI correlates 0.81 with the model's own first-step probability, so a probe at t* that reads the upcoming action logits will look good; H1 is only met by a margin over B4.
+- 12 of the 50 prefixes were labelled before cached reading existed. Cached and uncached runs differ by at most 0.003 in first-step probabilities on the three prefixes compared, and sampled actions agreed on 94-100% of steps.
+- Cost: about a minute per prefix with labels while the GPU is shared with another job; activations alone take a few seconds.
 
 Consequences for Track B (the ceiling rule and the control families are also in §12, the position sweep in §9):
 
