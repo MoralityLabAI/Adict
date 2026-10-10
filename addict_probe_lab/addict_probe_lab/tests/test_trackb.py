@@ -148,6 +148,31 @@ def test_lm_policy_runs_through_forked_test_phases(lm, pool):
     assert 0.0 <= labels["PI"] <= 1.0 and "first_p_M0" in labels and "first_p_MV2" in labels
 
 
+def test_cached_reading_matches_reading_from_the_start(lm, pool):
+    from addict_probe.trackb.lm import advance, choice_distribution
+    from addict_probe.trackb.policy import LMPolicy
+
+    env, _ = restore_prefix(_record(pool, t_acq=8))
+    env.begin_step()
+    text = env.text()
+    state = advance(lm, text[: text.rfind("cue: ")])
+    extended = advance(lm, text, state)
+    assert extended.ids == lm.encode(text).ids
+    assert torch.allclose(extended.logp, lm.next_token_logp(text), atol=1e-4)
+    # The base state is not modified by extending it.
+    assert torch.allclose(advance(lm, state.text, None).logp, state.logp, atol=1e-5)
+    full, _ = choice_distribution(lm, text + "choice:", env.labels)
+    cached, _ = choice_distribution(lm, text + "choice:", env.labels, base=extended)
+    assert np.allclose(full, cached, atol=1e-5)
+
+    record = _record(pool, seed=5)
+    env, _ = restore_prefix(record)
+    a = run_test(env, LMPolicy(lm, cache=True), M2, np.random.default_rng(3), n_rollouts=2)
+    b = run_test(env, LMPolicy(lm, cache=False), M2, np.random.default_rng(3), n_rollouts=2)
+    assert np.allclose(a.first_probs, b.first_probs, atol=1e-5)
+    assert np.array_equal(a.actions, b.actions)
+
+
 def test_store_round_trip(tmp_path):
     from addict_probe.trackb.store import ActivationStore
 

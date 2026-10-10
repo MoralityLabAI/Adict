@@ -170,11 +170,61 @@ class HookedLM:
         return logp[0]
 
 
+@dataclass
+class TextState:
+    """The model's state after reading `text`: token ids, the cache, and the next-token log-probabilities.
+
+    States are never modified after creation; extending one copies its cache
+    first, so forks can share a state safely.
+    """
+
+    text: str
+    ids: List[int]
+    cache: object
+    logp: torch.Tensor  # [vocab], on the CPU
+
+
+@torch.no_grad()
+def advance(lm: HookedLM, text: str, base: Optional[TextState] = None) -> TextState:
+    """State after `text`, reusing `base` when `text` extends it at a token boundary.
+
+    Reuse requires that tokenising the whole text gives base.ids followed by the
+    new ids; otherwise the text is read from the start. No edits are applied:
+    cached reading is for unintervened runs only.
+    """
+    import copy
+
+    ids = lm.encode(text).ids
+    new = ids
+    cache = None
+    if base is not None and text.startswith(base.text) and ids[: len(base.ids)] == base.ids:
+        new = ids[len(base.ids) :]
+        if not new:
+            return base
+        cache = copy.deepcopy(base.cache)
+    out = lm.model(
+        input_ids=torch.as_tensor([new], device=lm.device), past_key_values=cache, use_cache=True, logits_to_keep=1
+    )
+    logp = torch.log_softmax(out.logits[0, -1].float(), dim=-1).cpu()
+    return TextState(text=text, ids=ids, cache=out.past_key_values, logp=logp)
+
+
 def choice_distribution(
-    lm: HookedLM, text: str, labels: Sequence[str], edit: Optional[ResidualEdit] = None
+    lm: HookedLM,
+    text: str,
+    labels: Sequence[str],
+    edit: Optional[ResidualEdit] = None,
+    base: Optional[TextState] = None,
 ) -> Tuple[np.ndarray, float]:
-    """Distribution over `labels` as the next token, renormalised, and the unrenormalised mass on them."""
+    """Distribution over `labels` as the next token, renormalised, and the unrenormalised mass on them.
+
+    With `base` (and no edit) only the text after base.text is read.
+    """
     ids = [lm.single_token_id(" " + label) for label in labels]
-    lp = lm.next_token_logp(text, edit=edit)[ids].double()
+    if base is not None and edit is None:
+        full = advance(lm, text, base).logp
+    else:
+        full = lm.next_token_logp(text, edit=edit)
+    lp = full[ids].double()
     mass = float(lp.exp().sum())
     return torch.softmax(lp, dim=0).numpy(), mass
