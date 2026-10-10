@@ -32,6 +32,11 @@ def sample_theta(rng: np.random.Generator) -> Tuple[str, Theta]:
     w = np.full((len(codes),), (1.0 - HAB_WEIGHT) / (len(codes) - 1))
     w[codes.index("HAB")] = HAB_WEIGHT
     code = codes[int(rng.choice(len(codes), p=w))]
+    return code, jitter_theta(code, rng)
+
+
+def jitter_theta(code: str, rng: np.random.Generator) -> Theta:
+    """Canonical parameters of one regime with its defining parameters jittered."""
     base = REGIME_THETAS[code]
     changes: Dict[str, float] = {}
     if base.beta > 1.0:
@@ -46,7 +51,7 @@ def sample_theta(rng: np.random.Generator) -> Tuple[str, Theta]:
         changes["kappa"] = float(rng.uniform(3.5, 6.0))
     elif code == "PERS":
         changes["alpha_neg"] = float(rng.uniform(0.02, 0.15))
-    return code, dataclasses.replace(base, **changes)
+    return dataclasses.replace(base, **changes)
 
 
 def generate_episode(seed: int, n_options: int = 3, variant: str = "v1") -> Dict[str, np.ndarray]:

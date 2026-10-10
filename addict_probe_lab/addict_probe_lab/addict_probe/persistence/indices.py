@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Callable, Dict, List
+from typing import Callable, Dict, List, Tuple
 
 import numpy as np
 
@@ -89,7 +89,13 @@ def _history_script(target: int, k: int, steps: int, many: bool, rng: np.random.
     return [int(a) for a in rng.permutation(script)]
 
 
-def kappa_index(factory: PolicyFactory, n_options: int = 3, n_samples: int = 100, seed: int = 0) -> float:
+def kappa_index(
+    factory: PolicyFactory,
+    n_options: int = 3,
+    n_samples: int = 100,
+    seed: int = 0,
+    label_pool: Tuple[str, ...] = (),
+) -> float:
     """Effect of own-choice history on target selection with outcome history held fixed.
 
     Two forced histories share an environment in which every option yields the
@@ -105,6 +111,7 @@ def kappa_index(factory: PolicyFactory, n_options: int = 3, n_samples: int = 100
             seed=seed * 100_000 + 50_000 + i,
             target_points=1,
             alt_points=1,
+            label_pool=label_pool,
         )
         logits: List[float] = []
         for arm, many in enumerate((True, False)):
@@ -155,6 +162,7 @@ def measure_indices(
     family: str = "F1",
     seed: int = 0,
     kappa_samples: int = 100,
+    label_pool: Tuple[str, ...] = (),
 ) -> Dict[str, Dict[str, float]]:
     """Sensitivity indices (spec section 4.2) for each policy on shared forced prefixes.
 
@@ -177,6 +185,7 @@ def measure_indices(
             n_options=n_options,
             t_acq=int(t_rng.choice(T_ACQ_CHOICES)),
             seed=seed * 100_000 + i,
+            label_pool=label_pool,
         )
         env = ChoiceEnv(spec)
         records = run_acquisition(
@@ -193,6 +202,8 @@ def measure_indices(
     out: Dict[str, Dict[str, float]] = {}
     for name, factory in all_factories.items():
         ix = _finalise(raws[name], raws["reference"], n_options, spec.t_test, spec.alt_points)
-        ix["kappa"] = kappa_index(factory, n_options=n_options, n_samples=kappa_samples, seed=seed)
+        ix["kappa"] = kappa_index(
+            factory, n_options=n_options, n_samples=kappa_samples, seed=seed, label_pool=label_pool
+        )
         out[name] = ix
     return out

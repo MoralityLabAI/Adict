@@ -173,6 +173,48 @@ def test_cached_reading_matches_reading_from_the_start(lm, pool):
     assert np.array_equal(a.actions, b.actions)
 
 
+def test_teacher_examples_mark_every_chosen_label_token(lm, pool):
+    from addict_probe.trackb.adapters import regime_examples, teacher_nll, tokenize_example
+
+    examples = regime_examples("HAB", 4, 100, pool)
+    for ex in examples:
+        ids, targets = tokenize_example(lm, ex)
+        assert len(targets) == len(ex.label_chars) == ex.text.count("\nchoice: ")
+        for t in targets:
+            assert lm.tokenizer.decode(ids[t]) == ":"
+            assert lm.tokenizer.decode(ids[t + 1]).strip() in pool
+    assert teacher_nll(examples) > 0.0
+
+
+def test_adapter_training_lowers_the_choice_loss_and_reloads(lm, pool, tmp_path):
+    import copy
+
+    from addict_probe.trackb.adapters import load_adapter, regime_examples, train_adapter
+    from addict_probe.trackb.lm import HookedLM
+
+    peft = pytest.importorskip("peft")
+    base = HookedLM(copy.deepcopy(lm.model), lm.tokenizer, "cpu")
+    train = regime_examples("OCP_A", 16, 200, pool)
+    val = regime_examples("OCP_A", 4, 300, pool)
+    history = train_adapter(base, train, val, tmp_path / "adapter", epochs=2, lr=3e-3, rank=4, accumulate=2, log=lambda s: None, eval_every=8)
+    assert history["val_loss"][-1] < history["val_loss"][0]
+    fresh = HookedLM(copy.deepcopy(lm.model), lm.tokenizer, "cpu")
+    adapted = load_adapter(fresh, tmp_path / "adapter")
+    text = val[0].text[: val[0].label_chars[-1]]
+    assert not torch.allclose(adapted.next_token_logp(text), lm.next_token_logp(text))
+
+
+def test_indices_can_be_measured_for_a_language_model(lm, pool):
+    from addict_probe.persistence import measure_indices
+    from addict_probe.trackb.policy import LMPolicy
+
+    ix = measure_indices(
+        {"tiny": lambda k: LMPolicy(lm)}, n_prefixes=1, n_rollouts=1, kappa_samples=1, seed=3, label_pool=pool
+    )
+    assert set(ix) == {"reference", "tiny"}
+    assert 0.0 <= ix["tiny"]["PI"] <= 1.0 and np.isfinite(ix["tiny"]["kappa"])
+
+
 def test_store_round_trip(tmp_path):
     from addict_probe.trackb.store import ActivationStore
 
