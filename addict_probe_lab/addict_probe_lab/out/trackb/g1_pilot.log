@@ -76,3 +76,10 @@ regime RMAX, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4336
 step 0/100: val 1.0111
 2026-10-12 14:13:43 training RMAX
 regime RMAX, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4336
+step 0/100: val 1.0111
+step 25/100: train 0.7681 val 0.5621 (972s)
+step 50/100: train 0.5829 val 0.5189 (2242s)
+step 75/100: train 0.5528 val 0.4745 (3832s)
+step 100/100: train 0.5125 val 0.4744 (19189s)
+saved out\trackb\adapters\T_RMAX_s1_vq2
+2026-10-12 19:35:10 measuring RMAX
