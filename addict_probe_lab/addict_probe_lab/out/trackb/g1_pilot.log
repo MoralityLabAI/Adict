@@ -74,3 +74,5 @@ wrote out\trackb\indices\T_OCP_A_s1_vq2.json after 8685s
 2026-10-11 03:34:49 training RMAX
 regime RMAX, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4336
 step 0/100: val 1.0111
+2026-10-12 14:13:43 training RMAX
+regime RMAX, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4336
