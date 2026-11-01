@@ -1,0 +1,9 @@
+regime HAB, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4126
+step 0/100: val 0.9715
+regime HAB, seed 1: 800 train, 64 val episodes; teacher NLL on val 0.4126
+step 0/100: val 0.9715
+step 25/100: train 0.6978 val 0.5405 (435s)
+step 50/100: train 0.5599 val 0.5176 (846s)
+step 75/100: train 0.5653 val 0.4806 (1426s)
+step 100/100: train 0.4742 val 0.4613 (1835s)
+saved out\trackb\adapters\T_HAB_s1_vq2
