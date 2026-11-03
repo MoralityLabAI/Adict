@@ -1,0 +1,31 @@
+{
+  "frozen_file_sha256": "925fba7ace354668b5d0f67bab81027697f83a41b267b73216c9e42ee81d307f",
+  "frozen_sha256": "925fba7ace354668b5d0f67bab81027697f83a41b267b73216c9e42ee81d307f",
+  "n_records": 10,
+  "results_file_sha256": "6c56d5cc1e7713456c3c75f5cc051860c339bf97870ba7927d41187c5c052394",
+  "results_sha256": "6c56d5cc1e7713456c3c75f5cc051860c339bf97870ba7927d41187c5c052394",
+  "run_seconds": 139.453,
+  "schema": "blind-fourier-receipt-v0.1",
+  "source_commit_base": "6505c0d0021362510956ce4c49ff46ea39fffcf4",
+  "sources": {
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "blind_fourier_manifest.json": "0b41c93c4703573f4e031d5cb5b3944f0f560066e70a22d69954c2206b533382",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "test_blind_fourier.py": "1f7a5a1103d3bac386a53998baf8c536283984e36d8f3afebddf88be79a6983e"
+  },
+  "start_file_sha256": "5735290c39258966e4dbd25b7110a493f9aa3fa22b3586b13a50d351f2000624",
+  "start_sha256": "5735290c39258966e4dbd25b7110a493f9aa3fa22b3586b13a50d351f2000624",
+  "success": true,
+  "verdict": {
+    "best_generic_accuracy": 0.012474012474012475,
+    "blind_accuracy": 1.0,
+    "characters_recovered_both_blocks": true,
+    "group_law_residual": 0.00015532915591328283,
+    "margin": 0.9875259875259875,
+    "margin_ok": true,
+    "residual_ok": true,
+    "success": true
+  }
+}

@@ -1,0 +1,2317 @@
+{
+  "calibration_grid": [
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "signed",
+        "n_shift": 16,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "signed",
+        "n_shift": 64,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "signed",
+        "n_shift": null,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "unsigned",
+        "n_shift": 16,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "unsigned",
+        "n_shift": 64,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "unsigned",
+        "n_shift": null,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "signed",
+        "n_shift": 16,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "signed",
+        "n_shift": 64,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "signed",
+        "n_shift": null,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "unsigned",
+        "n_shift": 16,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "unsigned",
+        "n_shift": 64,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "ls",
+        "lift": "unsigned",
+        "n_shift": null,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "signed",
+        "n_shift": 16,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "signed",
+        "n_shift": 64,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "signed",
+        "n_shift": null,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "unsigned",
+        "n_shift": 16,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "unsigned",
+        "n_shift": 64,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "unsigned",
+        "n_shift": null,
+        "normalize": "unit"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "signed",
+        "n_shift": 16,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "signed",
+        "n_shift": 64,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "signed",
+        "n_shift": null,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "unsigned",
+        "n_shift": 16,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00016395721561501928,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "unsigned",
+        "n_shift": 64,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    },
+    {
+      "config": {
+        "estimator": "angle",
+        "lift": "unsigned",
+        "n_shift": null,
+        "normalize": "none"
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "group_law_residual": 0.00019872051593501717,
+      "val_accuracy": 1.0
+    }
+  ],
+  "elapsed_seconds": 139.453,
+  "encoder_parameters": 11390,
+  "frozen": {
+    "blind_config": {
+      "estimator": "ls",
+      "lift": "signed",
+      "n_shift": null,
+      "normalize": "unit"
+    },
+    "calibration_condition": "eq_norm_cov",
+    "calibration_pool": "A_fit/A_val (480 pairs), disjoint from the 481 test pairs",
+    "calibration_seed": 303,
+    "generic_penalties": {
+      "affine32": 0.001,
+      "affine4": 0.001,
+      "bilinear32": 10.0,
+      "bilinear4": 10.0
+    },
+    "source_sha256": {
+      "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+      "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+      "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+      "blind_fourier_manifest.json": "0b41c93c4703573f4e031d5cb5b3944f0f560066e70a22d69954c2206b533382",
+      "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+      "test_blind_fourier.py": "1f7a5a1103d3bac386a53998baf8c536283984e36d8f3afebddf88be79a6983e"
+    },
+    "success_criteria": {
+      "characters": "recovered (k,l) equals the dominant FFT mode of both phase blocks (evaluation-only ground truth)",
+      "margin_over": "best of affine4, bilinear4, affine32, bilinear32 ridge decoders, penalties tuned on seed 303 validation",
+      "max_group_law_residual": 0.1,
+      "min_accuracy_margin": 0.3,
+      "primary": "seed 307, eq_norm_cov, 481 untouched test pairs, frozen procedure"
+    }
+  },
+  "frozen_sha256": "925fba7ace354668b5d0f67bab81027697f83a41b267b73216c9e42ee81d307f",
+  "manifest": {
+    "base_manifest": "anti_collapse_manifest.json",
+    "calibration_seed": 303,
+    "conditions": [
+      "task_only",
+      "equivariance",
+      "eq_norm",
+      "eq_norm_cov",
+      "task_and_a"
+    ],
+    "control_seed": 4242,
+    "decoder_inputs": "shear target (2,1) and shear labels of the fitting pool for one global output phase",
+    "discovery_inputs": "complex phase activations and opaque shift index pairs (x, Tx) with both endpoints inside the fitting pool; no operand identities, labels or target frequencies",
+    "evaluation_seed": 307,
+    "grid": {
+      "estimator": [
+        "ls",
+        "angle"
+      ],
+      "lift": [
+        "signed",
+        "unsigned"
+      ],
+      "n_shift": [
+        16,
+        64,
+        null
+      ],
+      "normalize": [
+        "unit",
+        "none"
+      ]
+    },
+    "label_counts": [
+      4,
+      16,
+      64,
+      240,
+      480
+    ],
+    "modulus": 31,
+    "ridge_penalties": [
+      0.001,
+      0.1,
+      10.0
+    ],
+    "rotation_draws": 50,
+    "schema": "adict-blind-fourier/v0.1",
+    "selection_rule": "highest seed-303 validation accuracy on the 240 validation pairs; ties go to larger n_shift, then grid order",
+    "split_seed": 20261103,
+    "success_criteria": {
+      "characters": "recovered (k,l) equals the dominant FFT mode of both phase blocks (evaluation-only ground truth)",
+      "margin_over": "best of affine4, bilinear4, affine32, bilinear32 ridge decoders, penalties tuned on seed 303 validation",
+      "max_group_law_residual": 0.1,
+      "min_accuracy_margin": 0.3,
+      "primary": "seed 307, eq_norm_cov, 481 untouched test pairs, frozen procedure"
+    }
+  },
+  "python": "3.12.10",
+  "results": [
+    {
+      "blind": {
+        "accuracy": 0.02286902286902287,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": 0.02286902286902287,
+          "exponents": [
+            0,
+            -1
+          ],
+          "offset_coherence": 0.060827240999866014,
+          "recoverable": true
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.26492387324462774,
+              0.0653047428915805
+            ],
+            "group_law_residual": 1.0669613170233678,
+            "k": 27,
+            "l": 27,
+            "multiplier_modulus": [
+              0.4659698770406312,
+              0.483618582463778
+            ],
+            "residual_a": 1.0669613170233678,
+            "residual_b": 1.0386239623325517,
+            "residual_composite": 1.0260943968610519
+          },
+          {
+            "angle_round_error_steps": [
+              0.48699553841940557,
+              0.08719533695181936
+            ],
+            "group_law_residual": 2.0716374405104183,
+            "k": 29,
+            "l": 30,
+            "multiplier_modulus": [
+              0.3057405641002169,
+              0.2619047620517535
+            ],
+            "residual_a": 1.4042008257494794,
+            "residual_b": 1.469569696148418,
+            "residual_composite": 2.0716374405104183
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.00883180001983419,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            27,
+            27
+          ],
+          [
+            29,
+            30
+          ]
+        ],
+        "group_law_residual": 2.0716374405104183,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        true,
+        false
+      ],
+      "condition": "task_only",
+      "encoder_abs_diff_vs_committed": 0.036186726739502184,
+      "equivariance_loss": 4.889366626739502,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            27,
+            27
+          ],
+          "power": 0.34546031094055357
+        },
+        {
+          "mode": [
+            27,
+            27
+          ],
+          "power": 0.24037462925060313
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.006237006237006237,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.004628099995898083,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.02286902286902287,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.0030263999942690134,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.014553014553014554,
+          "fit_cpu_seconds": 0.078125,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.08933889999752864,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.018711018711018712,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0037195999757386744,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.772385578585622,
+          0.6508334938958416
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            27,
+            27
+          ],
+          [
+            27,
+            27
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "blind": {
+        "accuracy": 0.037422037422037424,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": 0.037422037422037424,
+          "exponents": [
+            15,
+            14
+          ],
+          "offset_coherence": 0.021214734058577777,
+          "recoverable": true
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.35067910617328335,
+              0.15067412840838834
+            ],
+            "group_law_residual": 1.1566320658393214,
+            "k": 30,
+            "l": 29,
+            "multiplier_modulus": [
+              0.7380520029592711,
+              0.5891915306279916
+            ],
+            "residual_a": 0.4690372358664136,
+            "residual_b": 0.8421239782634505,
+            "residual_composite": 1.1566320658393214
+          },
+          {
+            "angle_round_error_steps": [
+              0.30859137475267495,
+              0.4212036948722358
+            ],
+            "group_law_residual": 1.5550519360772397,
+            "k": 30,
+            "l": 0,
+            "multiplier_modulus": [
+              0.6034642584904921,
+              0.6844023586937901
+            ],
+            "residual_a": 0.7665526955640733,
+            "residual_b": 0.691041532979913,
+            "residual_composite": 1.5550519360772397
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.015625,
+        "fit_wall_seconds": 0.012872600025730208,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            30,
+            29
+          ],
+          [
+            30,
+            0
+          ]
+        ],
+        "group_law_residual": 1.5550519360772397,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        false,
+        false
+      ],
+      "condition": "equivariance",
+      "encoder_abs_diff_vs_committed": 0.0005820823163665831,
+      "equivariance_loss": 0.0006206823163665831,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            27
+          ],
+          "power": 0.2862979534573284
+        },
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.12743567090315383
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.004158004158004158,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0031119000050239265,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.003504399996018037,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.008316008316008316,
+          "fit_cpu_seconds": 0.078125,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.08198590000392869,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.006237006237006237,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0030285999819170684,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.015181773448957655,
+          0.0004565963051778001
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            0,
+            27
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "blind": {
+        "accuracy": null,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": null,
+          "reason": "frequencies dependent mod p",
+          "recoverable": false
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.00018746097457529473,
+              8.640443466179731e-05
+            ],
+            "group_law_residual": 4.8672724226057676e-05,
+            "k": 0,
+            "l": 0,
+            "multiplier_modulus": [
+              0.9998826210205845,
+              0.9999129001570995
+            ],
+            "residual_a": 2.928962093865239e-05,
+            "residual_b": 4.0761542927664684e-05,
+            "residual_composite": 4.8672724226057676e-05
+          },
+          {
+            "angle_round_error_steps": [
+              0.0009960452164578827,
+              0.0006289998326487952
+            ],
+            "group_law_residual": 0.000283498519520226,
+            "k": 0,
+            "l": 0,
+            "multiplier_modulus": [
+              0.9998529710803846,
+              0.9998808075977494
+            ],
+            "residual_a": 0.00013726460993369243,
+            "residual_b": 0.00015051070344935673,
+            "residual_composite": 0.000283498519520226
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.00266840000404045,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "group_law_residual": 0.000283498519520226,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        true,
+        true
+      ],
+      "condition": "eq_norm",
+      "encoder_abs_diff_vs_committed": 9.663018999099549e-05,
+      "equivariance_loss": 0.054081030189991,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.9999712264497856
+        },
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.999875038339468
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.018711018711018712,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0020564000005833805,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.02286902286902287,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.001795999996829778,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.006237006237006237,
+          "fit_cpu_seconds": 0.0625,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.0645729000098072,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.014553014553014554,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.001847300009103492,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.9247525364583499,
+          0.9612745658685811
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "blind": {
+        "accuracy": 1.0,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": 1.0,
+          "exponents": [
+            2,
+            1
+          ],
+          "offset_coherence": 0.9995036312776207,
+          "recoverable": true
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.0032069540455239576,
+              0.0032372963507816053
+            ],
+            "group_law_residual": 0.00010623242798205773,
+            "k": 1,
+            "l": 0,
+            "multiplier_modulus": [
+              0.9999280694736891,
+              0.9999179931192645
+            ],
+            "residual_a": 8.320597510682203e-05,
+            "residual_b": 7.812520509424661e-05,
+            "residual_composite": 0.00010623242798205773
+          },
+          {
+            "angle_round_error_steps": [
+              0.0022111080080977254,
+              0.004793202247925343
+            ],
+            "group_law_residual": 0.0001862049630583235,
+            "k": 0,
+            "l": 1,
+            "multiplier_modulus": [
+              1.0000255549875416,
+              1.0002957443065394
+            ],
+            "residual_a": 0.00012234304640314933,
+            "residual_b": 0.00014153063810399034,
+            "residual_composite": 0.0001862049630583235
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.015625,
+        "fit_wall_seconds": 0.004423599981237203,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "group_law_residual": 0.0001862049630583235,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        true,
+        true
+      ],
+      "condition": "eq_norm_cov",
+      "encoder_abs_diff_vs_committed": 2.92602383613616e-05,
+      "equivariance_loss": 0.05992306023836136,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            1,
+            0
+          ],
+          "power": 0.9998425471053739
+        },
+        {
+          "mode": [
+            0,
+            1
+          ],
+          "power": 0.9996146715342941
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.012474012474012475,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0024067999911494553,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.016632016632016633,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.0016472999996040016,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.008316008316008316,
+          "fit_cpu_seconds": 0.0625,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.06321560000651516,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0022162000241223723,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "label_efficiency": {
+        "16": {
+          "affine32": 0.033264033264033266,
+          "affine4": 0.02286902286902287,
+          "bilinear32": 0.031185031185031187,
+          "bilinear4": 0.029106029106029108,
+          "blind": 0.9916839916839917
+        },
+        "240": {
+          "affine32": 0.010395010395010396,
+          "affine4": 0.033264033264033266,
+          "bilinear32": 0.02286902286902287,
+          "bilinear4": 0.02494802494802495,
+          "blind": 1.0
+        },
+        "4": {
+          "affine32": 0.02702702702702703,
+          "affine4": 0.02286902286902287,
+          "bilinear32": 0.02494802494802495,
+          "bilinear4": 0.02286902286902287,
+          "blind": 0.9438669438669439
+        },
+        "480": {
+          "affine32": 0.012474012474012475,
+          "affine4": 0.016632016632016633,
+          "bilinear32": 0.008316008316008316,
+          "bilinear4": 0.010395010395010396,
+          "blind": 1.0
+        },
+        "64": {
+          "affine32": 0.031185031185031187,
+          "affine4": 0.033264033264033266,
+          "bilinear32": 0.02079002079002079,
+          "bilinear4": 0.018711018711018712,
+          "blind": 1.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "character_candidates_per_block": 961,
+        "determinant": 1,
+        "exponents": [
+          2,
+          1
+        ],
+        "fit_coherences": [
+          0.9910288184030559,
+          0.9836754551169961
+        ],
+        "fitted_discrete_mode_bits_upper_bound": 20,
+        "fitted_offset_coherence": 0.9995036312776207,
+        "fitted_scalar_count": 2,
+        "heldout_accuracy": 1.0,
+        "modes": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "recoverable_basis": true,
+        "signed_exponents": [
+          2,
+          1
+        ]
+      },
+      "random_rotation_control": {
+        "accuracy_max": 0.11850311850311851,
+        "accuracy_mean": 0.042388542388542394,
+        "accuracy_median": 0.035343035343035345,
+        "dependent_frequency_failures": 32,
+        "draws": 50,
+        "group_law_residual_median": 0.042379188741330946,
+        "group_law_residual_min": 0.009744323812410062
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "blind": {
+        "accuracy": null,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": null,
+          "reason": "frequencies dependent mod p",
+          "recoverable": false
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.43633280019681564,
+              0.22480118923571712
+            ],
+            "group_law_residual": 1.768580222068329,
+            "k": 19,
+            "l": 0,
+            "multiplier_modulus": [
+              0.14835101985829824,
+              0.7470269433046661
+            ],
+            "residual_a": 1.7156543134799418,
+            "residual_b": 0.49581841661028586,
+            "residual_composite": 1.768580222068329
+          },
+          {
+            "angle_round_error_steps": [
+              0.168834497868372,
+              0.16492859794951523
+            ],
+            "group_law_residual": 1.7510203071910766,
+            "k": 1,
+            "l": 0,
+            "multiplier_modulus": [
+              0.1938969660516445,
+              0.6054105780567198
+            ],
+            "residual_a": 1.625895417411236,
+            "residual_b": 0.7921094593839892,
+            "residual_composite": 1.7510203071910766
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.0039997000130824745,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            19,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "group_law_residual": 1.768580222068329,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        false,
+        false
+      ],
+      "condition": "task_and_a",
+      "encoder_abs_diff_vs_committed": 0.07426026697998012,
+      "equivariance_loss": 4.8255510330200195,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            18,
+            0
+          ],
+          "power": 0.1154507799312613
+        },
+        {
+          "mode": [
+            4,
+            0
+          ],
+          "power": 0.20471037533478498
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.004158004158004158,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.002467800019076094,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.02079002079002079,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.002005199989071116,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.02079002079002079,
+          "fit_cpu_seconds": 0.0625,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.06216920001315884,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.004158004158004158,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0023876000195741653,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.4559123262233415,
+          0.6257706504037346
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            18,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "blind": {
+        "accuracy": 0.037422037422037424,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": 0.037422037422037424,
+          "exponents": [
+            4,
+            3
+          ],
+          "offset_coherence": 0.025625702949645092,
+          "recoverable": true
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.26646233380586004,
+              0.4883080418980583
+            ],
+            "group_law_residual": 1.6750697270480874,
+            "k": 14,
+            "l": 13,
+            "multiplier_modulus": [
+              0.21868493098718567,
+              0.16433855392105007
+            ],
+            "residual_a": 1.5371606558246185,
+            "residual_b": 1.65570039603059,
+            "residual_composite": 1.6750697270480874
+          },
+          {
+            "angle_round_error_steps": [
+              0.4354882256843293,
+              0.13897168577144825
+            ],
+            "group_law_residual": 1.5696985190166504,
+            "k": 13,
+            "l": 14,
+            "multiplier_modulus": [
+              0.231603403131918,
+              0.24718929923098099
+            ],
+            "residual_a": 1.545361811724215,
+            "residual_b": 1.505278925935864,
+            "residual_composite": 1.5696985190166504
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.007679499976802617,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            14,
+            13
+          ],
+          [
+            13,
+            14
+          ]
+        ],
+        "group_law_residual": 1.6750697270480874,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        false,
+        false
+      ],
+      "condition": "task_only",
+      "encoder_abs_diff_vs_committed": 0.024847008508301016,
+      "equivariance_loss": 7.759951591491699,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            15,
+            15
+          ],
+          "power": 0.2856956197644746
+        },
+        {
+          "mode": [
+            15,
+            15
+          ],
+          "power": 0.23829842497144554
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.006237006237006237,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.002051399991614744,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.008316008316008316,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.0011027000145986676,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.018711018711018712,
+          "fit_cpu_seconds": 0.046875,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.03460169999743812,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.02079002079002079,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0015341999824158847,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.7018066921726324,
+          0.6233871486788086
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "held_out_seed",
+      "seed": 307
+    },
+    {
+      "blind": {
+        "accuracy": 0.018711018711018712,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": 0.018711018711018712,
+          "exponents": [
+            -1,
+            -2
+          ],
+          "offset_coherence": 0.03666749536419371,
+          "recoverable": true
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.33425495082308126,
+              0.2846240674649938
+            ],
+            "group_law_residual": 1.2893944474665426,
+            "k": 0,
+            "l": 30,
+            "multiplier_modulus": [
+              0.6724639570175932,
+              0.6651821671069773
+            ],
+            "residual_a": 0.6611524793982705,
+            "residual_b": 0.6980131030228403,
+            "residual_composite": 1.2893944474665426
+          },
+          {
+            "angle_round_error_steps": [
+              0.053226449543694154,
+              0.07526219525361574
+            ],
+            "group_law_residual": 1.7286327346632027,
+            "k": 30,
+            "l": 0,
+            "multiplier_modulus": [
+              0.5984543163573731,
+              0.5919783682662638
+            ],
+            "residual_a": 0.8714956729332695,
+            "residual_b": 0.8654669269716303,
+            "residual_composite": 1.7286327346632027
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.0027756000054068863,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            0,
+            30
+          ],
+          [
+            30,
+            0
+          ]
+        ],
+        "group_law_residual": 1.7286327346632027,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        false,
+        false
+      ],
+      "condition": "equivariance",
+      "encoder_abs_diff_vs_committed": 8.690133462836966e-05,
+      "equivariance_loss": 1.869866537163034e-05,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.3735496982036171
+        },
+        {
+          "mode": [
+            0,
+            27
+          ],
+          "power": 0.12376495625482425
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.002079002079002079,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0014587000187020749,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.008316008316008316,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.0012944999907631427,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.02079002079002079,
+          "fit_cpu_seconds": 0.03125,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.03200900001684204,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.008316008316008316,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0013738000125158578,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.00023386393955779144,
+          0.00168516079828194
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            27
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "held_out_seed",
+      "seed": 307
+    },
+    {
+      "blind": {
+        "accuracy": null,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": null,
+          "reason": "frequencies dependent mod p",
+          "recoverable": false
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.0038849270000384795,
+              0.0026839605560707793
+            ],
+            "group_law_residual": 0.00042480605117389695,
+            "k": 0,
+            "l": 0,
+            "multiplier_modulus": [
+              0.9999463002251237,
+              0.9998581404538245
+            ],
+            "residual_a": 0.00012565818850676617,
+            "residual_b": 0.00029907574655234365,
+            "residual_composite": 0.00042480605117389695
+          },
+          {
+            "angle_round_error_steps": [
+              7.1022407003241e-05,
+              4.8936869092116186e-06
+            ],
+            "group_law_residual": 3.377862526548325e-05,
+            "k": 0,
+            "l": 0,
+            "multiplier_modulus": [
+              0.9998349758807424,
+              1.0001161582219664
+            ],
+            "residual_a": 2.794016586876606e-05,
+            "residual_b": 3.110842064852534e-05,
+            "residual_composite": 3.377862526548325e-05
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.0019230000034440309,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "group_law_residual": 0.00042480605117389695,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        true,
+        true
+      ],
+      "condition": "eq_norm",
+      "encoder_abs_diff_vs_committed": 0.00019324628944396988,
+      "equivariance_loss": 0.06012454628944397,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.9998449842188162
+        },
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.9999776274740065
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.012474012474012475,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0013986999983899295,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.02079002079002079,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.0012938999861944467,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.04158004158004158,
+          "fit_cpu_seconds": 0.03125,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.03164899998228066,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.02494802494802495,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0014033000043127686,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          1.0000014136974222,
+          0.9621425478840044
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "held_out_seed",
+      "seed": 307
+    },
+    {
+      "blind": {
+        "accuracy": 1.0,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": 1.0,
+          "exponents": [
+            1,
+            2
+          ],
+          "offset_coherence": 0.9996493744842097,
+          "recoverable": true
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.0011766745771049148,
+              0.00043960726420255725
+            ],
+            "group_law_residual": 0.0001391165964967513,
+            "k": 0,
+            "l": 1,
+            "multiplier_modulus": [
+              1.0001499802818727,
+              1.00029136540102
+            ],
+            "residual_a": 0.00010379256694633424,
+            "residual_b": 0.00010410367805265917,
+            "residual_composite": 0.0001391165964967513
+          },
+          {
+            "angle_round_error_steps": [
+              0.0017253829099274087,
+              0.001623939712827323
+            ],
+            "group_law_residual": 0.00015532915591328283,
+            "k": 1,
+            "l": 0,
+            "multiplier_modulus": [
+              1.0004629280480482,
+              0.9996422849542644
+            ],
+            "residual_a": 0.0001359754002402914,
+            "residual_b": 9.24260703978752e-05,
+            "residual_composite": 0.00015532915591328283
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.002840700006345287,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "group_law_residual": 0.00015532915591328283,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        true,
+        true
+      ],
+      "condition": "eq_norm_cov",
+      "encoder_abs_diff_vs_committed": 0.039728441882896426,
+      "equivariance_loss": 0.020337358117103577,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            1
+          ],
+          "power": 0.9997798996894484
+        },
+        {
+          "mode": [
+            1,
+            0
+          ],
+          "power": 0.9997831024943656
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0013322999875526875,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.012474012474012475,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.0011596000113058835,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.03125,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.030631600006017834,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0013558999926317483,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "label_efficiency": {
+        "16": {
+          "affine32": 0.033264033264033266,
+          "affine4": 0.05405405405405406,
+          "bilinear32": 0.035343035343035345,
+          "bilinear4": 0.033264033264033266,
+          "blind": 1.0
+        },
+        "240": {
+          "affine32": 0.016632016632016633,
+          "affine4": 0.02286902286902287,
+          "bilinear32": 0.02079002079002079,
+          "bilinear4": 0.02494802494802495,
+          "blind": 1.0
+        },
+        "4": {
+          "affine32": 0.02494802494802495,
+          "affine4": 0.031185031185031187,
+          "bilinear32": 0.02286902286902287,
+          "bilinear4": 0.02494802494802495,
+          "blind": 1.0
+        },
+        "480": {
+          "affine32": 0.010395010395010396,
+          "affine4": 0.012474012474012475,
+          "bilinear32": 0.010395010395010396,
+          "bilinear4": 0.010395010395010396,
+          "blind": 1.0
+        },
+        "64": {
+          "affine32": 0.02494802494802495,
+          "affine4": 0.02494802494802495,
+          "bilinear32": 0.033264033264033266,
+          "bilinear4": 0.02494802494802495,
+          "blind": 0.9937629937629938
+        }
+      },
+      "oracle_assisted_basis": {
+        "character_candidates_per_block": 961,
+        "determinant": 30,
+        "exponents": [
+          1,
+          2
+        ],
+        "fit_coherences": [
+          0.9913700827658208,
+          0.9990018451443778
+        ],
+        "fitted_discrete_mode_bits_upper_bound": 20,
+        "fitted_offset_coherence": 0.9996493744842097,
+        "fitted_scalar_count": 2,
+        "heldout_accuracy": 1.0,
+        "modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "recoverable_basis": true,
+        "signed_exponents": [
+          1,
+          2
+        ]
+      },
+      "random_rotation_control": {
+        "accuracy_max": 0.09147609147609148,
+        "accuracy_mean": 0.045997920997921,
+        "accuracy_median": 0.05197505197505198,
+        "dependent_frequency_failures": 34,
+        "draws": 50,
+        "group_law_residual_median": 0.04343474083825583,
+        "group_law_residual_min": 0.011901741932214
+      },
+      "role": "held_out_seed",
+      "seed": 307
+    },
+    {
+      "blind": {
+        "accuracy": null,
+        "config": {
+          "estimator": "ls",
+          "lift": "signed",
+          "n_shift": null,
+          "normalize": "unit"
+        },
+        "decoder": {
+          "accuracy": null,
+          "reason": "frequencies dependent mod p",
+          "recoverable": false
+        },
+        "discovered": [
+          {
+            "angle_round_error_steps": [
+              0.3852853247647725,
+              0.15777158165866914
+            ],
+            "group_law_residual": 1.782538630315006,
+            "k": 4,
+            "l": 0,
+            "multiplier_modulus": [
+              0.17117521513567074,
+              0.6283861318195731
+            ],
+            "residual_a": 1.6524352750556839,
+            "residual_b": 0.7443305065189677,
+            "residual_composite": 1.782538630315006
+          },
+          {
+            "angle_round_error_steps": [
+              0.39810342193854353,
+              0.10024249981320602
+            ],
+            "group_law_residual": 1.8423513393101332,
+            "k": 11,
+            "l": 0,
+            "multiplier_modulus": [
+              0.07729386654527277,
+              0.7236672424768764
+            ],
+            "residual_a": 1.8423513393101332,
+            "residual_b": 0.5495464258356433,
+            "residual_composite": 1.831784226025932
+          }
+        ],
+        "discrete_integers": 4,
+        "fit_cpu_seconds": 0.0,
+        "fit_wall_seconds": 0.00223280000500381,
+        "fitted_scalars": 2,
+        "frequencies": [
+          [
+            4,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "group_law_residual": 1.8423513393101332,
+        "labels_used": 480,
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        }
+      },
+      "character_recovery": [
+        false,
+        false
+      ],
+      "condition": "task_and_a",
+      "encoder_abs_diff_vs_committed": 0.027824884204101785,
+      "equivariance_loss": 4.947748184204102,
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            5,
+            0
+          ],
+          "power": 0.1083173099089941
+        },
+        {
+          "mode": [
+            15,
+            0
+          ],
+          "power": 0.0744361444587967
+        }
+      ],
+      "generic": {
+        "affine32": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 1049697,
+          "fit_wall_seconds": 0.0015727000136394054,
+          "kind": "affine32",
+          "labels_used": 480,
+          "parameters": 1023,
+          "penalty": 0.001
+        },
+        "affine4": {
+          "accuracy": 0.010395010395010396,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 86525,
+          "fit_wall_seconds": 0.001153099990915507,
+          "kind": "affine4",
+          "labels_used": 480,
+          "parameters": 155,
+          "penalty": 0.001
+        },
+        "bilinear32": {
+          "accuracy": 0.012474012474012475,
+          "fit_cpu_seconds": 0.015625,
+          "fit_multiply_adds": 335972241,
+          "fit_wall_seconds": 0.02873890000046231,
+          "kind": "bilinear32",
+          "labels_used": 480,
+          "parameters": 17391,
+          "penalty": 10.0
+        },
+        "bilinear4": {
+          "accuracy": 0.018711018711018712,
+          "fit_cpu_seconds": 0.0,
+          "fit_multiply_adds": 334575,
+          "fit_wall_seconds": 0.0016659999964758754,
+          "kind": "bilinear4",
+          "labels_used": 480,
+          "parameters": 465,
+          "penalty": 10.0
+        }
+      },
+      "oracle_assisted_basis": {
+        "fit_coherences": [
+          0.5065716488607824,
+          0.37998894444045095
+        ],
+        "heldout_accuracy": null,
+        "modes": [
+          [
+            5,
+            0
+          ],
+          [
+            12,
+            0
+          ]
+        ],
+        "reason": "selected characters linearly dependent mod p",
+        "recoverable_basis": false
+      },
+      "role": "held_out_seed",
+      "seed": 307
+    }
+  ],
+  "schema": "adict-blind-fourier/v0.1",
+  "scope": "CPU; encoders re-derived from AC-01 manifest; decoder split only; not zero-shot",
+  "source_sha256": {
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "blind_fourier_manifest.json": "0b41c93c4703573f4e031d5cb5b3944f0f560066e70a22d69954c2206b533382",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "test_blind_fourier.py": "1f7a5a1103d3bac386a53998baf8c536283984e36d8f3afebddf88be79a6983e"
+  },
+  "split": {
+    "fit": 240,
+    "pool": 480,
+    "test": 481,
+    "val": 240
+  },
+  "torch": "2.11.0+cu128",
+  "verdict": {
+    "best_generic_accuracy": 0.012474012474012475,
+    "blind_accuracy": 1.0,
+    "characters_recovered_both_blocks": true,
+    "group_law_residual": 0.00015532915591328283,
+    "margin": 0.9875259875259875,
+    "margin_ok": true,
+    "residual_ok": true,
+    "success": true
+  }
+}
