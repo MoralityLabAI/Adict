@@ -1,0 +1,133 @@
+{
+  "schema": "adict-closeout-c1/v0.1",
+  "source_sha256": {
+    "c1_closeout.py": "f1e75fc6853843c64c953dcb08e6c055a150c7dc92bdafbd05081fa1c0d88d6a",
+    "test_c1_closeout.py": "d87d71dff3457395662ed00d70c4983719d13b0cc37b35bb6bc5ea695d9d517a",
+    "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_subspace_frozen.json": "1e5946a007b0ef85ca7551b3c2c717212944feb6714abafb8354a6258de53564",
+    "c1_manifest.json": "a82db6b04948a9ca7f495ea67652db780d6a2d43fc3e550999073c15230d90ce"
+  },
+  "manifest": {
+    "schema": "adict-closeout-c1/v0.1",
+    "modulus": 31,
+    "plan": "CLOSEOUT_PLAN.md section 4, pass C1; plan commit 02c2ad49f437996d35fea2b698acb9ddefc47599",
+    "seeds": [
+      401,
+      409,
+      419
+    ],
+    "conditions": [
+      "task_only",
+      "eq_norm_cov"
+    ],
+    "split_seed": 2026110301,
+    "frozen_from": "blind_subspace_frozen.json (BF-02): discovery config and baseline hyperparameters are loaded unchanged; nothing is retuned on the new seeds",
+    "targets": {
+      "shear_2_1": [
+        2,
+        1
+      ],
+      "shear_1_2": [
+        1,
+        2
+      ]
+    },
+    "primary_target": "shear_2_1",
+    "control_seed": 7373,
+    "interchange": {
+      "pairs": 256,
+      "pair_seed": 2026110302,
+      "design": "recipient (a,b) in the 481 test pairs, donor (a',b) in the test pairs with a' != a and the same b; counterfactual output = native head output at the donor input",
+      "site": "32-d code immediately before the original task head read_sum",
+      "edit": "z' = z_recipient + (z_donor - z_recipient) Q Q^T, Q = orthonormal basis of the discovered real subspace",
+      "controls": [
+        "no_edit",
+        "zero_edit_identity",
+        "full_code_donor",
+        "complement_replacement",
+        "16 rank-matched random subspaces (norm-matched primary, unscaled diagnostic)"
+      ],
+      "random_controls": 16,
+      "off_target": "patched argmax equals neither the counterfactual label nor the recipient label"
+    },
+    "mlp_comparator": {
+      "inputs": "Re/Im of unit-normalized complex features from coordinates 0-3 (known pairing)",
+      "hidden": [
+        256,
+        256
+      ],
+      "steps": 1500,
+      "lr": 0.003,
+      "weight_decay": 0.001,
+      "seed": 17,
+      "fit_budget": "480 shear labels, full-batch AdamW, 1500 steps, CPU, hyperparameters fixed before the run"
+    },
+    "rotation_seed_offset": 9000,
+    "g1_gates": {
+      "present_task_accuracy_min": 0.99,
+      "small_exponent_decoder_accuracy_min": 0.95,
+      "heldout_group_residual_max": 0.01,
+      "rotation_accuracy_change_max": 0.02,
+      "interchange_accuracy_min": 0.8,
+      "interchange_lift_over_best_random_min": 0.2,
+      "scope": "eq_norm_cov on every new seed; task_only is a reported control; abstention or failure counts as 0 accuracy"
+    },
+    "access_table": {
+      "blind_subspace": "32-d code, opaque shift pairs, order 31, target exponents, labels for one output phase",
+      "exponent_search": "known coordinate pairing, labels, no shift graph (privileged reference)",
+      "monomial_ridge": "known coordinate pairing, labels",
+      "rff4": "coordinates 0-3, labels",
+      "mlp": "known coordinate pairing, labels, fixed budget above"
+    },
+    "analytic_noise_table": "closeout_planning/sandbox_results.json (not recomputed)",
+    "compute_cap": "30 CPU-minutes, single thread, no GPU, no Silico"
+  },
+  "git_head_at_start": "0447fd5d061a632c2f70dbddfa215860f1dc199c",
+  "bf02_artifact_lock": {
+    "checkpoints": {
+      "303/eq_norm": "ok",
+      "303/eq_norm_cov": "ok",
+      "303/equivariance": "ok",
+      "303/task_and_a": "ok",
+      "303/task_only": "ok",
+      "307/eq_norm_cov": "ok",
+      "311/eq_norm": "ok",
+      "311/eq_norm_cov": "ok",
+      "311/equivariance": "ok",
+      "311/task_and_a": "ok",
+      "311/task_only": "ok"
+    },
+    "n_checkpoints": 11,
+    "frozen_file": "ok",
+    "results_file": "ok",
+    "sources": {
+      "blind_subspace.py": "ok",
+      "test_blind_subspace.py": "ok",
+      "blind_fourier.py": "ok",
+      "anti_collapse.py": "ok",
+      "pilot.py": "ok",
+      "anti_collapse_manifest.json": "ok",
+      "blind_subspace_manifest.json": "ok"
+    },
+    "all_checkpoints_ok": true
+  },
+  "frozen_config_used": {
+    "blind_config": {
+      "mix": 0.7371,
+      "n_shift": null,
+      "nu": 0.01,
+      "ridge": 1e-06,
+      "tau": 0.05
+    },
+    "baselines": {
+      "monomial_penalty": 0.001,
+      "rff_penalty": 0.1,
+      "rff_sigma": 0.5
+    }
+  },
+  "ordering": "local pre-run write, unsigned; written before any encoder is trained"
+}

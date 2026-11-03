@@ -1,0 +1,44 @@
+{
+  "401/eq_norm_cov": {
+    "activation_sha256": "6108a9c669329f987e8cc62680c4aec98abfd10f270a067a3fcf875db5b5a09d",
+    "equivariance_loss": 0.020481583534130435,
+    "file": "seed401_eq_norm_cov.pt",
+    "file_sha256": "7d3cd5e99c45aff2dab0609d22818225bea33da33c2b4e2cfecc73f7873e1945",
+    "state_sha256": "b3de508dfbbd1075699e4c97287cdbeed85a4cf903d4a8f1303f5b911fb41131"
+  },
+  "401/task_only": {
+    "activation_sha256": "9753a59070c039216d499488c37db2a1d4cc3ab81e80ea0491b08f18ef98df03",
+    "equivariance_loss": 9.023920940810186,
+    "file": "seed401_task_only.pt",
+    "file_sha256": "c8212badc31de5bf8f329aa0fc97b5768f0588f3b59983f7d8e739743b2f1add",
+    "state_sha256": "545ed3f1deadf2fc31a1bfc24b33d427c7ec4353e0e12adb7602f047c855bdcf"
+  },
+  "409/eq_norm_cov": {
+    "activation_sha256": "c3248f0d1f9ffb09f53e6b1df102785b104e63ea2bd5ed97652327c8275c8217",
+    "equivariance_loss": 0.020316552008761604,
+    "file": "seed409_eq_norm_cov.pt",
+    "file_sha256": "686b1fe96c4c14619d55ca9d44818c8823d97588fc576cee47a076046bd3530e",
+    "state_sha256": "00ebcd609a79616cadb8a35db43eb5f30390178f7c0f8e8be005dc73566d706b"
+  },
+  "409/task_only": {
+    "activation_sha256": "f32ddc746600285b2280e260a0265fce1884c6eb20ebcd28c6660aec9068509d",
+    "equivariance_loss": 6.169641290811564,
+    "file": "seed409_task_only.pt",
+    "file_sha256": "56eeb58779bc0f5773d9bdcfe09844d9457fc1df47e8321c7b2449322f6c6944",
+    "state_sha256": "87add074a74b75810925850d54e7a2c6bcdcf7a1b2b79f6ec8199aa54f606d5f"
+  },
+  "419/eq_norm_cov": {
+    "activation_sha256": "ef935197bab48381303ea25cda1dceea3d95b04e74d229db797a5acd985643c2",
+    "equivariance_loss": 0.04408993047636606,
+    "file": "seed419_eq_norm_cov.pt",
+    "file_sha256": "e0796798d72ac6325fb57b9bd7338b9fbaeb427d7908cd2213e5c797b97cfcc1",
+    "state_sha256": "d8d097bddfbe5a1108294e1429c8554b5600e8be4849ac9f0e4296d8c24780a7"
+  },
+  "419/task_only": {
+    "activation_sha256": "498b8951358178c063525e0bf8cbc1665d5711c9745cecff5a8e57b8244131ad",
+    "equivariance_loss": 6.266665082883688,
+    "file": "seed419_task_only.pt",
+    "file_sha256": "c998ab9a532ce6e1deed6a0f2945832af5a1b463405c4991556b5054e8729461",
+    "state_sha256": "c4736615e988fe24e183bd6f7f69ac912c83386ae11d02672a969787687c3e46"
+  }
+}

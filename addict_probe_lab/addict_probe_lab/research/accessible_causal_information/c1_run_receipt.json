@@ -1,0 +1,79 @@
+{
+  "G1_pass": false,
+  "checkpoints_sha256": "1cc0c4c63b6791374f407df809c21731eeedeaf2234eeb89c53ad7729b6fe359",
+  "n_records": 6,
+  "native_gate_pass": false,
+  "pre_run_commit": "0447fd5d061a632c2f70dbddfa215860f1dc199c",
+  "results_sha256": "33fec2036c14d05bc12c9feb82c23de5c95fae45c1bd5af508b85c65322453bd",
+  "run_seconds": 194.875,
+  "schema": "closeout-c1-receipt-v0.1",
+  "sources": {
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+    "blind_subspace_frozen.json": "1e5946a007b0ef85ca7551b3c2c717212944feb6714abafb8354a6258de53564",
+    "c1_closeout.py": "f1e75fc6853843c64c953dcb08e6c055a150c7dc92bdafbd05081fa1c0d88d6a",
+    "c1_manifest.json": "a82db6b04948a9ca7f495ea67652db780d6a2d43fc3e550999073c15230d90ce",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "test_c1_closeout.py": "d87d71dff3457395662ed00d70c4983719d13b0cc37b35bb6bc5ea695d9d517a"
+  },
+  "sources_verified_against_start": true,
+  "start_sha256": "ad42fcbc33794550178de7de31863e0f226f471339902faf4a635b5e1fadef54",
+  "verdict": {
+    "G1_pass": false,
+    "native_best_random_matched": {
+      "401": 0.0,
+      "409": 0.0,
+      "419": 0.0
+    },
+    "native_complement": {
+      "401": 1.0,
+      "409": 1.0,
+      "419": 1.0
+    },
+    "native_full_code_donor": {
+      "401": 1.0,
+      "409": 1.0,
+      "419": 1.0
+    },
+    "native_gate_pass": false,
+    "native_interchange_accuracy": {
+      "401": 0.0,
+      "409": 0.0,
+      "419": 0.0
+    },
+    "per_seed": [
+      {
+        "all": false,
+        "heldout_group_residual": true,
+        "interchange_accuracy": false,
+        "interchange_lift": false,
+        "present_task": true,
+        "rotation_change": true,
+        "seed": 401,
+        "small_exponent_decoder": false
+      },
+      {
+        "all": false,
+        "heldout_group_residual": true,
+        "interchange_accuracy": false,
+        "interchange_lift": false,
+        "present_task": true,
+        "rotation_change": true,
+        "seed": 409,
+        "small_exponent_decoder": true
+      },
+      {
+        "all": false,
+        "heldout_group_residual": false,
+        "interchange_accuracy": false,
+        "interchange_lift": false,
+        "present_task": true,
+        "rotation_change": false,
+        "seed": 419,
+        "small_exponent_decoder": false
+      }
+    ]
+  }
+}
