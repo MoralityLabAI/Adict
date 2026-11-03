@@ -1,0 +1,23 @@
+{
+  "anti_collapse_source_sha256": "f5ead229fef6096e643486182668455e89a4e45d89f37b902759fa8522208172",
+  "anti_collapse_test_sha256": "081df1b71f5d53dea5aaa542b668cb25207a12e54edca2835ac2076022e0c5a0",
+  "conditions": [
+    "task_only",
+    "equivariance",
+    "eq_norm",
+    "eq_norm_cov",
+    "task_and_a"
+  ],
+  "full_results_sha256": "c76a14836f38f4423419db4363acd483b278366212dea75f63510889532daa44",
+  "manifest_sha256": "8581cdbc6fceeff66e5c6bfb8f866c89b1e13589baaeeaf962bfdf0ef3f34e89",
+  "n_cases": 10,
+  "receipt_sha256": "70a1bb7891f7244a412ecd96876c37c332bfebb117bf578a136e7b97e1658f22",
+  "run_seconds": 41.386,
+  "schema": "anti-collapse-reference/v0.1",
+  "seeds": [
+    303,
+    307
+  ],
+  "source_commit_base": "28c52008738c4de894191408827dcab7bf137ece",
+  "start_sha256": "49754e4b11f16f2dba61141544c1e81d0c253d965e5f6da6baa1541718e7a179"
+}
