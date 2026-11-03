@@ -1,0 +1,23 @@
+{
+  "schema": "adict-closeout-planning-receipt/v1",
+  "scope": "Only independent analytic planning fixtures were executed. No BF-02 learned weights, no Adict full suite, no GPU or Silico calls.",
+  "inspected_repository_commit": "55e9b5725f187faaad6f4d807307dd27b6ea829f",
+  "python": "3.13.5",
+  "source_sha256": {
+    "sandbox_gate_probe.py": "0514e9a66f61325482ac8d034c50289a202143aa5d881682c789f4c69994e356",
+    "test_gate_probe.py": "68f98b65ea7e1f5ea4494bfe232e8ab0b5a123cff2d6f8043d0b7d9a964f2278"
+  },
+  "results_sha256": "6f1cd922df40b605be41b9643cda395d2c59380686a3ce133ceb797bd1acd8df",
+  "executed_tests": [
+    {
+      "mode": "normal",
+      "passed": 7,
+      "log": "test_basis_solution (test_gate_probe.PlanningGateTests.test_basis_solution) ... ok\ntest_bounded_noise_certificate (test_gate_probe.PlanningGateTests.test_bounded_noise_certificate) ... ok\ntest_deterministic_replay (test_gate_probe.PlanningGateTests.test_deterministic_replay) ... ok\ntest_exact_all_states (test_gate_probe.PlanningGateTests.test_exact_all_states) ... ok\ntest_native_use_vs_bypass (test_gate_probe.PlanningGateTests.test_native_use_vs_bypass) ... ok\ntest_outside_margin_counterexample (test_gate_probe.PlanningGateTests.test_outside_margin_counterexample) ... ok\ntest_validation (test_gate_probe.PlanningGateTests.test_validation) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.063s\n\nOK\n"
+    },
+    {
+      "mode": "-O",
+      "passed": 7,
+      "log": "test_basis_solution (test_gate_probe.PlanningGateTests.test_basis_solution) ... ok\ntest_bounded_noise_certificate (test_gate_probe.PlanningGateTests.test_bounded_noise_certificate) ... ok\ntest_deterministic_replay (test_gate_probe.PlanningGateTests.test_deterministic_replay) ... ok\ntest_exact_all_states (test_gate_probe.PlanningGateTests.test_exact_all_states) ... ok\ntest_native_use_vs_bypass (test_gate_probe.PlanningGateTests.test_native_use_vs_bypass) ... ok\ntest_outside_margin_counterexample (test_gate_probe.PlanningGateTests.test_outside_margin_counterexample) ... ok\ntest_validation (test_gate_probe.PlanningGateTests.test_validation) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.048s\n\nOK\n"
+    }
+  ]
+}
