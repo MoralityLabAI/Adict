@@ -1,0 +1,651 @@
+{
+  "artifact_sha256": {
+    "activations.pt": "21d6ca312295f712ba461da9f34cbc320da9ebe119d292738b11a2f28bbd8583"
+  },
+  "elapsed_seconds": 11.186,
+  "n_states": 961,
+  "parameter_count": 11390,
+  "probe_test_rows": 481,
+  "probe_train_rows": 480,
+  "protocol": {
+    "base_commit": "6594586c74b38ce6cd410c56e4e087a8742d801c",
+    "claim_scope": "exploratory representation audit; no grokking or zero-shot shear claim",
+    "code_width": 32,
+    "compute": "CPU only, one torch thread, no external models or API calls",
+    "conditions": [
+      "initial",
+      "task_only",
+      "task_and_a"
+    ],
+    "coordinate_bits": 3,
+    "diagnostic_split_seed": 20261102,
+    "diagnostic_targets": [
+      "sum",
+      "a",
+      "shear"
+    ],
+    "diagnostic_train_fraction": 0.5,
+    "embedding_width": 16,
+    "encoder_supervision": {
+      "task_and_a": [
+        "sum",
+        "a"
+      ],
+      "task_only": [
+        "sum"
+      ]
+    },
+    "encoder_training_states": "all p squared input pairs",
+    "evaluation": "complete-state oracle code risks plus held-out-pair diagnostic readouts",
+    "fit_gate_present_accuracy": 0.99,
+    "hidden_width": 128,
+    "learning_rate": 0.01,
+    "modulus": 31,
+    "probe": "affine ridge one-hot regression",
+    "quantizer": "round and clip at +/-3 training standard deviations",
+    "retained_dimensions": [
+      32,
+      16,
+      8,
+      4,
+      2,
+      1,
+      0
+    ],
+    "ridge_penalty": 0.01,
+    "schema": "learned-intervention-transfer/v0.1",
+    "seeds": [
+      303,
+      307
+    ],
+    "steps": 1500,
+    "weight_decay": 0.001
+  },
+  "python": "3.13.5",
+  "records": [
+    {
+      "condition": "initial",
+      "fit_gate_met": false,
+      "present_accuracy_all_states": 0.03850156087408949,
+      "probes": {
+        "a": {
+          "accuracy": 0.8544698544698545,
+          "onehot_mse": 0.6778217714356484
+        },
+        "a_shuffled_training_labels": {
+          "accuracy": 0.033264033264033266,
+          "onehot_mse": 1.0231228458121697
+        },
+        "shear": {
+          "accuracy": 0.002079002079002079,
+          "onehot_mse": 1.0691053699887556
+        },
+        "sum": {
+          "accuracy": 0.006237006237006237,
+          "onehot_mse": 1.0571593604277725
+        }
+      },
+      "quantized_oracle": [
+        {
+          "attained_codes": 961,
+          "dimensions": 32,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 96
+        },
+        {
+          "attained_codes": 961,
+          "dimensions": 16,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 48
+        },
+        {
+          "attained_codes": 950,
+          "dimensions": 8,
+          "risk": {
+            "a": "7/961",
+            "shear": "11/961",
+            "sum": "11/961"
+          },
+          "state_code_bits": 24
+        },
+        {
+          "attained_codes": 429,
+          "dimensions": 4,
+          "risk": {
+            "a": "2050351/4439820",
+            "shear": "658109/1210860",
+            "sum": "1022717/1902780"
+          },
+          "state_code_bits": 12
+        },
+        {
+          "attained_codes": 45,
+          "dimensions": 2,
+          "risk": {
+            "a": "13716367172879/15443761647600",
+            "shear": "3338184944261/3603544384440",
+            "sum": "15399531473423/16631743312800"
+          },
+          "state_code_bits": 6
+        },
+        {
+          "attained_codes": 8,
+          "dimensions": 1,
+          "risk": {
+            "a": "71076804503/75895837017",
+            "shear": "1263098173/1313076765",
+            "sum": "208680255647/216845248620"
+          },
+          "state_code_bits": 3
+        },
+        {
+          "attained_codes": 1,
+          "dimensions": 0,
+          "risk": {
+            "a": "30/31",
+            "shear": "30/31",
+            "sum": "30/31"
+          },
+          "state_code_bits": 0
+        }
+      ],
+      "seed": 303
+    },
+    {
+      "condition": "task_only",
+      "fit_gate_met": true,
+      "present_accuracy_all_states": 1.0,
+      "probes": {
+        "a": {
+          "accuracy": 0.14137214137214138,
+          "onehot_mse": 0.9833793710952183
+        },
+        "a_shuffled_training_labels": {
+          "accuracy": 0.029106029106029108,
+          "onehot_mse": 1.0323520541430906
+        },
+        "shear": {
+          "accuracy": 0.012474012474012475,
+          "onehot_mse": 1.0582569250329008
+        },
+        "sum": {
+          "accuracy": 0.9708939708939709,
+          "onehot_mse": 0.6860314618137779
+        }
+      },
+      "quantized_oracle": [
+        {
+          "attained_codes": 961,
+          "dimensions": 32,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 96
+        },
+        {
+          "attained_codes": 961,
+          "dimensions": 16,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 48
+        },
+        {
+          "attained_codes": 944,
+          "dimensions": 8,
+          "risk": {
+            "a": "17/961",
+            "shear": "17/961",
+            "sum": "0"
+          },
+          "state_code_bits": 24
+        },
+        {
+          "attained_codes": 352,
+          "dimensions": 4,
+          "risk": {
+            "a": "2457859/3935295",
+            "shear": "10800739/17315298",
+            "sum": "49679411/173152980"
+          },
+          "state_code_bits": 12
+        },
+        {
+          "attained_codes": 31,
+          "dimensions": 2,
+          "risk": {
+            "a": "5560734565460818727/5907905565913529640",
+            "shear": "5570285808536465239/5907905565913529640",
+            "sum": "4618584890851276733/5907905565913529640"
+          },
+          "state_code_bits": 6
+        },
+        {
+          "attained_codes": 6,
+          "dimensions": 1,
+          "risk": {
+            "a": "689842119851/716348408580",
+            "shear": "76783716367/79594267620",
+            "sum": "54466503449/59695700715"
+          },
+          "state_code_bits": 3
+        },
+        {
+          "attained_codes": 1,
+          "dimensions": 0,
+          "risk": {
+            "a": "30/31",
+            "shear": "30/31",
+            "sum": "30/31"
+          },
+          "state_code_bits": 0
+        }
+      ],
+      "seed": 303
+    },
+    {
+      "condition": "task_and_a",
+      "fit_gate_met": true,
+      "present_accuracy_all_states": 1.0,
+      "probes": {
+        "a": {
+          "accuracy": 0.8898128898128899,
+          "onehot_mse": 0.6853402497640548
+        },
+        "a_shuffled_training_labels": {
+          "accuracy": 0.037422037422037424,
+          "onehot_mse": 1.0391381835261553
+        },
+        "shear": {
+          "accuracy": 0.006237006237006237,
+          "onehot_mse": 1.0574323764553537
+        },
+        "sum": {
+          "accuracy": 0.4553014553014553,
+          "onehot_mse": 0.8882037781104433
+        }
+      },
+      "quantized_oracle": [
+        {
+          "attained_codes": 961,
+          "dimensions": 32,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 96
+        },
+        {
+          "attained_codes": 961,
+          "dimensions": 16,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 48
+        },
+        {
+          "attained_codes": 891,
+          "dimensions": 8,
+          "risk": {
+            "a": "2/961",
+            "shear": "70/961",
+            "sum": "70/961"
+          },
+          "state_code_bits": 24
+        },
+        {
+          "attained_codes": 299,
+          "dimensions": 4,
+          "risk": {
+            "a": "6985219/28858830",
+            "shear": "26170863/38478440",
+            "sum": "33780179/49472280"
+          },
+          "state_code_bits": 12
+        },
+        {
+          "attained_codes": 30,
+          "dimensions": 2,
+          "risk": {
+            "a": "475360445073/644725501420",
+            "shear": "52165230519361/55124030371410",
+            "sum": "40031791263097/42403100285700"
+          },
+          "state_code_bits": 6
+        },
+        {
+          "attained_codes": 6,
+          "dimensions": 1,
+          "risk": {
+            "a": "1004587622869/1144041718050",
+            "shear": "25699627337/26605621350",
+            "sum": "11871708967/12301523850"
+          },
+          "state_code_bits": 3
+        },
+        {
+          "attained_codes": 1,
+          "dimensions": 0,
+          "risk": {
+            "a": "30/31",
+            "shear": "30/31",
+            "sum": "30/31"
+          },
+          "state_code_bits": 0
+        }
+      ],
+      "seed": 303
+    },
+    {
+      "condition": "initial",
+      "fit_gate_met": false,
+      "present_accuracy_all_states": 0.03433922996878252,
+      "probes": {
+        "a": {
+          "accuracy": 0.8274428274428275,
+          "onehot_mse": 0.6656234984191605
+        },
+        "a_shuffled_training_labels": {
+          "accuracy": 0.016632016632016633,
+          "onehot_mse": 1.0422261743035461
+        },
+        "shear": {
+          "accuracy": 0.002079002079002079,
+          "onehot_mse": 1.0636421840581631
+        },
+        "sum": {
+          "accuracy": 0.006237006237006237,
+          "onehot_mse": 1.0606377641051214
+        }
+      },
+      "quantized_oracle": [
+        {
+          "attained_codes": 961,
+          "dimensions": 32,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 96
+        },
+        {
+          "attained_codes": 961,
+          "dimensions": 16,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 48
+        },
+        {
+          "attained_codes": 948,
+          "dimensions": 8,
+          "risk": {
+            "a": "8/961",
+            "shear": "12/961",
+            "sum": "13/961"
+          },
+          "state_code_bits": 24
+        },
+        {
+          "attained_codes": 400,
+          "dimensions": 4,
+          "risk": {
+            "a": "6411683/13319460",
+            "shear": "633089/1109955",
+            "sum": "5077439/8879640"
+          },
+          "state_code_bits": 12
+        },
+        {
+          "attained_codes": 39,
+          "dimensions": 2,
+          "risk": {
+            "a": "1830996942428652995/2076921942689277684",
+            "shear": "9675953787694326469/10384609713446388420",
+            "sum": "58173140427415091933/62307658280678330520"
+          },
+          "state_code_bits": 6
+        },
+        {
+          "attained_codes": 7,
+          "dimensions": 1,
+          "risk": {
+            "a": "40284442863541/42689526938247",
+            "shear": "1957480002233/2032834616107",
+            "sum": "5875296151507/6098503848321"
+          },
+          "state_code_bits": 3
+        },
+        {
+          "attained_codes": 1,
+          "dimensions": 0,
+          "risk": {
+            "a": "30/31",
+            "shear": "30/31",
+            "sum": "30/31"
+          },
+          "state_code_bits": 0
+        }
+      ],
+      "seed": 307
+    },
+    {
+      "condition": "task_only",
+      "fit_gate_met": true,
+      "present_accuracy_all_states": 1.0,
+      "probes": {
+        "a": {
+          "accuracy": 0.10602910602910603,
+          "onehot_mse": 0.9986429867633981
+        },
+        "a_shuffled_training_labels": {
+          "accuracy": 0.02702702702702703,
+          "onehot_mse": 1.0408400826034676
+        },
+        "shear": {
+          "accuracy": 0.012474012474012475,
+          "onehot_mse": 1.0569115653608774
+        },
+        "sum": {
+          "accuracy": 0.9896049896049897,
+          "onehot_mse": 0.6592103560949759
+        }
+      },
+      "quantized_oracle": [
+        {
+          "attained_codes": 961,
+          "dimensions": 32,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 96
+        },
+        {
+          "attained_codes": 960,
+          "dimensions": 16,
+          "risk": {
+            "a": "1/961",
+            "shear": "1/961",
+            "sum": "0"
+          },
+          "state_code_bits": 48
+        },
+        {
+          "attained_codes": 929,
+          "dimensions": 8,
+          "risk": {
+            "a": "32/961",
+            "shear": "32/961",
+            "sum": "2/961"
+          },
+          "state_code_bits": 24
+        },
+        {
+          "attained_codes": 291,
+          "dimensions": 4,
+          "risk": {
+            "a": "1010743843/1471800330",
+            "shear": "2026030081/2943600660",
+            "sum": "5379811/28858830"
+          },
+          "state_code_bits": 12
+        },
+        {
+          "attained_codes": 30,
+          "dimensions": 2,
+          "risk": {
+            "a": "6045923902879967/6408851467236400",
+            "shear": "4104397843124153/4341480026192400",
+            "sum": "260857468400559/361790002182700"
+          },
+          "state_code_bits": 6
+        },
+        {
+          "attained_codes": 6,
+          "dimensions": 1,
+          "risk": {
+            "a": "47409499546/49194315555",
+            "shear": "31647900919/32796210370",
+            "sum": "476633022/528971135"
+          },
+          "state_code_bits": 3
+        },
+        {
+          "attained_codes": 1,
+          "dimensions": 0,
+          "risk": {
+            "a": "30/31",
+            "shear": "30/31",
+            "sum": "30/31"
+          },
+          "state_code_bits": 0
+        }
+      ],
+      "seed": 307
+    },
+    {
+      "condition": "task_and_a",
+      "fit_gate_met": true,
+      "present_accuracy_all_states": 1.0,
+      "probes": {
+        "a": {
+          "accuracy": 0.9313929313929314,
+          "onehot_mse": 0.6658976722525353
+        },
+        "a_shuffled_training_labels": {
+          "accuracy": 0.014553014553014554,
+          "onehot_mse": 1.0364635167867848
+        },
+        "shear": {
+          "accuracy": 0.014553014553014554,
+          "onehot_mse": 1.0547489159472114
+        },
+        "sum": {
+          "accuracy": 0.49064449064449067,
+          "onehot_mse": 0.8843366807480413
+        }
+      },
+      "quantized_oracle": [
+        {
+          "attained_codes": 961,
+          "dimensions": 32,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 96
+        },
+        {
+          "attained_codes": 961,
+          "dimensions": 16,
+          "risk": {
+            "a": "0",
+            "shear": "0",
+            "sum": "0"
+          },
+          "state_code_bits": 48
+        },
+        {
+          "attained_codes": 898,
+          "dimensions": 8,
+          "risk": {
+            "a": "3/1922",
+            "shear": "63/961",
+            "sum": "63/961"
+          },
+          "state_code_bits": 24
+        },
+        {
+          "attained_codes": 300,
+          "dimensions": 4,
+          "risk": {
+            "a": "849379/3805560",
+            "shear": "1292459/1902780",
+            "sum": "862591/1268520"
+          },
+          "state_code_bits": 12
+        },
+        {
+          "attained_codes": 31,
+          "dimensions": 2,
+          "risk": {
+            "a": "30553550011754915455/42881537665039761072",
+            "shear": "4838973631233689555/5132539257205531248",
+            "sum": "26147712593028496721/27694326408671512359"
+          },
+          "state_code_bits": 6
+        },
+        {
+          "attained_codes": 6,
+          "dimensions": 1,
+          "risk": {
+            "a": "563388180919/625691834515",
+            "shear": "603644785803/625691834515",
+            "sum": "17580188479/18224034015"
+          },
+          "state_code_bits": 3
+        },
+        {
+          "attained_codes": 1,
+          "dimensions": 0,
+          "risk": {
+            "a": "30/31",
+            "shear": "30/31",
+            "sum": "30/31"
+          },
+          "state_code_bits": 0
+        }
+      ],
+      "seed": 307
+    }
+  ],
+  "schema": "learned-intervention-transfer/v0.1",
+  "scope": "full-domain present-task learning; diagnostic shear labels used only after encoder freeze; no inferential confidence claim",
+  "source_sha256": {
+    "manifest.json": "2eecbe3ba7b1ddc70f09aff9e53630a098de3f5daf08b2b7fab105076d3ac06f",
+    "pilot.py": "a4fddbb8711411d05ea78157cb1b02f0d0460c754bde09cdea63117738bef6e2",
+    "test_pilot.py": "3320ecf1a87d5689d66a6872c6616198b17f154d5d0358d8f780c3844de2ba92"
+  },
+  "torch": "2.10.0+cpu"
+}

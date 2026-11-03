@@ -1,0 +1,59 @@
+{
+  "base_commit": "6594586c74b38ce6cd410c56e4e087a8742d801c",
+  "committed_file_sha256": {
+    "README.md": "a9ed6a77851a9456be4701d205fc5de98c86a02a9c73aaf9b41e07c03409b528",
+    "manifest.json": "2eecbe3ba7b1ddc70f09aff9e53630a098de3f5daf08b2b7fab105076d3ac06f",
+    "pilot.py": "a4fddbb8711411d05ea78157cb1b02f0d0460c754bde09cdea63117738bef6e2",
+    "quantized.csv": "289657d13345269079e38642568ab85f54281d78d75f594648dd4b40efc89981",
+    "summary.csv": "0c56d0c419279560f087100858223bfad7905b491c277f1ccce5143b0f26f07e",
+    "test_pilot.py": "3320ecf1a87d5689d66a6872c6616198b17f154d5d0358d8f780c3844de2ba92"
+  },
+  "deterministic_replay": "all six records identical, including all exact rational risks",
+  "elapsed_seconds_initial_run": 11.186,
+  "environment": {
+    "device": "CPU",
+    "python": "3.13.5",
+    "threads": 1,
+    "torch": "2.10.0+cpu"
+  },
+  "historical_closure_hashes": "all five verified unchanged",
+  "log_sha256": {
+    "ace_mechinterp_gym_normal.txt": "09eae52d45d1b1629676b8183f5d09b167e6f6274c865f6ee9d316cd87d71306",
+    "ace_mechinterp_gym_optimized.txt": "a773cc5dfe58f8caf34662a6e3f9929fec36114cd8b4e6ec6a03e32de8afd404",
+    "baseline_closure.txt": "a64ef5c445c98912d5a5ee869d8cb5a53a421f29f31e279e1a1cbbe7b9627d7d",
+    "baseline_gym.txt": "8179a94e93ad49600836aa90140d8aef07dcf326e8433c93309c02906997515c",
+    "dynamical_closure_normal.txt": "7d23d236d642b2cfa579b34980a6983e85953df6f2f7348e6e06b7df25701dd9",
+    "dynamical_closure_optimized.txt": "bfe1c0a55df7f48779ccc3ab10429b8db20c6dad3351a14d74455aed8ad7533b",
+    "learned_intervention_transfer_normal.txt": "f8c83af9f90ea9fc047578ce676fd6ab223517563552a68e4812d46ea84ff989",
+    "learned_intervention_transfer_optimized.txt": "5c3b5174491444dbf9d6a0be783824dd72830b6e8668cc87c76ea3c11c092545",
+    "pilot_tests_pre_run.txt": "0213f28a38f4b4adfb0d968869dfa1cc911633d0a55d5374305ea3fcaf0356ce",
+    "replay_verification.txt": "efc3522f9d4bdacdadfe6da94a1cf27f100335a61718bf3dbe18eb893e6cea64"
+  },
+  "parameter_count": 11390,
+  "run_artifact_sha256": {
+    "activations.pt": "21d6ca312295f712ba461da9f34cbc320da9ebe119d292738b11a2f28bbd8583",
+    "results.json": "bf41a80e98ce791a72c72d805ddb259fbf40d9e9f2d32be7d2e987701fa43203",
+    "start.json": "cd85c2ea9c7c000bdb79b034871a7551544e630c7a63af852a87f16fa7c88b22"
+  },
+  "schema": "learned-intervention-transfer-receipt/v0.1",
+  "scope": "Independent pilot. Silico coverage-gap patch is still unavailable; no application claim.",
+  "start_source_sha256": {
+    "manifest.json": "2eecbe3ba7b1ddc70f09aff9e53630a098de3f5daf08b2b7fab105076d3ac06f",
+    "pilot.py": "a4fddbb8711411d05ea78157cb1b02f0d0460c754bde09cdea63117738bef6e2",
+    "test_pilot.py": "3320ecf1a87d5689d66a6872c6616198b17f154d5d0358d8f780c3844de2ba92"
+  },
+  "tests": {
+    "ace_mechinterp_gym": {
+      "normal": 12,
+      "optimized": 12
+    },
+    "dynamical_closure": {
+      "normal": 26,
+      "optimized": 26
+    },
+    "learned_intervention_transfer": {
+      "normal": 10,
+      "optimized": 10
+    }
+  }
+}
