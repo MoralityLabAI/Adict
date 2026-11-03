@@ -1,0 +1,39 @@
+{
+  "checkpoints_sha256": "f10476b0783353dc8ed55e205fa244b3d606d5877a6d5f34a0910756af6c9807",
+  "frozen_sha256": "1e5946a007b0ef85ca7551b3c2c717212944feb6714abafb8354a6258de53564",
+  "n_records": 11,
+  "results_sha256": "97d21a6477de9ca5fc89644dd2c0bc7ea3fe1c683cffc4dea8317d92507917ae",
+  "run_seconds": 162.375,
+  "schema": "blind-subspace-receipt-v0.1",
+  "source_commit_base": "a99fb6c",
+  "sources": {
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+    "blind_subspace_manifest.json": "c6339a90698d607c3ce15c0e7619044f90b2512a86d017c6f5ec17781593f3a9",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "test_blind_subspace.py": "0a0b3f8c36e255add5bf800748d90216c60cf2ee3de7c2197f5d1da29fe46250"
+  },
+  "sources_verified_against_start": true,
+  "start_sha256": "ac9ccb855001e93bd66f3bd56ec5503854417b7872ff7d425e1591e01207fe59",
+  "success": true,
+  "verdict": {
+    "accuracy_ok": true,
+    "baselines_break_under_rotation": true,
+    "best_baseline_accuracy": 1.0,
+    "best_rotated_baseline_accuracy": 0.04158004158004158,
+    "blind_accuracy": 0.9833679833679834,
+    "group_law_residual": 0.00017416743592565687,
+    "modes_recovered": true,
+    "non_inferior": true,
+    "overlap_ok": true,
+    "residual_ok": true,
+    "rotated_blind_accuracy": 0.9833679833679834,
+    "rotation_invariant": true,
+    "spurious_modes": [],
+    "spurious_ok": true,
+    "subspace_overlap": 0.9999831992497311,
+    "success": true
+  }
+}

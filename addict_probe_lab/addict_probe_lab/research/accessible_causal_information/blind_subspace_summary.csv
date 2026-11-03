@@ -1,0 +1,12 @@
+seed,condition,role,true_modes,found_modes,modes_recovered,spurious,n_features,subspace_overlap,group_law_residual,commutator_on_subspace,blind_acc,exponent_search_acc,monomial_ridge_acc,rff4_acc,rotated_blind_acc,rotated_exponent_search_acc,blind_fit_wall_s
+303,task_only,calibration,"[[4, 4]]",[],False,[],0,0.0000,,,,0.0166,0.0249,0.0249,,,0.0124
+303,equivariance,calibration,"[[0, 4]]",[],False,[],0,0.0000,,,,0.0395,0.0083,0.0104,,,0.0125
+303,eq_norm,calibration,[],[],True,[],0,0.0000,,,,0.0270,0.0104,0.0249,,,0.0177
+303,eq_norm_cov,calibration,"[[0, 1], [1, 0]]","[[0, 1], [1, 0]]",True,[],2,1.0000,0.000182,0.00676,0.9854,1.0000,0.0395,0.0187,0.9854,0.0437,0.0135
+303,task_and_a,calibration,"[[4, 0], [13, 0]]",[],False,[],0,0.0000,,,,0.0249,0.0146,0.0187,,,0.0132
+311,task_only,confirmation,"[[15, 15]]",[],False,[],0,0.0000,,,,0.0229,0.0291,0.0187,,,0.0298
+311,equivariance,confirmation,"[[0, 3]]",[],False,[],0,0.0000,,,,0.0374,0.0166,0.0083,,,0.0275
+311,eq_norm,confirmation,[],[],True,[],0,0.0000,,,,0.0270,0.0312,0.0229,,,0.0404
+311,eq_norm_cov,confirmation,"[[0, 1], [1, 0]]","[[0, 1], [1, 0]]",True,[],2,1.0000,0.000174,0.00503,0.9834,1.0000,0.0353,0.0146,0.9834,0.0416,0.0300
+311,task_and_a,confirmation,"[[6, 0], [10, 0]]",[],False,[],0,0.0000,,,,0.0270,0.0229,0.0166,,,0.0178
+307,eq_norm_cov,secondary_post_hoc,"[[0, 1], [1, 0]]","[[0, 1], [1, 0]]",True,[],2,1.0000,0.000173,0.00582,1.0000,1.0000,0.0416,0.0229,1.0000,0.0249,0.0195
