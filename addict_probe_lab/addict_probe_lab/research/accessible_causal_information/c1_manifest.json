@@ -1,0 +1,46 @@
+{
+  "schema": "adict-closeout-c1/v0.1",
+  "modulus": 31,
+  "plan": "CLOSEOUT_PLAN.md section 4, pass C1; plan commit 02c2ad49f437996d35fea2b698acb9ddefc47599",
+  "seeds": [401, 409, 419],
+  "conditions": ["task_only", "eq_norm_cov"],
+  "split_seed": 2026110301,
+  "frozen_from": "blind_subspace_frozen.json (BF-02): discovery config and baseline hyperparameters are loaded unchanged; nothing is retuned on the new seeds",
+  "targets": {"shear_2_1": [2, 1], "shear_1_2": [1, 2]},
+  "primary_target": "shear_2_1",
+  "control_seed": 7373,
+  "interchange": {
+    "pairs": 256,
+    "pair_seed": 2026110302,
+    "design": "recipient (a,b) in the 481 test pairs, donor (a',b) in the test pairs with a' != a and the same b; counterfactual output = native head output at the donor input",
+    "site": "32-d code immediately before the original task head read_sum",
+    "edit": "z' = z_recipient + (z_donor - z_recipient) Q Q^T, Q = orthonormal basis of the discovered real subspace",
+    "controls": ["no_edit", "zero_edit_identity", "full_code_donor", "complement_replacement", "16 rank-matched random subspaces (norm-matched primary, unscaled diagnostic)"],
+    "random_controls": 16,
+    "off_target": "patched argmax equals neither the counterfactual label nor the recipient label"
+  },
+  "mlp_comparator": {
+    "inputs": "Re/Im of unit-normalized complex features from coordinates 0-3 (known pairing)",
+    "hidden": [256, 256], "steps": 1500, "lr": 0.003, "weight_decay": 0.001, "seed": 17,
+    "fit_budget": "480 shear labels, full-batch AdamW, 1500 steps, CPU, hyperparameters fixed before the run"
+  },
+  "rotation_seed_offset": 9000,
+  "g1_gates": {
+    "present_task_accuracy_min": 0.99,
+    "small_exponent_decoder_accuracy_min": 0.95,
+    "heldout_group_residual_max": 0.01,
+    "rotation_accuracy_change_max": 0.02,
+    "interchange_accuracy_min": 0.80,
+    "interchange_lift_over_best_random_min": 0.20,
+    "scope": "eq_norm_cov on every new seed; task_only is a reported control; abstention or failure counts as 0 accuracy"
+  },
+  "access_table": {
+    "blind_subspace": "32-d code, opaque shift pairs, order 31, target exponents, labels for one output phase",
+    "exponent_search": "known coordinate pairing, labels, no shift graph (privileged reference)",
+    "monomial_ridge": "known coordinate pairing, labels",
+    "rff4": "coordinates 0-3, labels",
+    "mlp": "known coordinate pairing, labels, fixed budget above"
+  },
+  "analytic_noise_table": "closeout_planning/sandbox_results.json (not recomputed)",
+  "compute_cap": "30 CPU-minutes, single thread, no GPU, no Silico"
+}
