@@ -129,15 +129,19 @@ def _seed_results(c1: dict[str, Any], manifest: dict[str, Any]) -> list[dict[str
         if residual is not None and (type(residual) not in (int, float) or residual < 0):
             raise EvidenceError("invalid group-law residual")
         rotation = record.get("rotation_accuracy_change")
-        if rotation is not None and (type(rotation) not in (int, float) or rotation < 0):
-            raise EvidenceError("invalid rotation change")
+        if not isinstance(rotation, dict) or set(rotation) != set(manifest["targets"]):
+            raise EvidenceError("invalid rotation change target coverage")
+        for target, change in rotation.items():
+            if change is not None and (type(change) not in (int, float) or change < 0):
+                raise EvidenceError(f"invalid rotation change for {target}")
         # Required gate values are rederived; the saved verdict is a consistency check.
         conditions = {
             "present_task": present_acc >= gates["present_task_accuracy_min"],
             "small_exponent_decoder": (not primary["abstained"] and not secondary["abstained"] and
                                        min(primary_acc, secondary_acc) >= gates["small_exponent_decoder_accuracy_min"]),
             "heldout_group_residual": residual is not None and residual <= gates["heldout_group_residual_max"],
-            "rotation_change": rotation is not None and rotation <= gates["rotation_accuracy_change_max"],
+            "rotation_change": all(change is not None and change <= gates["rotation_accuracy_change_max"]
+                                   for change in rotation.values()),
             "interchange_accuracy": patched_acc >= gates["interchange_accuracy_min"],
             "interchange_lift": patched_acc - best_random >= gates["interchange_lift_over_best_random_min"],
         }

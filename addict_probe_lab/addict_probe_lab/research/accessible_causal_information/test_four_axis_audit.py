@@ -41,7 +41,8 @@ def fixture():
                 "present_task_accuracy":1,
                 "blind":{"targets":rates, "frequencies":[[0,1],[1,0]],
                          "heldout_group_residual":0.0176 if seed==419 else .0002},
-                "rotation_accuracy_change":None if seed==419 else 0.0,
+                "rotation_accuracy_change":{"shear_2_1":None if seed==419 else 0.0,
+                                            "shear_1_2":None if seed==419 else 0.0},
                 "native_interchange":{"pairs":256,"rank":2 if seed==419 else 4,
                       "discovered":{"accuracy":0},
                       "random_norm_matched":[{"accuracy":0} for _ in range(16)],
@@ -141,6 +142,12 @@ class EvidenceReplayTests(unittest.TestCase):
     def test_missing_random_controls_refused(self):
         self.c1["results"][1]["native_interchange"]["random_norm_matched"].pop()
         with self.assertRaisesRegex(EvidenceError,"random controls"):
+            _seed_results(self.c1,self.manifest)
+
+    def test_incomplete_rotation_coverage_refused(self):
+        row=next(x for x in self.c1["results"] if x["seed"]==401 and x["condition"]=="eq_norm_cov")
+        del row["rotation_accuracy_change"]["shear_1_2"]
+        with self.assertRaisesRegex(EvidenceError,"rotation change target coverage"):
             _seed_results(self.c1,self.manifest)
 
     def test_g1_abstention_counted_as_failure(self):
