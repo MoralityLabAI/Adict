@@ -1,0 +1,2737 @@
+{
+  "calibration_grid": [
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8041666666666667
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8041666666666667
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8041666666666667
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8041666666666667
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 1e-06,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8291666666666667
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8125
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8125
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8125
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8125
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.0001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.6666666666666666
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.6666666666666666
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.6666666666666666
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.6666666666666666
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.8
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.001,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.12916666666666668
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.12916666666666668
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.12916666666666668
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.12916666666666668
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 0.7371,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.3375
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.3375
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.05
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.3375
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.01,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "n_features": 2,
+      "val_accuracy": 0.3375
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": 64,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    },
+    {
+      "config": {
+        "mix": 1.618,
+        "n_shift": null,
+        "nu": 0.05,
+        "ridge": 0.01,
+        "tau": 0.2
+      },
+      "frequencies": [],
+      "n_features": 0,
+      "val_accuracy": -1.0
+    }
+  ],
+  "checkpoints": {
+    "303/eq_norm": {
+      "activation_sha256": "af7046158e3133751966147c3a35e10ea4cab6063afe4cfe036e6fd2fcb78840",
+      "equivariance_loss": 0.054081033256443846,
+      "file": "seed303_eq_norm.pt",
+      "file_sha256": "90f00cb52023afbb72d1021e52a1c9c54517f1557f1383bcdae60f149df4a65a",
+      "state_sha256": "ca1370a7d81d1942fd7f1dfb20c3bee67a3f6196be32615c86551174aad8ea12"
+    },
+    "303/eq_norm_cov": {
+      "activation_sha256": "83f0f2f9b65606358a85d89cd12a3f68390a181cf36eb586758d9f51405a80a8",
+      "equivariance_loss": 0.05992305563538907,
+      "file": "seed303_eq_norm_cov.pt",
+      "file_sha256": "b26fbab4a8efd08f3f80a9dea6650aea5e16a0d9464ba3e3a1e6912a63a6974d",
+      "state_sha256": "3b904db90ba42357d793fbb5539038a922dc29df61ede924c39ce8a9a386076b"
+    },
+    "303/equivariance": {
+      "activation_sha256": "f8d7d2509454b7c43f953e51feddd7485d527809f960f4247ddca3047ed26b38",
+      "equivariance_loss": 0.0006206822811815042,
+      "file": "seed303_equivariance.pt",
+      "file_sha256": "4f71f9c41a1b2be8ec12cdd95620ed5ab0970c93093c38bb03bb754fab9a3c72",
+      "state_sha256": "ac598de3400eb6533be897353e13019c66d284bc89acab997923504b81bf8c6f"
+    },
+    "303/task_and_a": {
+      "activation_sha256": "bdd4e15bc6a116d1ce7aa9d45c77196b3317ef54d3d27d94f0611aa292377ad4",
+      "equivariance_loss": 4.825550881544251,
+      "file": "seed303_task_and_a.pt",
+      "file_sha256": "10e7698b63ae9f5fbefca6f6630aba38f89d15eaac957ea84c403317157bfc9f",
+      "state_sha256": "48d211f1b035f03491097ea595f38f04c82ef396a323605d9f1b941bcfd0e760"
+    },
+    "303/task_only": {
+      "activation_sha256": "324c1734c389b05e4d7d0db766681c2bf4aaaf427ed1dc3ac719f88ba3131814",
+      "equivariance_loss": 4.889366437670699,
+      "file": "seed303_task_only.pt",
+      "file_sha256": "f3b71bedf44e3457c01d54b1fe8c27ad645faf518bf91c242676e7da931f42fa",
+      "state_sha256": "7ed72b14c85d8886140e3a19b51f7ad1301a6c5bd09505722c2f1ce36f7a477d"
+    },
+    "307/eq_norm_cov": {
+      "activation_sha256": "986432c5fd9f24fec340dacb78262db8d1d941afd5039595ae931a88af307bbe",
+      "equivariance_loss": 0.02033735594898259,
+      "file": "seed307_eq_norm_cov.pt",
+      "file_sha256": "f6248b4cc913b182b828c1486196c06850c066615c41319713487646783b8190",
+      "state_sha256": "3132cf25e5f0eb9427f25cf95f99c97c50209c6e599db630ebdadd351a2c61bb"
+    },
+    "311/eq_norm": {
+      "activation_sha256": "d836c49a396bed590f45ba9bbf3aa45afb6c09fe18f03efe0761ef1b96cb1990",
+      "equivariance_loss": 0.05397479538749696,
+      "file": "seed311_eq_norm.pt",
+      "file_sha256": "28840f54353ff7333158c65cccb9fae858f3d8d46f9da2d5353034344025b38f",
+      "state_sha256": "912960e14d80fc009634b718637c332b83d265a953031ee4818a3b6936f9175f"
+    },
+    "311/eq_norm_cov": {
+      "activation_sha256": "0ac84f66ce68ed3ef58570820d75ce8a530fab5c91fadfcf065a3928e1d3a56c",
+      "equivariance_loss": 0.0599621498428415,
+      "file": "seed311_eq_norm_cov.pt",
+      "file_sha256": "e58fb4bc5c37c70acb743a47a92a99b8b9f7948adc6913bb9775f15251ec2649",
+      "state_sha256": "bb10af50eedbb48124058938abe0ca1a2c926b0ed0c050901ab9d1bdd014806e"
+    },
+    "311/equivariance": {
+      "activation_sha256": "16f31dedbe320c95910ca0e1ab75ac1edc91cb2a576ddd47cd5cc5c04901f352",
+      "equivariance_loss": 3.9382224035087814e-05,
+      "file": "seed311_equivariance.pt",
+      "file_sha256": "430aeda21bdbcec3db8b1a2c626ddf821282c1e56cffa147eca6249e6d472c91",
+      "state_sha256": "accc13c7af0196d23ca44bac2305506ca5bed66519ab19525e26a92d6d525623"
+    },
+    "311/task_and_a": {
+      "activation_sha256": "8e1a95d567c594bddb5881fa199eb8e550169ef28d558bfb9181e36e6a308abd",
+      "equivariance_loss": 4.710496448780497,
+      "file": "seed311_task_and_a.pt",
+      "file_sha256": "947c657dca5da9066dd8c65c5946216f07b481590a7c10f5a794b861a2fa4cb9",
+      "state_sha256": "18c1e3ed53a09c70eb90e70ffc5bbe36072d3e5d11bcad1c7833ccff33a7a276"
+    },
+    "311/task_only": {
+      "activation_sha256": "dfea412ee603beeadb373922d5fba34b0d11638115f55abbcc792087587a5da0",
+      "equivariance_loss": 6.586815448676786,
+      "file": "seed311_task_only.pt",
+      "file_sha256": "21adb1e9ebc049ba035e79f39aaa8dd61b8d5a20ba97c646cdffef9e90b6be33",
+      "state_sha256": "8ebc728e93abf3678dd29693791275a056800483796b420691562a0c84b1664a"
+    }
+  },
+  "elapsed_seconds": 162.375,
+  "frozen": {
+    "baseline_hyperparameters": {
+      "monomial_penalty": 0.001,
+      "rff_penalty": 0.1,
+      "rff_sigma": 0.5
+    },
+    "blind_config": {
+      "mix": 0.7371,
+      "n_shift": null,
+      "nu": 0.01,
+      "ridge": 1e-06,
+      "tau": 0.05
+    },
+    "calibration_checkpoint_hashes": {
+      "303/eq_norm": {
+        "activation_sha256": "af7046158e3133751966147c3a35e10ea4cab6063afe4cfe036e6fd2fcb78840",
+        "equivariance_loss": 0.054081033256443846,
+        "file": "seed303_eq_norm.pt",
+        "file_sha256": "90f00cb52023afbb72d1021e52a1c9c54517f1557f1383bcdae60f149df4a65a",
+        "state_sha256": "ca1370a7d81d1942fd7f1dfb20c3bee67a3f6196be32615c86551174aad8ea12"
+      },
+      "303/eq_norm_cov": {
+        "activation_sha256": "83f0f2f9b65606358a85d89cd12a3f68390a181cf36eb586758d9f51405a80a8",
+        "equivariance_loss": 0.05992305563538907,
+        "file": "seed303_eq_norm_cov.pt",
+        "file_sha256": "b26fbab4a8efd08f3f80a9dea6650aea5e16a0d9464ba3e3a1e6912a63a6974d",
+        "state_sha256": "3b904db90ba42357d793fbb5539038a922dc29df61ede924c39ce8a9a386076b"
+      },
+      "303/equivariance": {
+        "activation_sha256": "f8d7d2509454b7c43f953e51feddd7485d527809f960f4247ddca3047ed26b38",
+        "equivariance_loss": 0.0006206822811815042,
+        "file": "seed303_equivariance.pt",
+        "file_sha256": "4f71f9c41a1b2be8ec12cdd95620ed5ab0970c93093c38bb03bb754fab9a3c72",
+        "state_sha256": "ac598de3400eb6533be897353e13019c66d284bc89acab997923504b81bf8c6f"
+      },
+      "303/task_and_a": {
+        "activation_sha256": "bdd4e15bc6a116d1ce7aa9d45c77196b3317ef54d3d27d94f0611aa292377ad4",
+        "equivariance_loss": 4.825550881544251,
+        "file": "seed303_task_and_a.pt",
+        "file_sha256": "10e7698b63ae9f5fbefca6f6630aba38f89d15eaac957ea84c403317157bfc9f",
+        "state_sha256": "48d211f1b035f03491097ea595f38f04c82ef396a323605d9f1b941bcfd0e760"
+      },
+      "303/task_only": {
+        "activation_sha256": "324c1734c389b05e4d7d0db766681c2bf4aaaf427ed1dc3ac719f88ba3131814",
+        "equivariance_loss": 4.889366437670699,
+        "file": "seed303_task_only.pt",
+        "file_sha256": "f3b71bedf44e3457c01d54b1fe8c27ad645faf518bf91c242676e7da931f42fa",
+        "state_sha256": "7ed72b14c85d8886140e3a19b51f7ad1301a6c5bd09505722c2f1ce36f7a477d"
+      }
+    },
+    "calibration_seed": 303,
+    "confirmation_seed": 311,
+    "source_sha256": {
+      "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+      "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+      "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+      "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+      "blind_subspace_manifest.json": "c6339a90698d607c3ce15c0e7619044f90b2512a86d017c6f5ec17781593f3a9",
+      "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+      "test_blind_subspace.py": "0a0b3f8c36e255add5bf800748d90216c60cf2ee3de7c2197f5d1da29fe46250"
+    },
+    "success_criteria": {
+      "max_group_law_residual": 0.1,
+      "max_rotated_baseline_accuracy": 0.3,
+      "max_spurious_modes": 1,
+      "min_accuracy": 0.95,
+      "min_subspace_overlap": 0.9,
+      "non_inferiority_margin": 0.05,
+      "notes": "modes must include every nonzero dominant FFT mode of the true phase blocks (evaluation-only); baselines are exponent_search, monomial_ridge, rff4 on the known coordinate pairing; rotation is a fixed random orthogonal map of the 32-d code",
+      "primary": "confirmation seed 311, eq_norm_cov, 481 untouched test pairs, frozen procedure",
+      "rotation_tolerance": 0.02
+    }
+  },
+  "frozen_sha256": "1e5946a007b0ef85ca7551b3c2c717212944feb6714abafb8354a6258de53564",
+  "manifest": {
+    "calibration_seed": 303,
+    "conditions": [
+      "task_only",
+      "equivariance",
+      "eq_norm",
+      "eq_norm_cov",
+      "task_and_a"
+    ],
+    "confirmation_seed": 311,
+    "control_seed": 5151,
+    "decoder_inputs": "shear target (2,1) and shear labels of the fitting pool for one global output phase",
+    "discovery_inputs": "the real 32-d code and opaque shift index pairs (x, Tx) inside the fitting pool; no coordinate pairing, operand identities, labels or target frequencies",
+    "grid": {
+      "mix": [
+        0.7371,
+        1.618
+      ],
+      "n_shift": [
+        64,
+        null
+      ],
+      "nu": [
+        0.01,
+        0.05
+      ],
+      "ridge": [
+        1e-06,
+        0.0001,
+        0.001,
+        0.01
+      ],
+      "tau": [
+        0.05,
+        0.2
+      ]
+    },
+    "label_counts": [
+      4,
+      16,
+      64,
+      480
+    ],
+    "modulus": 31,
+    "rff_grid": [
+      [
+        0.5,
+        0.1
+      ],
+      [
+        1.0,
+        0.1
+      ],
+      [
+        2.0,
+        0.1
+      ],
+      [
+        4.0,
+        0.1
+      ],
+      [
+        1.0,
+        10.0
+      ],
+      [
+        2.0,
+        10.0
+      ]
+    ],
+    "ridge_penalties": [
+      0.001,
+      0.1,
+      10.0
+    ],
+    "schema": "adict-blind-subspace/v0.1",
+    "secondary_seed": 307,
+    "selection_rule": "highest seed-303 validation accuracy on the 240 validation pairs; ties go to larger n_shift, then grid order",
+    "split_seed": 20261103,
+    "success_criteria": {
+      "max_group_law_residual": 0.1,
+      "max_rotated_baseline_accuracy": 0.3,
+      "max_spurious_modes": 1,
+      "min_accuracy": 0.95,
+      "min_subspace_overlap": 0.9,
+      "non_inferiority_margin": 0.05,
+      "notes": "modes must include every nonzero dominant FFT mode of the true phase blocks (evaluation-only); baselines are exponent_search, monomial_ridge, rff4 on the known coordinate pairing; rotation is a fixed random orthogonal map of the 32-d code",
+      "primary": "confirmation seed 311, eq_norm_cov, 481 untouched test pairs, frozen procedure",
+      "rotation_tolerance": 0.02
+    }
+  },
+  "python": "3.12.10",
+  "results": [
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.016632016632016633,
+          "candidates": 49,
+          "exponents": [
+            -2,
+            -1
+          ],
+          "fit_accuracy": 0.06458333333333334,
+          "fit_wall_seconds": 0.0557025000161957,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.02494802494802495,
+          "fit_wall_seconds": 0.00376920000417158,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.02494802494802495,
+          "fit_wall_seconds": 0.1403682999953162,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.15102044456731636,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.012403000000631437,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 13,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.5074162330115901,
+          "b": 0.5130554705139572
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "task_only",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            27,
+            27
+          ],
+          "power": 0.34546031094055357
+        },
+        {
+          "mode": [
+            27,
+            27
+          ],
+          "power": 0.24037462925060313
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            4,
+            4
+          ]
+        ],
+        "true_modes_recovered": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.0395010395010395,
+          "candidates": 49,
+          "exponents": [
+            -3,
+            0
+          ],
+          "fit_accuracy": 0.052083333333333336,
+          "fit_wall_seconds": 0.045585400017444044,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.008316008316008316,
+          "fit_wall_seconds": 0.00373960001161322,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.010395010395010396,
+          "fit_wall_seconds": 0.14219579999917187,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.003230155861183771,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.012531800020951778,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 14,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.4038302213543268,
+          "b": 0.3881453036591178
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "equivariance",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            27
+          ],
+          "power": 0.2862979534573284
+        },
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.12743567090315383
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            0,
+            4
+          ]
+        ],
+        "true_modes_recovered": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.02702702702702703,
+          "candidates": 49,
+          "exponents": [
+            0,
+            0
+          ],
+          "fit_accuracy": 0.0375,
+          "fit_wall_seconds": 0.05240610000328161,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.010395010395010396,
+          "fit_wall_seconds": 0.0045556999975815415,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.02494802494802495,
+          "fit_wall_seconds": 0.14165040000807494,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.007175570922803197,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.01770200001192279,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 12,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.4200987740911056,
+          "b": 0.4323355004235878
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "eq_norm",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.9999712264497856
+        },
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.999875038339468
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [],
+        "true_modes_recovered": true
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 1.0,
+          "candidates": 49,
+          "exponents": [
+            2,
+            1
+          ],
+          "fit_accuracy": 1.0,
+          "fit_wall_seconds": 0.04630210000323132,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.0395010395010395,
+          "fit_wall_seconds": 0.00439439999172464,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.018711018711018712,
+          "fit_wall_seconds": 0.13160760002210736,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": 0.9854469854469855,
+        "commutator_on_subspace": 0.006759410316483031,
+        "commutator_rel": 0.11089299461459388,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "accuracy": 0.9854469854469855,
+          "exponents": [
+            2,
+            1
+          ],
+          "offset_coherence": 0.9989333681936258,
+          "recoverable": true
+        },
+        "decoder_frequencies": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "feature_residuals": [
+          0.0001382609620799385,
+          0.00018170386522707075
+        ],
+        "fit_wall_seconds": 0.013499499997124076,
+        "frequencies": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "group_law_residual": 0.00018170386522707075,
+        "labels_used": 480,
+        "n_candidates": 14,
+        "n_features": 2,
+        "operator_rel_error": {
+          "a": 0.29644767424751306,
+          "b": 0.29760425783010813
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": 2.1570195367859313e-05,
+          "overlap_with_phase_coords": 0.9999784298046321,
+          "rank": 4
+        },
+        "variance_shares": [
+          0.019789845570369804,
+          0.01947601896852142
+        ]
+      },
+      "condition": "eq_norm_cov",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            1,
+            0
+          ],
+          "power": 0.9998425471053739
+        },
+        {
+          "mode": [
+            0,
+            1
+          ],
+          "power": 0.9996146715342941
+        }
+      ],
+      "label_efficiency": {
+        "16": {
+          "blind": 0.8378378378378378,
+          "exponent_search": 0.9916839916839917,
+          "monomial_ridge": 0.033264033264033266
+        },
+        "4": {
+          "blind": 0.8066528066528067,
+          "exponent_search": 0.04158004158004158,
+          "monomial_ridge": 0.02286902286902287
+        },
+        "480": {
+          "blind": 0.9854469854469855,
+          "exponent_search": 1.0,
+          "monomial_ridge": 0.0395010395010395
+        },
+        "64": {
+          "blind": 0.8856548856548857,
+          "exponent_search": 1.0,
+          "monomial_ridge": 0.033264033264033266
+        }
+      },
+      "recovery": {
+        "found_modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "true_modes_recovered": true
+      },
+      "role": "calibration",
+      "rotated_code": {
+        "blind": {
+          "accuracy": 0.9854469854469855,
+          "frequencies": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "group_law_residual": 0.0001817038652270651,
+          "n_features": 2
+        },
+        "exponent_search": 0.04365904365904366,
+        "monomial_ridge": 0.02494802494802495,
+        "rff4": 0.031185031185031187,
+        "same_modes_as_unrotated": true
+      },
+      "seed": 303,
+      "shuffled_shift_graph": {
+        "note": "targets of each shift pair permuted; operators should explain nothing",
+        "operator_rel_error": {
+          "a": 0.8820883533557731,
+          "b": 0.858696478522218
+        }
+      }
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.02494802494802495,
+          "candidates": 49,
+          "exponents": [
+            0,
+            -2
+          ],
+          "fit_accuracy": 0.04791666666666667,
+          "fit_wall_seconds": 0.04221270000562072,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.014553014553014554,
+          "fit_wall_seconds": 0.0035521999816410244,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.018711018711018712,
+          "fit_wall_seconds": 0.15340520002064295,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.16926446072892923,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.013188499986426905,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 14,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.6155297458345215,
+          "b": 0.39280726850603
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "task_and_a",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            18,
+            0
+          ],
+          "power": 0.1154507799312613
+        },
+        {
+          "mode": [
+            4,
+            0
+          ],
+          "power": 0.20471037533478498
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            4,
+            0
+          ],
+          [
+            13,
+            0
+          ]
+        ],
+        "true_modes_recovered": false
+      },
+      "role": "calibration",
+      "seed": 303
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.02286902286902287,
+          "candidates": 49,
+          "exponents": [
+            2,
+            0
+          ],
+          "fit_accuracy": 0.05,
+          "fit_wall_seconds": 0.06889540000702254,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.029106029106029108,
+          "fit_wall_seconds": 0.006068400020012632,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.018711018711018712,
+          "fit_wall_seconds": 0.2056165000249166,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.14700319323743005,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.029837499983841553,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 12,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.5499943187644257,
+          "b": 0.5291062909726737
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "task_only",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            16,
+            16
+          ],
+          "power": 0.1926111297657815
+        },
+        {
+          "mode": [
+            16,
+            16
+          ],
+          "power": 0.1642386716270958
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            15,
+            15
+          ]
+        ],
+        "true_modes_recovered": false
+      },
+      "role": "confirmation",
+      "seed": 311
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.037422037422037424,
+          "candidates": 49,
+          "exponents": [
+            -3,
+            1
+          ],
+          "fit_accuracy": 0.05,
+          "fit_wall_seconds": 0.09310690002166666,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.016632016632016633,
+          "fit_wall_seconds": 0.008953699987614527,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.008316008316008316,
+          "fit_wall_seconds": 0.2793398999783676,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.0039387521802819086,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.027469400025438517,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 14,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.5044465249857866,
+          "b": 0.5041599904733265
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "equivariance",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.3641489437646929
+        },
+        {
+          "mode": [
+            0,
+            3
+          ],
+          "power": 0.16966646079825695
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            0,
+            3
+          ]
+        ],
+        "true_modes_recovered": false
+      },
+      "role": "confirmation",
+      "seed": 311
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.02702702702702703,
+          "candidates": 49,
+          "exponents": [
+            0,
+            0
+          ],
+          "fit_accuracy": 0.0375,
+          "fit_wall_seconds": 0.0940132999967318,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.031185031185031187,
+          "fit_wall_seconds": 0.006146999978227541,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.02286902286902287,
+          "fit_wall_seconds": 0.1849178000120446,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.00360241534832232,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.0404465000028722,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 13,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.47139650759624885,
+          "b": 0.4728688223413093
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "eq_norm",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.9999702784059294
+        },
+        {
+          "mode": [
+            0,
+            0
+          ],
+          "power": 0.9999909005894819
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [],
+        "true_modes_recovered": true
+      },
+      "role": "confirmation",
+      "seed": 311
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 1.0,
+          "candidates": 49,
+          "exponents": [
+            2,
+            1
+          ],
+          "fit_accuracy": 1.0,
+          "fit_wall_seconds": 0.10024870000779629,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.035343035343035345,
+          "fit_wall_seconds": 0.011715799977537245,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.014553014553014554,
+          "fit_wall_seconds": 0.2730992999859154,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": 0.9833679833679834,
+        "commutator_on_subspace": 0.0050338575553465666,
+        "commutator_rel": 0.1206264201876547,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "accuracy": 0.9833679833679834,
+          "exponents": [
+            1,
+            2
+          ],
+          "offset_coherence": 0.9989237298888517,
+          "recoverable": true
+        },
+        "decoder_frequencies": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "feature_residuals": [
+          0.00013362341073243532,
+          0.00017416743592565687
+        ],
+        "fit_wall_seconds": 0.029951200005598366,
+        "frequencies": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "group_law_residual": 0.00017416743592565687,
+        "labels_used": 480,
+        "n_candidates": 14,
+        "n_features": 2,
+        "operator_rel_error": {
+          "a": 0.4247324211918709,
+          "b": 0.42152616235601603
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": 1.6800750268886055e-05,
+          "overlap_with_phase_coords": 0.9999831992497311,
+          "rank": 4
+        },
+        "variance_shares": [
+          0.02052496917662184,
+          0.020849660652870614
+        ]
+      },
+      "condition": "eq_norm_cov",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            1,
+            0
+          ],
+          "power": 0.9997898514950766
+        },
+        {
+          "mode": [
+            0,
+            1
+          ],
+          "power": 0.9998572226384326
+        }
+      ],
+      "label_efficiency": {
+        "16": {
+          "blind": 0.9833679833679834,
+          "exponent_search": 0.9958419958419958,
+          "monomial_ridge": 0.02494802494802495
+        },
+        "4": {
+          "blind": 0.972972972972973,
+          "exponent_search": 0.04158004158004158,
+          "monomial_ridge": 0.033264033264033266
+        },
+        "480": {
+          "blind": 0.9833679833679834,
+          "exponent_search": 1.0,
+          "monomial_ridge": 0.035343035343035345
+        },
+        "64": {
+          "blind": 0.9126819126819127,
+          "exponent_search": 0.997920997920998,
+          "monomial_ridge": 0.02079002079002079
+        }
+      },
+      "recovery": {
+        "found_modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "true_modes_recovered": true
+      },
+      "role": "confirmation",
+      "rotated_code": {
+        "blind": {
+          "accuracy": 0.9833679833679834,
+          "frequencies": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "group_law_residual": 0.00017416743592566034,
+          "n_features": 2
+        },
+        "exponent_search": 0.04158004158004158,
+        "monomial_ridge": 0.02079002079002079,
+        "rff4": 0.037422037422037424,
+        "same_modes_as_unrotated": true
+      },
+      "seed": 311,
+      "shuffled_shift_graph": {
+        "note": "targets of each shift pair permuted; operators should explain nothing",
+        "operator_rel_error": {
+          "a": 0.8708325563536218,
+          "b": 0.8576398718837203
+        }
+      }
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 0.02702702702702703,
+          "candidates": 49,
+          "exponents": [
+            -1,
+            -1
+          ],
+          "fit_accuracy": 0.05,
+          "fit_wall_seconds": 0.07223419999354519,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.02286902286902287,
+          "fit_wall_seconds": 0.00664060001145117,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.016632016632016633,
+          "fit_wall_seconds": 0.17264830000931397,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": null,
+        "commutator_on_subspace": null,
+        "commutator_rel": 0.1752168368325184,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "reason": "no independent pair",
+          "recoverable": false
+        },
+        "feature_residuals": [],
+        "fit_wall_seconds": 0.01777639999636449,
+        "frequencies": [],
+        "group_law_residual": null,
+        "labels_used": 480,
+        "n_candidates": 12,
+        "n_features": 0,
+        "operator_rel_error": {
+          "a": 0.6578487707376092,
+          "b": 0.41317250487349383
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": null,
+          "overlap_with_phase_coords": 0.0,
+          "rank": 0
+        },
+        "variance_shares": []
+      },
+      "condition": "task_and_a",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            6,
+            0
+          ],
+          "power": 0.06663036206267288
+        },
+        {
+          "mode": [
+            10,
+            0
+          ],
+          "power": 0.11513081828091584
+        }
+      ],
+      "recovery": {
+        "found_modes": [],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            6,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ],
+        "true_modes_recovered": false
+      },
+      "role": "confirmation",
+      "seed": 311
+    },
+    {
+      "baselines": {
+        "exponent_search": {
+          "accuracy": 1.0,
+          "candidates": 49,
+          "exponents": [
+            1,
+            2
+          ],
+          "fit_accuracy": 0.9979166666666667,
+          "fit_wall_seconds": 0.049870199989527464,
+          "kind": "exponent_search",
+          "labels_used": 480,
+          "parameters": 4
+        },
+        "monomial_ridge": {
+          "accuracy": 0.04158004158004158,
+          "fit_wall_seconds": 0.004952899995259941,
+          "kind": "monomial_ridge",
+          "labels_used": 480,
+          "parameters": 1519,
+          "penalty": 0.001
+        },
+        "rff4": {
+          "accuracy": 0.02286902286902287,
+          "fit_wall_seconds": 0.17042059998493642,
+          "kind": "rff4",
+          "labels_used": 480,
+          "parameters": 31775,
+          "penalty": 0.1,
+          "sigma": 0.5
+        }
+      },
+      "blind": {
+        "accuracy": 1.0,
+        "commutator_on_subspace": 0.005823716627031462,
+        "commutator_rel": 0.10901827110827025,
+        "config": {
+          "mix": 0.7371,
+          "n_shift": null,
+          "nu": 0.01,
+          "ridge": 1e-06,
+          "tau": 0.05
+        },
+        "decoder": {
+          "accuracy": 1.0,
+          "exponents": [
+            1,
+            2
+          ],
+          "offset_coherence": 0.9993876309673744,
+          "recoverable": true
+        },
+        "decoder_frequencies": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "feature_residuals": [
+          0.00015878624228745307,
+          0.00017318059099588672
+        ],
+        "fit_wall_seconds": 0.019494000007398427,
+        "frequencies": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "group_law_residual": 0.00017318059099588672,
+        "labels_used": 480,
+        "n_candidates": 14,
+        "n_features": 2,
+        "operator_rel_error": {
+          "a": 0.35745963309050965,
+          "b": 0.35722697541699033
+        },
+        "shift_pairs_per_generator": {
+          "a": 251,
+          "ab": 245,
+          "b": 244
+        },
+        "subspace": {
+          "leakage_outside_phase_coords": 2.0999130481147432e-05,
+          "overlap_with_phase_coords": 0.9999790008695189,
+          "rank": 4
+        },
+        "variance_shares": [
+          0.021333958494869444,
+          0.02167948070461027
+        ]
+      },
+      "condition": "eq_norm_cov",
+      "fft_ground_truth_eval_only": [
+        {
+          "mode": [
+            0,
+            1
+          ],
+          "power": 0.9997798996894484
+        },
+        {
+          "mode": [
+            1,
+            0
+          ],
+          "power": 0.9997831024943656
+        }
+      ],
+      "label_efficiency": {
+        "16": {
+          "blind": 0.9667359667359667,
+          "exponent_search": 1.0,
+          "monomial_ridge": 0.031185031185031187
+        },
+        "4": {
+          "blind": 0.8981288981288982,
+          "exponent_search": 0.04158004158004158,
+          "monomial_ridge": 0.02286902286902287
+        },
+        "480": {
+          "blind": 1.0,
+          "exponent_search": 1.0,
+          "monomial_ridge": 0.04158004158004158
+        },
+        "64": {
+          "blind": 0.9771309771309772,
+          "exponent_search": 0.9937629937629938,
+          "monomial_ridge": 0.031185031185031187
+        }
+      },
+      "recovery": {
+        "found_modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "spurious_modes": [],
+        "true_modes": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "true_modes_recovered": true
+      },
+      "role": "secondary_post_hoc",
+      "rotated_code": {
+        "blind": {
+          "accuracy": 1.0,
+          "frequencies": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "group_law_residual": 0.0001731805909958733,
+          "n_features": 2
+        },
+        "exponent_search": 0.02494802494802495,
+        "monomial_ridge": 0.018711018711018712,
+        "rff4": 0.02494802494802495,
+        "same_modes_as_unrotated": true
+      },
+      "seed": 307,
+      "shuffled_shift_graph": {
+        "note": "targets of each shift pair permuted; operators should explain nothing",
+        "operator_rel_error": {
+          "a": 0.8640387076897571,
+          "b": 0.8575068021522324
+        }
+      }
+    }
+  ],
+  "schema": "adict-blind-subspace/v0.1",
+  "scope": "CPU; checkpoints saved and reloaded; decoder split only; not zero-shot",
+  "source_sha256": {
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+    "blind_subspace_manifest.json": "c6339a90698d607c3ce15c0e7619044f90b2512a86d017c6f5ec17781593f3a9",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "test_blind_subspace.py": "0a0b3f8c36e255add5bf800748d90216c60cf2ee3de7c2197f5d1da29fe46250"
+  },
+  "torch": "2.11.0+cu128",
+  "verdict": {
+    "accuracy_ok": true,
+    "baselines_break_under_rotation": true,
+    "best_baseline_accuracy": 1.0,
+    "best_rotated_baseline_accuracy": 0.04158004158004158,
+    "blind_accuracy": 0.9833679833679834,
+    "group_law_residual": 0.00017416743592565687,
+    "modes_recovered": true,
+    "non_inferior": true,
+    "overlap_ok": true,
+    "residual_ok": true,
+    "rotated_blind_accuracy": 0.9833679833679834,
+    "rotation_invariant": true,
+    "spurious_modes": [],
+    "spurious_ok": true,
+    "subspace_overlap": 0.9999831992497311,
+    "success": true
+  }
+}

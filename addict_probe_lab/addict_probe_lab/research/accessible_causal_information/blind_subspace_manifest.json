@@ -1,0 +1,34 @@
+{
+  "schema": "adict-blind-subspace/v0.1",
+  "modulus": 31,
+  "conditions": ["task_only", "equivariance", "eq_norm", "eq_norm_cov", "task_and_a"],
+  "calibration_seed": 303,
+  "confirmation_seed": 311,
+  "secondary_seed": 307,
+  "split_seed": 20261103,
+  "grid": {
+    "ridge": [1e-6, 1e-4, 1e-3, 1e-2],
+    "mix": [0.7371, 1.618],
+    "tau": [0.05, 0.2],
+    "nu": [0.01, 0.05],
+    "n_shift": [64, null]
+  },
+  "ridge_penalties": [0.001, 0.1, 10.0],
+  "rff_grid": [[0.5, 0.1], [1.0, 0.1], [2.0, 0.1], [4.0, 0.1], [1.0, 10.0], [2.0, 10.0]],
+  "control_seed": 5151,
+  "label_counts": [4, 16, 64, 480],
+  "success_criteria": {
+    "primary": "confirmation seed 311, eq_norm_cov, 481 untouched test pairs, frozen procedure",
+    "max_spurious_modes": 1,
+    "min_subspace_overlap": 0.9,
+    "max_group_law_residual": 0.1,
+    "min_accuracy": 0.95,
+    "non_inferiority_margin": 0.05,
+    "rotation_tolerance": 0.02,
+    "max_rotated_baseline_accuracy": 0.3,
+    "notes": "modes must include every nonzero dominant FFT mode of the true phase blocks (evaluation-only); baselines are exponent_search, monomial_ridge, rff4 on the known coordinate pairing; rotation is a fixed random orthogonal map of the 32-d code"
+  },
+  "selection_rule": "highest seed-303 validation accuracy on the 240 validation pairs; ties go to larger n_shift, then grid order",
+  "discovery_inputs": "the real 32-d code and opaque shift index pairs (x, Tx) inside the fitting pool; no coordinate pairing, operand identities, labels or target frequencies",
+  "decoder_inputs": "shear target (2,1) and shear labels of the fitting pool for one global output phase"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "adict-blind-fourier/v0.1",
+  "modulus": 31,
+  "base_manifest": "anti_collapse_manifest.json",
+  "conditions": ["task_only", "equivariance", "eq_norm", "eq_norm_cov", "task_and_a"],
+  "calibration_seed": 303,
+  "evaluation_seed": 307,
+  "split_seed": 20261103,
+  "grid": {
+    "estimator": ["ls", "angle"],
+    "normalize": ["unit", "none"],
+    "lift": ["signed", "unsigned"],
+    "n_shift": [16, 64, null]
+  },
+  "ridge_penalties": [0.001, 0.1, 10.0],
+  "rotation_draws": 50,
+  "control_seed": 4242,
+  "label_counts": [4, 16, 64, 240, 480],
+  "success_criteria": {
+    "primary": "seed 307, eq_norm_cov, 481 untouched test pairs, frozen procedure",
+    "characters": "recovered (k,l) equals the dominant FFT mode of both phase blocks (evaluation-only ground truth)",
+    "max_group_law_residual": 0.1,
+    "min_accuracy_margin": 0.3,
+    "margin_over": "best of affine4, bilinear4, affine32, bilinear32 ridge decoders, penalties tuned on seed 303 validation"
+  },
+  "selection_rule": "highest seed-303 validation accuracy on the 240 validation pairs; ties go to larger n_shift, then grid order",
+  "discovery_inputs": "complex phase activations and opaque shift index pairs (x, Tx) with both endpoints inside the fitting pool; no operand identities, labels or target frequencies",
+  "decoder_inputs": "shear target (2,1) and shear labels of the fitting pool for one global output phase"
+}

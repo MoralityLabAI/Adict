@@ -1,0 +1,104 @@
+{
+  "schema": "adict-blind-subspace/v0.1",
+  "source_sha256": {
+    "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+    "test_blind_subspace.py": "0a0b3f8c36e255add5bf800748d90216c60cf2ee3de7c2197f5d1da29fe46250",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_subspace_manifest.json": "c6339a90698d607c3ce15c0e7619044f90b2512a86d017c6f5ec17781593f3a9"
+  },
+  "manifest": {
+    "schema": "adict-blind-subspace/v0.1",
+    "modulus": 31,
+    "conditions": [
+      "task_only",
+      "equivariance",
+      "eq_norm",
+      "eq_norm_cov",
+      "task_and_a"
+    ],
+    "calibration_seed": 303,
+    "confirmation_seed": 311,
+    "secondary_seed": 307,
+    "split_seed": 20261103,
+    "grid": {
+      "ridge": [
+        1e-06,
+        0.0001,
+        0.001,
+        0.01
+      ],
+      "mix": [
+        0.7371,
+        1.618
+      ],
+      "tau": [
+        0.05,
+        0.2
+      ],
+      "nu": [
+        0.01,
+        0.05
+      ],
+      "n_shift": [
+        64,
+        null
+      ]
+    },
+    "ridge_penalties": [
+      0.001,
+      0.1,
+      10.0
+    ],
+    "rff_grid": [
+      [
+        0.5,
+        0.1
+      ],
+      [
+        1.0,
+        0.1
+      ],
+      [
+        2.0,
+        0.1
+      ],
+      [
+        4.0,
+        0.1
+      ],
+      [
+        1.0,
+        10.0
+      ],
+      [
+        2.0,
+        10.0
+      ]
+    ],
+    "control_seed": 5151,
+    "label_counts": [
+      4,
+      16,
+      64,
+      480
+    ],
+    "success_criteria": {
+      "primary": "confirmation seed 311, eq_norm_cov, 481 untouched test pairs, frozen procedure",
+      "max_spurious_modes": 1,
+      "min_subspace_overlap": 0.9,
+      "max_group_law_residual": 0.1,
+      "min_accuracy": 0.95,
+      "non_inferiority_margin": 0.05,
+      "rotation_tolerance": 0.02,
+      "max_rotated_baseline_accuracy": 0.3,
+      "notes": "modes must include every nonzero dominant FFT mode of the true phase blocks (evaluation-only); baselines are exponent_search, monomial_ridge, rff4 on the known coordinate pairing; rotation is a fixed random orthogonal map of the 32-d code"
+    },
+    "selection_rule": "highest seed-303 validation accuracy on the 240 validation pairs; ties go to larger n_shift, then grid order",
+    "discovery_inputs": "the real 32-d code and opaque shift index pairs (x, Tx) inside the fitting pool; no coordinate pairing, operand identities, labels or target frequencies",
+    "decoder_inputs": "shear target (2,1) and shear labels of the fitting pool for one global output phase"
+  },
+  "ordering": "local pre-run write, unsigned; written before any encoder is trained"
+}

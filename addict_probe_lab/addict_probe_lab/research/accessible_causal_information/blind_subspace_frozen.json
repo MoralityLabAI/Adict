@@ -1,0 +1,73 @@
+{
+  "baseline_hyperparameters": {
+    "monomial_penalty": 0.001,
+    "rff_penalty": 0.1,
+    "rff_sigma": 0.5
+  },
+  "blind_config": {
+    "mix": 0.7371,
+    "n_shift": null,
+    "nu": 0.01,
+    "ridge": 1e-06,
+    "tau": 0.05
+  },
+  "calibration_checkpoint_hashes": {
+    "303/eq_norm": {
+      "activation_sha256": "af7046158e3133751966147c3a35e10ea4cab6063afe4cfe036e6fd2fcb78840",
+      "equivariance_loss": 0.054081033256443846,
+      "file": "seed303_eq_norm.pt",
+      "file_sha256": "90f00cb52023afbb72d1021e52a1c9c54517f1557f1383bcdae60f149df4a65a",
+      "state_sha256": "ca1370a7d81d1942fd7f1dfb20c3bee67a3f6196be32615c86551174aad8ea12"
+    },
+    "303/eq_norm_cov": {
+      "activation_sha256": "83f0f2f9b65606358a85d89cd12a3f68390a181cf36eb586758d9f51405a80a8",
+      "equivariance_loss": 0.05992305563538907,
+      "file": "seed303_eq_norm_cov.pt",
+      "file_sha256": "b26fbab4a8efd08f3f80a9dea6650aea5e16a0d9464ba3e3a1e6912a63a6974d",
+      "state_sha256": "3b904db90ba42357d793fbb5539038a922dc29df61ede924c39ce8a9a386076b"
+    },
+    "303/equivariance": {
+      "activation_sha256": "f8d7d2509454b7c43f953e51feddd7485d527809f960f4247ddca3047ed26b38",
+      "equivariance_loss": 0.0006206822811815042,
+      "file": "seed303_equivariance.pt",
+      "file_sha256": "4f71f9c41a1b2be8ec12cdd95620ed5ab0970c93093c38bb03bb754fab9a3c72",
+      "state_sha256": "ac598de3400eb6533be897353e13019c66d284bc89acab997923504b81bf8c6f"
+    },
+    "303/task_and_a": {
+      "activation_sha256": "bdd4e15bc6a116d1ce7aa9d45c77196b3317ef54d3d27d94f0611aa292377ad4",
+      "equivariance_loss": 4.825550881544251,
+      "file": "seed303_task_and_a.pt",
+      "file_sha256": "10e7698b63ae9f5fbefca6f6630aba38f89d15eaac957ea84c403317157bfc9f",
+      "state_sha256": "48d211f1b035f03491097ea595f38f04c82ef396a323605d9f1b941bcfd0e760"
+    },
+    "303/task_only": {
+      "activation_sha256": "324c1734c389b05e4d7d0db766681c2bf4aaaf427ed1dc3ac719f88ba3131814",
+      "equivariance_loss": 4.889366437670699,
+      "file": "seed303_task_only.pt",
+      "file_sha256": "f3b71bedf44e3457c01d54b1fe8c27ad645faf518bf91c242676e7da931f42fa",
+      "state_sha256": "7ed72b14c85d8886140e3a19b51f7ad1301a6c5bd09505722c2f1ce36f7a477d"
+    }
+  },
+  "calibration_seed": 303,
+  "confirmation_seed": 311,
+  "source_sha256": {
+    "anti_collapse.py": "31ee04ba57681303bd3df620b1dbabf5bc896dd58bbae53f54744da74aa335a8",
+    "anti_collapse_manifest.json": "fb3731bc48744a78f9daaf84f6cd96c1385c03dfa6d1057e8b3037690b4dbc6b",
+    "blind_fourier.py": "bca39b9b05e6f3412f6b394cf8e158a49cea02413beb5656f1e8356b7808ffdf",
+    "blind_subspace.py": "b5890a20d09ec76a7635f7725a342a9b35c772deabffc960428e6bca89ad8f45",
+    "blind_subspace_manifest.json": "c6339a90698d607c3ce15c0e7619044f90b2512a86d017c6f5ec17781593f3a9",
+    "pilot.py": "a97b247694e63e8c0093d4aa14828fbface05bf9692fb9eff34204de7301f9fb",
+    "test_blind_subspace.py": "0a0b3f8c36e255add5bf800748d90216c60cf2ee3de7c2197f5d1da29fe46250"
+  },
+  "success_criteria": {
+    "max_group_law_residual": 0.1,
+    "max_rotated_baseline_accuracy": 0.3,
+    "max_spurious_modes": 1,
+    "min_accuracy": 0.95,
+    "min_subspace_overlap": 0.9,
+    "non_inferiority_margin": 0.05,
+    "notes": "modes must include every nonzero dominant FFT mode of the true phase blocks (evaluation-only); baselines are exponent_search, monomial_ridge, rff4 on the known coordinate pairing; rotation is a fixed random orthogonal map of the 32-d code",
+    "primary": "confirmation seed 311, eq_norm_cov, 481 untouched test pairs, frozen procedure",
+    "rotation_tolerance": 0.02
+  }
+}

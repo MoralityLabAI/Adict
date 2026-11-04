@@ -1,0 +1,124 @@
+{
+  "schema": "adict-accessible-causal-information-claims/v1",
+  "status": "closed_g1_failed",
+  "branch_base": "3faf167a9416457a1d363a978916dbaf9fb45818",
+  "report": "FINAL_REPORT.md",
+  "scope": "synthetic modular addition; learned engineered encoder; decoder-split diagnostics; native pre-read_sum patch",
+  "claims": [
+    {
+      "id": "finite_quotient",
+      "tier": "exact_math",
+      "result": "task-sensitive quotient/refinement and ideal phase representation",
+      "artifacts": [
+        "phase_access.py",
+        "UPSTREAM_RESULTS.md"
+      ],
+      "external": "MoralityLabAI/Compactification-Theory#28"
+    },
+    {
+      "id": "learned_injectivity",
+      "tier": "descriptive",
+      "result": "96-bit code injective on 961 states, oracle shear risk zero",
+      "artifacts": [
+        "original_results.json",
+        "original_receipt.json",
+        "UPSTREAM_RESULTS.md"
+      ]
+    },
+    {
+      "id": "engineered_anti_collapse",
+      "tier": "empirical",
+      "result": "norm covariance preserve phase energy; fixed canonical readout may fail",
+      "artifacts": [
+        "ANTI_COLLAPSE.md",
+        "anti_collapse_run_receipt.json"
+      ]
+    },
+    {
+      "id": "bf01",
+      "tier": "empirical",
+      "result": "frequency discovery with supplied phase pairing; possible retraining drift",
+      "artifacts": [
+        "BLIND_FOURIER.md",
+        "blind_fourier_frozen.json"
+      ]
+    },
+    {
+      "id": "bf02",
+      "tier": "empirical",
+      "result": "coordinate-free discovery 0.983 held-out seed311, known generator shift graph",
+      "artifacts": [
+        "BLIND_SUBSPACE.md",
+        "blind_subspace_manifest.json",
+        "blind_subspace_frozen.json",
+        "blind_subspace_checkpoints.json"
+      ]
+    },
+    {
+      "id": "c1_native",
+      "tier": "preregistered_empirical",
+      "result": "G1 FAIL: 0/256 native counterfactual for each seed 401,409,419; complement 256/256",
+      "artifacts": [
+        "C1_REPORT.md",
+        "c1_manifest.json",
+        "c1_start.json",
+        "c1_results.json",
+        "c1_checkpoints.json",
+        "c1_closeout.py",
+        "test_c1_closeout.py"
+      ],
+      "gate": {
+        "min_accuracy": 0.8,
+        "min_random_lift": 0.2,
+        "passed": false
+      },
+      "checkpoint_count": 6
+    },
+    {
+      "id": "planning",
+      "tier": "analytic_fixture",
+      "result": "phase noise/error amplification and bypass construction",
+      "artifacts": [
+        "closeout_planning/sandbox_gate_probe.py",
+        "closeout_planning/test_gate_probe.py",
+        "closeout_planning/sandbox_results.json",
+        "closeout_planning/sandbox_receipt.json"
+      ]
+    }
+  ],
+  "validation": {
+    "c1_recorded_tests": {
+      "normal": 58,
+      "optimized": 58,
+      "independently_reexecuted": false
+    },
+    "c1_recorded_prior_checkpoints": 11,
+    "c1_recorded_new_checkpoints": 6,
+    "c3_independent_fixture_tests": {
+      "normal": 7,
+      "optimized": 7,
+      "python": "3.13.5"
+    },
+    "c3_parsed_c1_verdict": true,
+    "c3_rechecked_checkpoint_binary_sha256": false,
+    "full_repo_suite": false,
+    "gpu_runs": 0
+  },
+  "closed_stages": {
+    "C1": "failed",
+    "C2": "skipped",
+    "S1": "skipped",
+    "C3": "final_report_committed"
+  },
+  "c1_source_sha256": {
+    "c1_closeout.py": "f1e75fc6853843c64c953dcb08e6c055a150c7dc92bdafbd05081fa1c0d88d6a",
+    "test_c1_closeout.py": "d87d71dff3457395662ed00d70c4983719d13b0cc37b35bb6bc5ea695d9d517a",
+    "c1_manifest.json": "a82db6b04948a9ca7f495ea67652db780d6a2d43fc3e550999073c15230d90ce",
+    "blind_subspace_frozen.json": "1e5946a007b0ef85ca7551b3c2c717212944feb6714abafb8354a6258de53564"
+  },
+  "c1_checkpoint_sha256": {
+    "seed401_eq_norm_cov.pt": "7d3cd5e99c45aff2dab0609d22818225bea33da33c2b4e2cfecc73f7873e1945",
+    "seed409_eq_norm_cov.pt": "686b1fe96c4c14619d55ca9d44818c8823d97588fc576cee47a076046bd3530e",
+    "seed419_eq_norm_cov.pt": "e0796798d72ac6325fb57b9bd7338b9fbaeb427d7908cd2213e5c797b97cfcc1"
+  }
+}
