@@ -1,0 +1,40 @@
+name: Four-axis interpretability audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'addict_probe_lab/addict_probe_lab/research/accessible_causal_information/**'
+      - '.github/workflows/four-axis-audit.yml'
+  pull_request:
+    paths:
+      - 'addict_probe_lab/addict_probe_lab/research/accessible_causal_information/**'
+      - '.github/workflows/four-axis-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: addict_probe_lab/addict_probe_lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify arithmetic and evidence-contract tests
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s research/accessible_causal_information -p test_four_axis_audit.py -t . -v
+          PYTHONDONTWRITEBYTECODE=1 python -O -m unittest discover -s research/accessible_causal_information -p test_four_axis_audit.py -t . -q
+      - name: Replay saved G1 audit without failing on a valid negative research outcome
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python -m research.accessible_causal_information.four_axis_audit --out out/aci/four_axes.json
+          python -c 'import json; from pathlib import Path; p=Path("out/aci/four_axes.json"); d=json.loads(p.read_text()); assert d["status"]=="closed_g1_failed"; assert not d["c1"]["native_all_pass"]'
+      - name: Upload source-hashed JSON audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: adict-four-axis-audit
+          path: addict_probe_lab/addict_probe_lab/out/aci/four_axes.json
+          if-no-files-found: error
