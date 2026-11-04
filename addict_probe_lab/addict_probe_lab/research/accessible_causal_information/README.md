@@ -1,6 +1,6 @@
 # Accessible causal information: Adict readout study
 
-**Status:** CPU synthetic replication of the upstream learned-representation pilot, plus an independent analytic phase-product fixture. The later Silico decoder-access and sample-efficiency patches remain unpublished locally to Silico and **are not included** here.
+**Current status (November 2026):** the bounded synthetic study has closed after the C1 native-causal-use gate failed on all three prospective seeds. See [PAPER.md](PAPER.md) for the methods paper, [FOUR_AXIS_README.md](FOUR_AXIS_README.md) for the reusable standard-library audit, and [FINAL_REPORT.md](FINAL_REPORT.md) for the preserved experimental evidence. The earlier pilot and open questions below remain as historical context.
 
 **Ownership:** Adict owns probing, access under decoder constraints, learned feature alignment, and eventual activation interventions. [Compactification-Theory PR #28](https://github.com/MoralityLabAI/Compactification-Theory/pull/28) owns the task-quotient proofs and source experiment. [EvalMath](https://github.com/MoralityLabAI/EvalMath) owns general causal-abstraction mathematics.
 
@@ -24,7 +24,7 @@ For uniform independent `s,a` in the cyclic group of prime order 31, the four re
 
 When the orientation of the phase axes and group law are known, a single labeled pair determines a constant output offset. The reference `phase_access.py` tests perfect recovery on the fixed untouched 481-pair split. This is a **structural prior** with a real complexity cost, and makes no claim that the trained encoders use Fourier coordinates. The reference stores 31 complex roots (62 real scalar coefficients), learns one 5-bit offset, and evaluates 31 phase similarities per output. A no-sharing lookup for an unseen key has no fitted entry.
 
-## Next controlled mechanistic experiment
+## Archived experimental proposal (superseded by C1 closeout)
 
 With frozen learned encoder outputs, fit a **train-only** alignment map into the two complex phases and score held-out pair generalization with the same phase-product rule. Include random-orthogonal rotations of the analytic phase code as a positive control, a train-only affine classifier, a matched bilinear head, and a held-out intervention varying the hidden coordinate. Count *all* fitted mapping weights and fixed phase arithmetic; freeze the test split before choosing hyperparameters.
 
