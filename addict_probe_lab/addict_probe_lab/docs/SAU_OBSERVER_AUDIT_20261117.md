@@ -36,3 +36,12 @@ All threshold, coordinate/feature selection, physical intervention radius and di
 Promote an ACD/mechanistic claim only with stable observer-parity receipts, matched runtime conditions, independently frozen held-out episodes, and a native intervention effect above controls. Otherwise report the model's selection and its arithmetic conditions as separate observations. Do not alter the original spec's definitions or current registered experiment gates.
 
 Source attribution only. No upstream Watching code is vendored; its inspected repository root does not supply a license.
+
+
+## Accessible-state control inspired by SauersML's retained-reply study
+
+[Retained-reply-state](https://github.com/SauersML/retained-reply-state) separates a fixed visible reply from hidden information detectable in its residual stream and later native behavior. Its [Qwen3-1.7B probe record](https://github.com/SauersML/retained-reply-state/blob/main/results/probes.json) reports 92.6% 50-way hidden-item decodability at layer 20, while the published [599-run retained-cache recall comparison](https://github.com/SauersML/retained-reply-state/blob/main/results/q17A/q17A_stats.txt) reports a target log-score change of -0.0259 relative to stripped. The two measurements use different readouts and must be analyzed with their own provenance.
+
+Add a *second* accessible-causal-information endpoint to the existing acquisition-fork tasks: for a fixed acquisition history and identical final visible reply, compare externally decoded target/outcome state with the **native** next-action target probability after retaining versus re-encoding the acquisition's state. Record explicit visibility as a positive control and a target-independent continuation as a priming control. Score the effect of source-calibrated native state swaps at the pre-manipulation t* boundary, preserving the existing M1/M2/M3/M7 definitions and paired prefix/episode clustering.
+
+A high-accuracy observer coupled to poor native retrieval is evidence of a **readout-access gap** under these states and runtime. Follow-up head/feature interventions must change the native persistence metric on fresh episodes before attributing a causal role to the decoded representation. The [BPD source analysis](https://github.com/MoralityLabAI/BPD/blob/research/sauersml-linear-basis-boundary-20261117/mechinterp/dark_fiber_gyms/SAU_RETAINED_REPLY_CAUSAL_ACCESS.md) registers stricter intervention and trace-vs-now tests.
